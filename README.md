@@ -71,4 +71,17 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 | ![img](graphics/greenfield-examples.png)   | Examples from Laura Greenfield.  [Link](http://lfgreenfield.github.io/) |
 | ![img](graphics/mapshop-examples.png)   | Work displayed here was created by Mapshop staff and students in collaboration with community partners.  [Link](http://mapshop.github.io/) |
 | ![img](graphics/newmapsplus-examples.png)   | Examples from New Maps Plus students. [Link](http://newmapsplus.uky.edu/explore-new-maps) |
-| ![img](graphics/car-collisions.jpg)   | Bike/Pedestrian vs. Car Collision Analysis [Link]https://boydx.github.io/collisions/) |
+| ![img](graphics/car-collisions.jpg)   | Bike/Pedestrian vs. Car Collision Analysis [Link](https://boydx.github.io/collisions/) |
+| ![img](graphics/tree-study.jpg)   | Lexington tree canopy study: patterns of vacant property tree canopy cover [Link](http://sweb.uky.edu/~blshea1/nre355/lexington-canopy-cover/) |
+| ![img](graphics/wildfire.jpg)   | U.S. Wildfires: An analysis of wildfire activity as reported by the national Fire Program Analysis (FPA) system [Link](http://boydx.github.io/wildfires/) |
+| ![img](graphics/seattle.png)   | Old Seattle Haunts [Link](https://jakec-uky.github.io/hometown-map/) |
+| ![img](graphics/portland.png)   | Portland: "Beervana" Oregon [Link](https://jhannigan3.github.io/Portland-hometown-map/) |
+| ![img](graphics/amtrack.png)   | Amtrak Usage by State [Link](https://nmp.carto.com/u/kerryg/builder/deca6676-7d91-4a90-b4c8-e566b290fa99/embed) |
+| ![img](graphics/bay-area.png)   | 2015 Bay Area Car vs. Bike/Pedestrian Collisions [Link](https://nmp.carto.com/u/watkinsr/builder/3301c2a9-90c4-43a4-b11f-1cafd238df29/embed) |
+
+==========
+
+## To Do
+
+* Create HTML version
+* Get all student examples and search by year, course, and student
