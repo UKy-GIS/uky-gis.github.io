@@ -68,4 +68,7 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 | ![img](https://i1.wp.com/www.outragegis.com/trails/wp-content/uploads/2016/11/PKSNP_website.jpg) | Scenic and topographic analysis of Pilot Knob State Nature Preserve. [Link](http://sweb.uky.edu/~blshea1/nre355/pksnp/)    |   
 | ![img](https://geography.as.uky.edu/sites/default/files/PineMountainCanopyTour.jpg) |Pine Mountain canopy tour at Pine Mountain State Resort Park. [Link](http://sweb.uky.edu/~blshea1/nre355/pine-mountain-canopy-tour/)    |   
 | ![img](https://geography.as.uky.edu/sites/default/files/BoydShearer_Lab3_ArboretumWoodsTreeCensus_700.jpg)   | Arboretum Woods tree census where 15 student teams mapped and measured trees in approx. 15 ac. [Link](http://sweb.uky.edu/~blshea1/ArboretumWoods/) |
+| ![img](graphics/greenfield-examples.png)   | Examples from Laura Greenfield.  [Link](http://lfgreenfield.github.io/) |
 | ![img](graphics/mapshop-examples.png)   | Work displayed here was created by Mapshop staff and students in collaboration with community partners.  [Link](http://mapshop.github.io/) |
+| ![img](graphics/newmapsplus-examples.png)   | Examples from New Maps Plus students. [Link](http://newmapsplus.uky.edu/explore-new-maps) |
+| ![img](graphics/car-collisions.jpg)   | Bike/Pedestrian vs. Car Collision Analysis [Link]https://boydx.github.io/collisions/) |
