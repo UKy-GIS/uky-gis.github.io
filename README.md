@@ -1,6 +1,8 @@
 # uky-gis.github.io
 Welcome to mapping and GIS (geographic information systems) at the University of Kentucky. This repository will eventually detail the opportunities and successes that students have at the University.
 
+![Kentucky mapping and GIS opportunities](graphics/UKy-GIS.jpg)
+
 ## Table of Contents
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
