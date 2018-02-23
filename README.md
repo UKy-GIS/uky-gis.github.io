@@ -87,3 +87,4 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 
 * Create HTML version
 * Get all student examples and search by year, course, and student
+* Links to course websites
