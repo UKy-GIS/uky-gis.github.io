@@ -65,6 +65,7 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 
 | Preview       | Description     |
 | :-------------: |:-------------:|
+| ![img](https://farm1.staticflickr.com/977/40242417740_599d8bc349.jpg) | Bluegrass region parks and adventures mapped in many ways. [Link](https://tastyfreeze.github.io/bluegrass/region/)   |
 | ![img](https://i0.wp.com/farm5.staticflickr.com/4640/38302538375_fe4165cb8e_n.jpg) | Lidar tree heights in specific neighborhood associations in Lexington, Kentucky to feature ecosystem services provided by urban tree canopy.  [Link](https://rvirto01.github.io/NRE355_Tree_canopy_study/)   |
 | ![img](https://i0.wp.com/www.outragegis.com/trails/wp-content/uploads/2017/06/Tbt-website.jpg)     | A web page that showcases work in mapping, photographing, and researching the Town Branch Trail and its surroundings.  [Link](https://reece2ke.github.io/geo409_site/)  |   
 | ![img](https://i1.wp.com/www.outragegis.com/trails/wp-content/uploads/2016/11/PKSNP_website.jpg) | Scenic and topographic analysis of Pilot Knob State Nature Preserve. [Link](http://sweb.uky.edu/~blshea1/nre355/pksnp/)    |   
