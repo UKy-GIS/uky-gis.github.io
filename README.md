@@ -1,32 +1,31 @@
 # uky-gis.github.io
-Welcome to mapping and GIS (geographic information systems) at the University of Kentucky. This repository will eventually detail the opportunities and successes that students have at the University.
+Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository details a few opportunities and successes that students have at the University learning map making and GIS.
 
 ![Kentucky mapping and GIS opportunities](graphics/UKy-GIS.jpg)
 
 ## Table of Contents
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC -->
 
 - [uky-gis.github.io](#uky-gisgithubio)
-	- [Table of Contents](#table-of-contents)
-	- [Course opportunities](#course-opportunities)
-		- [GIS and Mapping - Minor](#gis-and-mapping-minor)
-		- [Graduate certificate in mapping](#graduate-certificate-in-mapping)
-		- [Natural Resources and Environmental Science](#natural-resources-and-environmental-science)
-		- [Mapshop](#mapshop)
-		- [Short courses](#short-courses)
-	- [Video on Vimeo](#video-on-vimeo)
-	- [Examples of student work](#examples-of-student-work)
+    - [Table of Contents](#table-of-contents)
+    - [Course opportunities](#course-opportunities)
+        - [GIS and Mapping - Minor](#gis-and-mapping---minor)
+        - [Graduate certificate in mapping](#graduate-certificate-in-mapping)
+        - [Mapshop](#mapshop)
+        - [Short courses](#short-courses)
+    - [Video on Vimeo](#video-on-vimeo)
+    - [Examples of student work](#examples-of-student-work)
+    - [To Do](#to-do)
 
 <!-- /TOC -->
-
 
 ## Course opportunities
 
 The university offers numerous paths to learn mapping and GIS, from a minor for undergraduates and graduate certificate for those with a bachelor's degree. The below list isn't comprehensive but shows many of the opportunities.
 
 ### GIS and Mapping - Minor
-The College of Arts & Sciences [Department of Geography](https://geography.as.uky.edu/) offers a 18 hour (6 course) minor. The following three courses are required and form the foundation of the program's curriculum:
+The College of Arts & Sciences Department of Geography offers a 18 hour (6 course) minor. The following three courses are required and form the foundation of the program's curriculum:
 
 * GEO 109 - Digital Mapping OR GEO 164 - Worlds: Global Information Geographies [3 hours]
 * GEO 309 - Introduction to GIS [3 hours]
@@ -37,12 +36,12 @@ The College of Arts & Sciences [Department of Geography](https://geography.as.uk
 ### Graduate certificate in mapping
 The Department of Geography's [New Maps Plus](http://newmapsplus.uky.edu) graduate programs at the University of Kentucky offer students a challenging, intensive, digital mapping curriculum that emphasizes the acquisition of technical skills—coding, GIS, web development—while also preparing students to critically address the complexity of today’s information ecosystem.
 
-### Natural Resources and Environmental Science
+<!-- ### Natural Resources and Environmental Science
 An interdisciplinary degree program in the College of Agriculture has a strong focus on mapping. The main course in that program is:
 
 * NRES 355 – Geographic Information Systems: Geospatial Apps for Land Analysis
 
-[Link to degree web page](https://nres.ca.uky.edu/)
+[Link to degree web page](https://nres.ca.uky.edu/) -->
 
 ### Mapshop
 
