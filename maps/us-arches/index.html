@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +10,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
 
 	<style>
-        /* UK Colors: 
+		/* 
+			UK Colors: 
             #c7c9c8 light gray 
             #63666a dark gray
             #15397f dark blue
@@ -25,8 +25,8 @@
 			font-family: 'Lato', sans-serif;
 			font-weight: 300;
 			color: #3d3d3d;
-            font-size: 1.1em;
-            
+			font-size: 1.1em;
+
 		}
 
 		section {
@@ -37,11 +37,11 @@
 		h1 {
 			font-family: 'Lato', sans-serif;
 			font-weight: 900i;
-			font-size: 2.8em;
-            font-style: italic;
+			font-size: 2.6em;
+			font-style: italic;
 			/* The em unit. 3x the current size */
-			letter-spacing: .01em; 
-            margin: 0 0 15px 0;
+			letter-spacing: .02em;
+			margin: 0 0 15px 0;
 			/* text-transform: uppercase; */
 		}
 
@@ -51,18 +51,23 @@
 			color: #63666a;
 			font-size: 1.5em;
 			letter-spacing: .06em;
-            font-style: italic;
-            margin: 0 0 25px 0;
+			font-style: italic;
+			margin: 0 0 25px 0;
 		}
+		
+		h3 {
+			font-size: 1.2em;
+		}
+
 
 		p {
 			font-size: 1.15em;
 			line-height: 1.8em;
-            margin: 0 0 25px 0;
+			margin: 0 0 25px 0;
 		}
 
 		a {
-			color:#15397f;
+			color: #15397f;
 			text-decoration: none;
 		}
 
@@ -71,15 +76,22 @@
 		}
 
 		ul {
-			padding:0px 20px 4px 20px;
+			padding: 0px 20px 4px 20px;
 			/* font-size: 0.96em; */
 			line-height: 1.6em;
-            color: #63666a;
+			color: #63666a;
 		}
 
 		li {
 			margin: 10px 0
+		}
 
+		hr{
+			margin-top: 20px;
+			border: 0;
+    		height: 1px;
+    		background: #63666a;
+    		background-image: linear-gradient(to right, #c7c9c8, #63666a, #c7c9c8);
 		}
 
 		#map {
@@ -100,11 +112,6 @@
 			font-weight: 300;
 		}
 
-		hr {
-			border: 0px;
-			border-bottom: 1px solid #3d3d3d;
-			padding-top: 20px;
-		}
 
 		/* Use float property to make two-column layout */
 
@@ -126,10 +133,11 @@
 			display: table;
 			clear: both;
 		}
-        
+
 		/* When browser is 800px wide or less */
 
 		@media screen and (max-width: 800px) {
+
 			.first-column,
 			.column {
 				width: 100%;
@@ -141,69 +149,76 @@
 <body>
 	<iframe src="map.html" width="100%" height="440px"></iframe>
 	<section>
-		<a href='full' class="linkbox">Full-screen version</a>
+		<div class="linkbox">
+			<a href='full' >Full-screen version</a> to view all named arches in the United States
+		</div>
 
-		<img src="arches.svg" style="float:left;display:inline-block;width:75px;margin:-8px 10px -8px 0;"><h1>Gray's Arch and 717 named arches</h1>
+		<img src="arches.svg" style="float:left;display:inline-block;width:75px;margin:-8px 10px -8px 0;">
+		<h1>Grays Arch</h1>
 		<h2>University of Kentucky Geography</h2>
 
 		<div class="row">
 			<div class="first-column">
-				<p>Arches extracted from the Domestic and Antarctic Names (State and Topical Gazetteer) published by the United States Board on Geographic Namkes. (<a hred="https://geonames.usgs.gov/domestic">geonames.usgs.gov</a>) Data accessed August, 2018. Contours were extracted from a USGS NED 1/3 arc-second raster digital elevation model. This data can be accessed at the USGS 3D Elevation Program (<a href="https://www.usgs.gov/core-science-systems/ngp/3dep">usgs.gov</a>).
-				 </p>
-				<h3>Arches not covered OpenStreetMap</h3>
-				 <p>Many of the arches are not include in OpenStreetMap database.
-				 </p>
 
-				 <p>
-				Tools used in this project:
-					 <ul>
- 						<li>PostGIS/ogr2ogr was used to store/query the national dataset.</li>
- 						<li>Data is shown on Mapbox web map with geolocation services enabled. If the map got popular it would require a fee to use.</li>
-						<li>GDAL and QGIS 3.2 to convert raster elevation units and create contours.</li>
- 					</ul>
+				<h3>About Grays Arch</h3>
+				<p>
+					This scenic arch can be accessed with a short but steep 1.4 mi official trail from Grays Arch Picnic Area in the
+					<a href="https://www.fs.usda.gov/detail/dbnf/specialplaces/?cid=stelprdb5345319">Red River Gorge Geological
+					Area</a> in Kentucky. The arch is one of dozens of prominent arches in the area. It has dramtic span of nearly 80
+					feet with a neighboring beautful waterfall. 
+				</p>
+				
+				<hr class="styled">
+				<h3>Data used in this project</h3>
 
-					<p>
-					More info soon
-				    </p>
+				<p>
+					Arch locations are extracted from the Domestic and Antarctic Names (State and Topical Gazetteer) published by the United
+					States Board on Geographic Names. (<a hred="https://geonames.usgs.gov/domestic">geonames.usgs.gov</a>). Data
+					accessed August, 2018. 
+				</p>
+				<p>	
+					Elevation contours shown have an interval of 20 feet with labeled index contours every 100 feet. Vector data was extracted from a USGS NED 1/3 arc-second raster digital elevation model
+					(approximately 10-meter resolution). This data can be accessed at the USGS 3D Elevation Program (<a href="https://www.usgs.gov/core-science-systems/ngp/3dep">usgs.gov</a>).
+				</p>
+				<hr class="styled">
+				<h3>Tools used in this project</h3>
+				<ul>
+					<li>PostGIS was used to store/query the national GNIS dataset.</li>
+					<li>Data is shown on Mapbox web map with geolocation services enabled. If the map got popular it would require a
+							fee to use.</li>
+					<li>GDAL and QGIS 3.2 to convert raster elevation units and create elevaiton contours.</li>
+					</ul>
 				<p>
 					<hr>
 					<h3>Project assets</h3>
 					<ul>
-						<li><a href="arches_us.geojson" download>point locations GeoJSON</a></li>
-		
+						<li>Point locations of US arches as <a href="arches_us.geojson" download>GeoJSON file</a></li>
+
 					</ul>
-					<!-- <h3>Additional maps of the Bluegrass</h3>
+						<!-- <h3>Additional maps of the Arches</h3>
 					<ul>
 						<li><a href="/waterways">Major waterways of Kentucky</a></li>
 						<li><a href="/population">Kentucly's population density</a></li>
 						<li><a href="/springs">Springs in Kentucky</a></li>
 					</ul> -->
-				</p>
-    <!-- <h3>Student media</h3>
+					</p>
+					<!-- 
+				<h3>Student media</h3>
 				<iframe src="https://player.vimeo.com/video/267871470" width="100%" height="360" frameborder="0" allowfullscreen></iframe>
-				<p class="linkbox">Video of Sally Brown Crutcher, by Israel Porron</p>
-
-				<img class="max-image-width" src="https://jonwilson2551.github.io/bluegrass/yuko/yuko_pictures/koi_pond_villa.JPG">
-				<p class="linkbox">Koi Pond, by jonwilson2551</p>
-
-				<img class="max-image-width" src="https://ddbu225.github.io/Bluegrass/lake_reba/photos/island_overlook.png">
-				<p class="linkbox">A nice overlook, by Dustin Burkett</p>
-
-				<img class="max-image-width" src="https://ethanrussell.github.io/bluegrass/sally_brown/lab_9/images/Flower%20Overlook%20(1).jpg">
-				<p class="linkbox">Flower beds, by Ethan Russell</p> -->
+				<p class="linkbox">Video of Sally Brown Crutcher, by Israel Porron</p>-->
 
 			</div>
 			<div class="column">
-                    <img class="max-image-width" src="https://farm8.staticflickr.com/7418/27278443166_b1babc3b16_b.jpg" title="Gray&#x27;s Arch">
-                   
+				<img class="max-image-width" src="https://farm8.staticflickr.com/7418/27278443166_b1babc3b16_b.jpg" title="Gray&#x27;s Arch">
+				<div class="linkbox">Grays Arch photograph by Boyd Shearer</div>
 
 			</div>
 		</div>
 
 
 		<hr>
-        <!-- <h4><a href="https://uky-gis.github.io">UKy GIS and Mapping</a></h4> -->
-        <a href="https://uky-gis.github.io"><img src="../../graphics/logo-color-400px.png" alt="Uinversity of Kentucky Geography"></a>
+		<!-- <h4><a href="https://uky-gis.github.io">UKy GIS and Mapping</a></h4> -->
+		<a href="https://uky-gis.github.io"><img src="../../graphics/logo-color-400px.png" alt="University of Kentucky Geography" width="300px"></a>
 	</section>
 
 

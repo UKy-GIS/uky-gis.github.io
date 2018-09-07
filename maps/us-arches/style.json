@@ -1,0 +1,514 @@
+{
+    "version": 8,
+    "name": "Arches of the US",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "default",
+        "mapbox:sdk-support": {
+            "js": "0.46.0",
+            "android": "6.0.0",
+            "ios": "4.0.0"
+        },
+        "mapbox:trackposition": false
+    },
+    "center": [
+        -83.65761677492083,
+        37.816829166212216
+    ],
+    "zoom": 16.66479390381249,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "mapbox": {
+            "url": "mapbox://mapbox.satellite",
+            "type": "raster",
+            "tileSize": 256
+        },
+        "mapbox://mapbox.terrain-rgb": {
+            "url": "mapbox://mapbox.terrain-rgb",
+            "type": "raster-dem",
+            "tileSize": 256
+        },
+        "composite": {
+            "url": "mapbox://boydmapper.cwxkquzu,boydmapper.cjlgwy0b136w82qpoxhs0oo6f-53vc9,mapbox.mapbox-streets-v7",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/boydmapper/cjlfi88si11pq2sqdzm7c2tlw",
+    "glyphs": "mapbox://fonts/boydmapper/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "rgb(4,7,14)"
+            }
+        },
+        {
+            "id": "satellite",
+            "type": "raster",
+            "source": "mapbox",
+            "source-layer": "mapbox_satellite_full"
+        },
+        {
+            "id": "mapbox-terrain-rgb",
+            "type": "hillshade",
+            "source": "mapbox://mapbox.terrain-rgb",
+            "layout": {},
+            "paint": {
+                "hillshade-exaggeration": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    1,
+                    5,
+                    1,
+                    8,
+                    0.8,
+                    11,
+                    0,
+                    22,
+                    0
+                ],
+                "hillshade-shadow-color": "hsla(29, 34%, 0%, 0.13)",
+                "hillshade-highlight-color": "hsla(0, 0%, 100%, 0.81)"
+            }
+        },
+        {
+            "id": "grays-arch-contours-4kivs1",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "grays_arch_contours-4kivs1",
+            "layout": {},
+            "paint": {
+                "line-color": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "get",
+                        "index"
+                    ],
+                    0,
+                    "hsl(0, 0%, 100%)",
+                    1,
+                    "hsl(0, 0%, 100%)"
+                ],
+                "line-width": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    12,
+                    [
+                        "interpolate",
+                        [
+                            "linear"
+                        ],
+                        [
+                            "get",
+                            "index"
+                        ],
+                        0,
+                        0.3,
+                        1,
+                        1
+                    ],
+                    22,
+                    [
+                        "interpolate",
+                        [
+                            "linear"
+                        ],
+                        [
+                            "get",
+                            "index"
+                        ],
+                        0,
+                        0.5,
+                        1,
+                        1.5
+                    ]
+                ],
+                "line-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    13.5,
+                    0,
+                    16.6,
+                    1,
+                    22,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "admin",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "admin",
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": [
+                    "match",
+                    [
+                        "get",
+                        "maritime"
+                    ],
+                    1,
+                    "hsla(0, 0%, 100%, 0.19)",
+                    "hsla(0, 0%, 100%, 0.76)"
+                ],
+                "line-width": 0.5
+            }
+        },
+        {
+            "id": "grays-arch-contours-4kivs1 copy",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "grays_arch_contours-4kivs1",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "$type",
+                    "LineString"
+                ],
+                [
+                    "in",
+                    "ELEV",
+                    "",
+                    1000,
+                    1100,
+                    1200,
+                    1300,
+                    700,
+                    800,
+                    900
+                ]
+            ],
+            "layout": {
+                "text-font": [
+                    "Open Sans Italic",
+                    "Arial Unicode MS Regular"
+                ],
+                "symbol-placement": "line",
+                "text-field": [
+                    "step",
+                    [
+                        "zoom"
+                    ],
+                    [
+                        "to-string",
+                        [
+                            "get",
+                            "ELEV"
+                        ]
+                    ],
+                    16,
+                    [
+                        "to-string",
+                        [
+                            "get",
+                            "ELEV"
+                        ]
+                    ],
+                    22,
+                    [
+                        "to-string",
+                        [
+                            "get",
+                            "ELEV"
+                        ]
+                    ]
+                ],
+                "text-size": 14
+            },
+            "paint": {
+                "text-color": "hsl(0, 0%, 100%)",
+                "text-halo-color": "hsl(85, 33%, 9%)",
+                "text-halo-width": 3,
+                "text-halo-blur": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    4,
+                    22,
+                    4
+                ],
+                "text-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    0,
+                    12.89,
+                    0,
+                    15.04,
+                    1,
+                    22,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "landuse",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "landuse",
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "class"
+                    ],
+                    "park",
+                    "hsla(118, 55%, 44%, 0.26)",
+                    "hsla(0, 0%, 0%, 0)"
+                ],
+                "fill-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    0,
+                    6.5,
+                    0,
+                    8,
+                    0.65,
+                    11,
+                    0.6,
+                    12,
+                    0,
+                    22,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "landuse-overlay",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "landuse_overlay",
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "class"
+                    ],
+                    "national_park",
+                    "hsla(118, 55%, 44%, 0.26)",
+                    "hsla(0, 0%, 0%, 0.98)"
+                ],
+                "fill-outline-color": "hsl(121, 36%, 27%)",
+                "fill-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    0,
+                    7.5,
+                    0.3,
+                    8.5,
+                    1,
+                    11,
+                    0.8,
+                    12,
+                    0,
+                    22,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "poi-label",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "poi_label",
+            "layout": {
+                "text-field": [
+                    "step",
+                    [
+                        "zoom"
+                    ],
+                    [
+                        "to-string",
+                        [
+                            "get",
+                            "name"
+                        ]
+                    ],
+                    22,
+                    [
+                        "to-string",
+                        [
+                            "get",
+                            "name"
+                        ]
+                    ]
+                ],
+                "text-size": 14,
+                "text-font": [
+                    "Asap Medium Italic",
+                    "Arial Unicode MS Regular"
+                ]
+            },
+            "paint": {
+                "text-color": "hsl(88, 49%, 86%)",
+                "text-halo-color": "hsl(0, 0%, 29%)",
+                "text-halo-width": 0.5,
+                "text-halo-blur": 2,
+                "text-opacity": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    0,
+                    8,
+                    0,
+                    9,
+                    1,
+                    22,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "arches-us copy",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "arches_us",
+            "layout": {
+                "icon-image": [
+                    "step",
+                    [
+                        "zoom"
+                    ],
+                    "arches-01",
+                    22,
+                    "arches-01"
+                ],
+                "text-field": [
+                    "get",
+                    "feature_name"
+                ],
+                "text-font": [
+                    "Lato Black Italic",
+                    "Arial Unicode MS Regular"
+                ],
+                "text-offset": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    0,
+                    [
+                        "literal",
+                        [
+                            0,
+                            -1.5
+                        ]
+                    ],
+                    8.41,
+                    [
+                        "literal",
+                        [
+                            0,
+                            -1.2
+                        ]
+                    ],
+                    9.41,
+                    [
+                        "literal",
+                        [
+                            0,
+                            -1.5
+                        ]
+                    ],
+                    22,
+                    [
+                        "literal",
+                        [
+                            0,
+                            -1.5
+                        ]
+                    ]
+                ],
+                "text-justify": "left",
+                "text-max-width": 15,
+                "icon-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    8.5,
+                    0.7,
+                    9.5,
+                    1,
+                    22,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#e2d7d1",
+                "text-halo-color": "#7e4300",
+                "text-halo-blur": 0,
+                "text-halo-width": 1.5
+            }
+        }
+    ],
+    "created": "2018-08-29T18:59:17.614Z",
+    "id": "cjlfi88si11pq2sqdzm7c2tlw",
+    "modified": "2018-08-31T15:27:30.569Z",
+    "owner": "boydmapper",
+    "visibility": "public",
+    "draft": false
+}
