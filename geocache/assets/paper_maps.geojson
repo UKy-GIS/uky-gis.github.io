@@ -1,0 +1,8 @@
+var papermaps = {
+"features": [
+{ "type": "Feature", "properties": { "name": "Cumberland Gap trail map", "link": "https:\/\/www.outragegis.com\/gap\/" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -83.885873, 36.562277 ], [ -83.880179, 36.791512 ], [ -83.24545, 36.779544 ], [ -83.253075, 36.550347 ], [ -83.885873, 36.562277 ] ] ] } },
+{ "type": "Feature", "properties": { "name": "Red River Gorge trail map", "link": "https:\/\/www.outragegis.com\/gorge\/" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -83.710188, 37.570531 ], [ -83.699784, 37.945635 ], [ -83.29166, 37.937803 ], [ -83.304125, 37.562738 ], [ -83.710188, 37.570531 ] ] ] } },
+{ "type": "Feature", "properties": { "name": "Big South Fork & Sheltowee Trace south", "link": "https:\/\/www.outragegis.com\/trails\/product\/sheltowee-trace-south-trail-map-2015\/" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -84.889749, 36.422705 ], [ -84.881863, 37.162662 ], [ -84.314574, 37.1571 ], [ -84.308132, 37.485634 ], [ -83.076324, 37.463785 ], [ -83.095876, 36.922042 ], [ -84.193535, 36.941512 ], [ -84.203978, 36.415982 ], [ -84.889749, 36.422705 ] ] ] } },
+{ "type": "Feature", "properties": { "name": "Daniel Boone and Sheltowee Trace north", "link": "https:\/\/www.outragegis.com\/trails\/product\/sheltowee-trace-north-trail-map\/" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -83.619045, 37.376296 ], [ -83.589916, 38.334783 ], [ -82.913071, 38.320019 ], [ -82.950934, 37.361719 ], [ -83.619045, 37.376296 ] ] ] } }
+]
+};

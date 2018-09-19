@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<html>
+
+<head>
+  <title>UKy Department of Geography Geocache</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
+  <script src="L.Control.Locate.min.js" charset="utf-8"></script>
+  <script src="assets/geocache.geojson" charset="utf-8"></script>
+  <script src="assets/paper_maps.geojson" charset="utf-8"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;    
+    }
+
+    .leaflet-container {
+      background: #bbb7ae;
+      outline: 0;
+    }
+
+    .leaflet-control-locate a {
+      font-size: 1.4em;
+      color: #444;
+      cursor: pointer
+    }
+
+    .leaflet-control-locate.active a {
+      color: #2074B6
+    }
+
+    .leaflet-control-locate.active.following a {
+      color: #FC8428
+    }
+
+    /*# sourceMappingURL=L.Control.Locate.min.css.map */
+
+    #info-button {
+      padding: 8px 5px;
+      font-size: 0.9em;
+      font-weight: bolder;
+      background: rgba(250, 250, 250, 1.0);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+      position: fixed;
+      top: 11px;
+      left: 53px;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    #footer {
+      width: 100%;
+      /* background-color: rgba(255, 255, 255, 0.8); */
+      background-image: url("assets/ky_lake.jpg");
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      height: 0px;
+      padding: 5px 5px 5px 15px;
+      z-index: 9000;
+      position: fixed;
+      bottom: -10px;
+      overflow: scroll;
+    }
+
+    #footer h1 {
+      font-size: 1.8em;
+      margin: 0 0 5px 0;
+    }
+
+    #legend .legend-items img {
+      float: left;
+      /* width: 28px; */
+      height: 28px;
+      margin-right: 5px;
+    }
+
+    .legend-items {
+      float: left;
+      padding: 2px 10px 2px 2px;
+      margin: 0 0 8px 0;
+      font-size: 1.4em;
+    }
+
+    #credit {
+      font-size: 1em;
+      position: fixed;
+      bottom: -20px;
+    }
+  </style>
+
+
+</head>
+
+<body onload="init()">
+  <div id="map">
+    <button id="info-button" onclick="myInfo()">Instructions</button>
+    <div id="footer">
+      <div id="legend">
+        <h1>UKy Geography Geocache</h1>
+        <div class="legend-items">
+        <a href="https://outrageGIS.com">
+          <img src="assets/ky_2.svg" alt="Geography Department" title="Visit our trail map booth! If you can't make then visit our web page.">
+        </a>POT</div>
+        <div class="legend-items">
+          <img src="assets/rainbow.svg" alt="What you need to find" title="What you need to find">Find me!</div>
+        <div class="legend-items">
+          <img src="assets/map_marker.svg" alt="Turn on your location" title="Turn on your location">Location services</div>
+        <div class="legend-items">
+          <img src="assets/location.svg" alt="Your location" title="Your location">Your location</div>
+        <div class="legend-items">
+          <img src="assets/waterfountain.svg" alt="Water fountain" title="Water fountain">Water fountain</div>
+        <div id="credit"></div> 
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function init() {
+      // Define the base map of streets and bike parking in central Lexington
+      var bounds = new L.LatLngBounds(
+        new L.LatLng(38.038659, -84.504280), // upper left
+        new L.LatLng(38.038659, -84.504280)); // lower right
+      var map = L.map('map').fitBounds(bounds);
+      var options = {
+        minZoom: 1,
+        maxZoom: 18,
+        opacity: 1.0,
+        tms: true,
+        zoomSnap: 0.1,
+        attribution: "<a href='https://uky-gis.github.io/'>UKy Geography</a>" // | &copy; <a href='https://openstreetmap.org'>OSM Contributors</a>
+      };
+      L.tileLayer('{z}/{x}/{y}.png', options).addTo(map); // add the map!
+
+      /* --------------- Locations ---------------  */
+
+      // assign icons SVG
+      var bar = L.icon({
+        iconUrl: 'assets/bar_orig.svg',
+        iconSize: [30, 30]
+      });
+
+      var cafe = L.icon({
+        iconUrl: 'assets/coffee.svg',
+        iconSize: [30, 30]
+      });
+      var water = L.icon({
+        iconUrl: 'assets/waterfountain.svg',
+        iconSize: [45, 45]
+      });
+      var garden = L.icon({
+        iconUrl: 'assets/garden.svg',
+        iconSize: [40, 40]
+      });
+      var rainbow = L.icon({
+        iconUrl: 'assets/rainbow.svg',
+        iconSize: [80, 80]
+      });
+      var outragegis = L.icon({
+        iconUrl: 'assets/ky_2.svg',
+        iconSize: [120, 120]
+      });
+      // define an empty icon to catch everything else
+      var empty = L.icon({
+        iconUrl: 'assets/coffee.svg',
+        iconSize: [0, 0]
+      });
+
+      // draw point locations with appropriate icons
+      L.geoJson(locations, {
+        pointToLayer: function (feature, latlng) {
+          if (feature.properties.amenity.match(/cafe/g)) {
+            var icon = cafe;
+          } else if (feature.properties.amenity.match(/bar/g)) {
+            var icon = bar;
+          } else if (feature.properties.amenity.match(/water/g)) {
+            var icon = water;
+          } else if (feature.properties.amenity.match(/garden/g)) {
+            var icon = garden;
+          } else if (feature.properties.amenity.match(/rainbow/g)) {
+            var icon = rainbow;
+          } else if (feature.properties.amenity.match(/maps/g)) {
+            var icon = outragegis;
+          } else {
+            var icon = empty;
+          }
+          return L.marker(latlng, {
+            icon: icon
+          });
+        },
+
+        // add popups for each feature
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup('<h2>' + feature.properties.name + '</h2>');
+        }
+
+      }).addTo(map); // Add point locations to map!
+
+      // Define the location plugin parameters
+      var locate_options = {
+        watch: true,
+        enableHighAccuracy: true,
+        position: 'topleft'
+      };
+      L.control.locate(locate_options).addTo(map);
+
+      L.control.scale().addTo(map); // maps like this need scales, yo!
+    };
+
+    /* --------------- Toggle on/off info footer content ---------------  */
+
+    function myInfo() {
+
+      var x = document.getElementById('footer');
+      if (x.style.height === '170px') {
+        x.style.height = '0px';
+      } else {
+        x.style.height = '170px';
+      }
+
+      var z = document.getElementById('credit');
+      if (z.style.bottom === '0px') {
+        z.style.bottom = '-20px';
+      } else {
+        z.style.bottom = '0px';
+      }
+
+      var y = document.getElementById('info-button');
+      if (y.style.background.match(/146, 239, 146/g)) {
+        y.style.background = 'rgba(250, 250, 250, 0.8)'
+      } else {
+        y.style.background = 'rgba(146, 239, 146, 0.8)'
+      }
+    }
+  </script>
+</body>
+
+</html>
