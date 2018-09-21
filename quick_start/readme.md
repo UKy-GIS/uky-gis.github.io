@@ -1,6 +1,6 @@
 # Typical workflow in GEO409, Fall 2018
 
-We have introduced a lor of tools this semester and sometimes it's a little confusing to figure which program to use and at what point in the workflow. Let's suggest a typical step by step workflow in the lab.
+We have introduced a lot of tools this semester and sometimes it's a little confusing to figure which program to use and at what point in the workflow. Between GitHub Desktop, VS Code, Jupyter Notebook, and, finally, ArcGIS Pro, let's suggest a typical step-by-step workflow in the lab.
 
 ## Fetch and pull any changes from remote repo
 
@@ -55,7 +55,7 @@ Execute a prompt command to change directories
 
 ## Jupyter Notebook
 
-Once we are in our GIS space we can launch Jupyter Notebook. At the command prompt, execute:
+Once we are in our GIS space we can launch Jupyter Notebook. We discovered that you don't need to run ArcGIS Pro before or during a Jupyter Notebook session. At the command prompt, execute:
 
 ```bat
 jupyter notebook
@@ -117,7 +117,62 @@ For ArcPy scripts, we want to add just one statement in the first cell.
 import arcpy
 ```
 
-The site pack
+The site package is pretty heavy and takes a few seconds to import. Having it in its own cell allows us to run it once and keep it loaded for other cells.
 
 ![Add some ArcPy and execute](graphics/a14.png)   
 Add some ArcPy and execute
+
+### Shutting down for the day
+
+If you are finished for the day, click **Logout** in all of the Jupyter browser windows. At the Python Command Prompt, press the key combination `crtl-c` (Control + c) to close the window. It should say, "Kernel shutdown...". 
+
+To acees the notebook again, restart the Python Command Prompt, change directories to your root GIS space, drill down to the desired notebook, and rerun the cells from top to bottom.
+
+### Saving a final .py file
+
+If you want to create a final Python file (.py) for submission or sharing, you need to **Download** as a Python file. **Note this step is only required** if you need to share your program with folks that don't use the Jupyter Notebook.
+
+![Save as .py file](graphics/a15.png)   
+Save as .py file
+
+The file will likely land in your `Downloads` folder. If so, move it to a folder called *processing* in your lesson's repo. 
+
+![Python file in your processing folder](graphics/a16.png)   
+Python file in your processing folder
+
+### Editing in VS Code
+
+Open your lesson repository in VS Code if you want to polish the export for general consumption. The export isn't formatted particularly well. 
+
+![Edit the file in VS Code](graphics/a17.png)   
+Edit the file in VS Code
+
+There is no agreement what should be in the header of a Python file, but generally you can some info about the subject and author. If you make your work public, you'll need to consider a license for your work.
+
+```python
+# Python 3
+# coding: utf-8
+
+# ----- Display contents of geodatabase ----- #
+# by TastyFreeze for GEO 409, UKy
+# Fall, 2018
+# ----- ------------------------ ----- #
+
+# Import site package for ArcGIS
+import arcpy
+
+# load database
+arcpy.env.workspace = r"D:\BoydsGIS\data\geology.gdb"
+
+# Iterate through and print each feature class layer
+for fc in arcpy.ListFeatureClasses():
+    print(fc)
+```
+
+## Commit and push to GitHub.com
+
+Save everything, you're done! Open GitHub Desktop and commit your changes with a good message. Click on the **Push** button.
+
+![Commit and push changes](graphics/a18.png)   
+Commit and push changes when finished for the day
+
