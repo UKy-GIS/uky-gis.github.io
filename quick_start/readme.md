@@ -4,7 +4,7 @@ We have introduced a lot of tools this semester and sometimes it's a little conf
 
 ## Fetch and pull any changes from remote repo
 
-You've cloned the lesson repo from GitHub.com and placed it in your root GIS folder on the `C:` drive, e.g., `C:\BoydsGIS` folder. **If you work outside of the lab** you should first open GitHub Desktop and fetch and pull all remote changes. This help you continue working seamlessly. 
+You've cloned the lesson repo from GitHub.com and placed it in your root GIS folder on the `C:` drive, e.g., `C:\BoydsGIS` folder. **If you work outside of the lab** you should first open GitHub Desktop and fetch and pull all remote changes. This will help you to continue working seamlessly. 
 
 ![Fetch and pull any changes from remote repo](graphics/a01.png)    
 Fetch and pull any changes from remote repo
@@ -83,12 +83,12 @@ Find a cell with Python. You can tell which ones are code because it has code sy
 print("I am inside a print function and will print to the screen")
 ```
 
-After you run the cell, you'll see a number in square brakets on the left `[]` with a number inside. That tells you the cell's order of execution compared to other cells. 
+After you run the cell, you'll see a number in square brakets on the left `[]` with a number inside. That tells you the cell's order of execution compared to other cells. This order is important because code is a sequence of statements that run from top to bottom, line by line. If we import modules and assign variables, those need to be loaded before the cells below run.
 
 ![Make changes in cell and Run. Jupyter autosaves!](graphics/a10.png)   
 Make changes in cell and Run. Jupyter autosaves!
 
-Work your way through the lesson and experiment!
+Work your way through the lesson and experiment! If you close the browser you might need to relaunch Jupyter Notebook in the terminal.
 
 ### Something will go wrong!
 
@@ -122,13 +122,36 @@ The site package is pretty heavy and takes a few seconds to import. Having it in
 ![Add some ArcPy and execute](graphics/a14.png)   
 Add some ArcPy and execute
 
+### Add documentation to your Notebook
+
+Before you finish your assignment, add some documentation that tells people what you've made, what it does, and what is required. Add a new cell, move it to the top, convert it to a **Markdown** formatted cell, and some Markdown content.
+
+![Add Markdown content describing your project](graphics/a20.png)   
+Add Markdown content describing your project
+
+There really is no limit as to what you can add. Notice the bottom cell is a Markdown image. When we run that cell, presto! We can see a render image of the area that inspires us to write more code!
+
+![Run Markdown cell to render content](graphics/a21.png)   
+Run Markdown cell to render content
+
+When you add this to GitHub,com this Markdown will render for the visitor. You can make stylish notebooks.
+
 ### Shutting down for the day
 
 If you are finished for the day, click **Logout** in all of the Jupyter browser windows. At the Python Command Prompt, press the key combination `crtl-c` (Control + c) to close the window. It should say, "Kernel shutdown...". 
 
-To acees the notebook again, restart the Python Command Prompt, change directories to your root GIS space, drill down to the desired notebook, and rerun the cells from top to bottom.
+To access the notebook again, restart the Python Command Prompt, change directories to your root GIS space, drill down to the desired notebook, and rerun the cells from top to bottom.
 
-### Saving a final .py file
+## Commit and push to GitHub.com!
+
+Save everything, open GitHub Desktop, and commit your changes with a good message. Click on the **Push** button.
+
+![Commit and push changes](graphics/a18.png)   
+Commit and push changes when finished for the day
+
+After you push and you see no active changes then you are synced and can access your content outside of the lab.
+
+### Saving a final .py file (optional)
 
 If you want to create a final Python file (.py) for submission or sharing, you need to **Download** as a Python file. **Note this step is only required** if you need to share your program with folks that don't use the Jupyter Notebook.
 
@@ -169,10 +192,4 @@ for fc in arcpy.ListFeatureClasses():
     print(fc)
 ```
 
-## Commit and push to GitHub.com
-
-Save everything, you're done! Open GitHub Desktop and commit your changes with a good message. Click on the **Push** button.
-
-![Commit and push changes](graphics/a18.png)   
-Commit and push changes when finished for the day
 
