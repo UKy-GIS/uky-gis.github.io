@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>Animating hillshade parameters</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel='icon' href='/favicon.ico' type='image/x-icon'/ >
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+
+	<style>
+		/* 
+			UK Colors: 
+            #c7c9c8 light gray 
+            #63666a dark gray
+            #15397f dark blue
+            #009bda light blue
+            #0033a0 official blue
+        */
+		body {
+			margin: 0;
+			padding: 0;
+			background: #c7c9c8;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			color: #3d3d3d;
+			font-size: 1.1em;
+
+		}
+
+		section {
+			width: 80%;
+			margin: 10px auto;
+		}
+
+		h1 {
+			font-family: 'Lato', sans-serif;
+			font-weight: 900i;
+			font-size: 2.6em;
+			font-style: italic;
+			/* The em unit. 3x the current size */
+			letter-spacing: .02em;
+			margin: 0 0 15px 0;
+			/* text-transform: uppercase; */
+		}
+
+		h2 {
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			color: #63666a;
+			font-size: 1.5em;
+			letter-spacing: .06em;
+			font-style: italic;
+			margin: 0 0 25px 0;
+		}
+		
+		h3 {
+			font-size: 1.2em;
+		}
+
+
+		p {
+			font-size: 1.15em;
+			line-height: 1.8em;
+			margin: 0 0 25px 0;
+		}
+
+		a {
+			color: #15397f;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			padding: 0px 20px 4px 20px;
+			/* font-size: 0.96em; */
+			line-height: 1.6em;
+			color: #63666a;
+		}
+
+		li {
+			margin: 10px 0
+		}
+
+		hr{
+			margin-top: 20px;
+			border: 0;
+    		height: 1px;
+    		background: #63666a;
+    		background-image: linear-gradient(to right, #c7c9c8, #63666a, #c7c9c8);
+		}
+
+		#map {
+			width: 100%;
+			margin: 0px auto;
+
+		}
+
+		.max-image-width {
+			width: 100%;
+		}
+
+		/* add custom style class here */
+
+		.linkbox {
+			margin: 3px 0 20px 0;
+			display: block;
+			font-weight: 300;
+		}
+
+
+		/* Use float property to make two-column layout */
+
+		.first-column {
+			float: left;
+			width: 48%;
+			padding-right: 20px;
+		}
+
+		.column {
+			float: left;
+			width: 48%;
+		}
+
+		/* Clear floats after the columns */
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		/* When browser is 800px wide or less */
+
+		@media screen and (max-width: 800px) {
+
+			.first-column,
+			.column {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<iframe src="https://player.vimeo.com/video/292571411" width="100%" height="465" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<section>
+		<div class="linkbox">
+			<a href='https://outrageGIS.com/gorge/animations/sun.gif' >Download</a> animated GIF (160 MB)
+		</div>
+
+		<h1>Summer day</h1>
+		<h2>The confluence of the Red River and Chimney Top Creek</h2>
+
+		<div class="row">
+			<div class="first-column">
+
+				<h3>About the animation</h3>
+				<p>
+					Animating the parameters of a hillshade function to simulate the illumination of an elevation surface during a summer day. Red River Gorge, Kentucky.
+				</p>
+				
+				<hr class="styled">
+				<h3>Data used in this project</h3>
+
+				<p>
+					Elevation data was extracted from <a href="http://kyfromabove.ky.gov/">Kentucky's Elevation Data & Aerial Photography Program</a> 5-foot resolution DEM data. A ArcGIS Python script was used to iterate through parameter values. ImageMagick was then used to assemble an animated GIF. The GIF is 49 frames at 2422 x 1758 pixels.
+				</p>
+				
+
+			</div>
+			<div class="column">
+				<img class="max-image-width" src="https://farm8.staticflickr.com/7069/27258265421_a093fce867_h.jpg" title="Chimney Top Creek">
+				<div class="linkbox">Hanson's Point, Pinch Em Tight, and the Red River valley</div>
+				
+				<img class="max-image-width" src="https://farm2.staticflickr.com/1769/42671081904_40c84be780_h.jpg" title="View South up Chimney Top Creek">
+				<div class="linkbox">View South up Chimney Top Creek</div>
+
+			</div>
+		</div>
+
+		<hr>
+		<!-- <h4><a href="https://uky-gis.github.io">UKy GIS and Mapping</a></h4> -->
+		<a href="https://uky-gis.github.io"><img src="../../graphics/logo-color-400px.png" alt="University of Kentucky Geography" width="300px"></a>
+	</section>
+
+
+</body>
+
+</html>
