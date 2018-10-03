@@ -140,13 +140,14 @@
       var map = L.map('map').fitBounds(bounds);
       var options = {
         minZoom: 1,
-        maxZoom: 18,
+        maxZoom: 21,
         opacity: 1.0,
         tms: true,
         zoomSnap: 0.1,
         attribution: "<a href='https://uky-gis.github.io/'>UKy Geography</a>" // | &copy; <a href='https://openstreetmap.org'>OSM Contributors</a>
       };
-      L.tileLayer('{z}/{x}/{y}.png', options).addTo(map); // add the map!
+      L.tileLayer('../history/maps/sanborn_1907_77/{z}/{x}/{y}.png', options).addTo(map); // add the map!
+      L.tileLayer('../history/maps/sanborn_1907_74/{z}/{x}/{y}.png', options).addTo(map); // add the map!
 
       /* --------------- Locations ---------------  */
 
