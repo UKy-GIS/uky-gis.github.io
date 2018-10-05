@@ -1,6 +1,8 @@
 # Content for anniversary
 
-* List of [aerial photos](aerial_photos) of campus or as [large images](https://uky-gis.github.io/history/aerial_photos/)
-* Georeferenced [1907 Sanborn map](https://uky-gis.github.io/geocache/)
-* List of [Kentucky Kernel](kernel) and [The Kentuckian yearbook](yearbook)
+The UKy Department of Geography will celebrate its 75th Anniversary during the 2018-2019 academic calendar. The repository wiil showcase archival material in association with this celebration.
+
+* List of [aerial photos](https://github.com/UKy-GIS/uky-gis.github.io/tree/master/history/aerial_photos) of campus or as [large images](https://uky-gis.github.io/history/aerial_photos/)
+* Georeferenced [1907 Sanborn maps](https://uky-gis.github.io/geocache/) of campus for a geocache challenge
+* List of [Kentucky Kernel](https://github.com/UKy-GIS/uky-gis.github.io/tree/master/history/kernel) and [The Kentuckian yearbook](https://github.com/UKy-GIS/uky-gis.github.io/tree/master/history/yearbook)
 
