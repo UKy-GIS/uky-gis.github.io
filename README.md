@@ -1,6 +1,8 @@
 # uky-gis.github.io
 Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository details a few opportunities and successes that students have at the University learning map making and GIS.
-![Hillshade animation](maps/graphics/sun.gif)
+
+![Hillshade animation](maps/graphics/sun.gif)   
+Example from Geo409: animation of surface illumination
 
 <!-- 
 ![Kentucky mapping and GIS opportunities](graphics/UKy-GIS.jpg) -->
