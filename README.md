@@ -4,11 +4,7 @@ Welcome to mapping and GIS (geographic information systems) in the [Department o
 ![Hillshade animation](maps/graphics/sun.gif)   
 Example from Geo409: animation of surface illumination
 
-<!-- 
-![Kentucky mapping and GIS opportunities](graphics/UKy-GIS.jpg) -->
-
 ## Table of Contents
-
 <!-- TOC -->
 
 - [uky-gis.github.io](#uky-gisgithubio)
@@ -20,6 +16,7 @@ Example from Geo409: animation of surface illumination
         - [Short courses](#short-courses)
     - [Video on Vimeo](#video-on-vimeo)
     - [Examples of student work](#examples-of-student-work)
+    - [History](#history)
     - [To Do](#to-do)
 
 <!-- /TOC -->
@@ -84,6 +81,13 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 | ![img](graphics/portland.png)   | Portland: "Beervana" Oregon [Link](https://jhannigan3.github.io/Portland-hometown-map/) |
 | ![img](graphics/amtrack.png)   | Amtrak Usage by State [Link](https://nmp.carto.com/u/kerryg/builder/deca6676-7d91-4a90-b4c8-e566b290fa99/embed) |
 | ![img](graphics/bay-area.png)   | 2015 Bay Area Car vs. Bike/Pedestrian Collisions [Link](https://nmp.carto.com/u/watkinsr/builder/3301c2a9-90c4-43a4-b11f-1cafd238df29/embed) |
+
+## History
+
+![History of the Geography Department](graphics/UKy-GIS.jpg)   
+History of the Geography Department
+
+View [resources](history)
 
 ==========
 
