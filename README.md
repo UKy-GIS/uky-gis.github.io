@@ -16,7 +16,7 @@ Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
         - [Short courses](#short-courses)
     - [Video on Vimeo](#video-on-vimeo)
     - [Examples of student work](#examples-of-student-work)
-    - [History](#history)
+    - [History of the Geography Department](#history-of-the-geography-department)
     - [To Do](#to-do)
 
 <!-- /TOC -->
@@ -28,9 +28,9 @@ The university offers numerous paths to learn mapping and GIS, from a minor for 
 ### GIS and Mapping - Minor
 The College of Arts & Sciences Department of Geography offers a 18 hour (6 course) minor. The following three courses are required and form the foundation of the program's curriculum:
 
-* GEO 109 - Digital Mapping OR GEO 164 - Worlds: Global Information Geographies [3 hours]
-* GEO 309 - Introduction to GIS [3 hours]
-* GEO 409 - Advanced GIS [3 hours]
+* [GEO 109](courses/geo109) - Digital Mapping OR GEO 164 - Worlds: Global Information Geographies [3 hours]
+* [GEO 309](courses/geo309) - Introduction to GIS [3 hours]
+* [GEO 409](courses/geo409) - Advanced GIS [3 hours]
 
 [Link to all available courses in minor](http://www.uky.edu/academics/minor/as/mapping-and-gis-minor)
 
@@ -82,10 +82,10 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 | ![img](graphics/amtrack.png)   | Amtrak Usage by State [Link](https://nmp.carto.com/u/kerryg/builder/deca6676-7d91-4a90-b4c8-e566b290fa99/embed) |
 | ![img](graphics/bay-area.png)   | 2015 Bay Area Car vs. Bike/Pedestrian Collisions [Link](https://nmp.carto.com/u/watkinsr/builder/3301c2a9-90c4-43a4-b11f-1cafd238df29/embed) |
 
-## History
+## History of the Geography Department
 
 ![History of the Geography Department](graphics/UKy-GIS.jpg)   
-History of the Geography Department
+Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
 
 Lexington is the second largest city in Kentucky and home to the University of Kentucky. The Department of Geography was established in 1944 and is "ranked among leading geography graduate programs in the United States." ([Wikipedia](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky))
 
