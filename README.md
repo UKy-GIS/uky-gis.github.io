@@ -34,7 +34,7 @@ The College of Arts & Sciences Department of Geography offers a 18 hour (6 cours
 
 [Link to all available courses in minor](http://www.uky.edu/academics/minor/as/mapping-and-gis-minor)
 
-### Graduate certificate in mapping
+### Master of Science (MS) and Graduate Certificate in in Digital Mapping
 The Department of Geography's [New Maps Plus](http://newmapsplus.uky.edu) graduate programs at the University of Kentucky offer students a challenging, intensive, digital mapping curriculum that emphasizes the acquisition of technical skills—coding, GIS, web development—while also preparing students to critically address the complexity of today’s information ecosystem.
 
 <!-- ### Natural Resources and Environmental Science
