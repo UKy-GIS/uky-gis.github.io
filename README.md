@@ -5,13 +5,14 @@ Welcome to mapping and GIS (geographic information systems) in the [Department o
 Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
 
 ## Table of Contents
+
 <!-- TOC -->
 
 - [uky-gis.github.io](#uky-gisgithubio)
     - [Table of Contents](#table-of-contents)
     - [Course opportunities](#course-opportunities)
         - [GIS and Mapping - Minor](#gis-and-mapping---minor)
-        - [Graduate certificate in mapping](#graduate-certificate-in-mapping)
+        - [Master of Science (MS) and Graduate Certificate in in Digital Mapping](#master-of-science-ms-and-graduate-certificate-in-in-digital-mapping)
         - [Mapshop](#mapshop)
         - [Short courses](#short-courses)
     - [Video on Vimeo](#video-on-vimeo)
