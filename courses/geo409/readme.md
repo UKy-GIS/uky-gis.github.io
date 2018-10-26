@@ -2,7 +2,11 @@
 
 This course is developed to introduce intermediate and advanced topics in geographic information science and spatial analysis including theoretical and application areas. Building upon a range of GIS software systems this course covers geographic data collection, entry and editing, spatial analysis, interpolation, and map development and display.
 
-## Example projects
+## Presentation
+
+[What we do in 409](https://gitpitch.com/boydx/geosalad/uky-gis)
+
+## Example of recent projects
 
 ![Bluegrass Trails](../../graphics/geo409-spring-2018.png)    
 Bluegrass Trails - [link](https://tastyfreeze.github.io/bluegrass/region/)
