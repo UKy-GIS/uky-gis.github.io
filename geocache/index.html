@@ -120,6 +120,8 @@
         </a>POT</div>
         <div class="legend-items">
           <img src="assets/rainbow.svg" alt="What you need to find" title="What you need to find">Find me!</div>
+          <div class="legend-items">
+            <img src="assets/pizza.svg" alt="Bite me!" title="Bite me!">Bite me!</div>
         <div class="legend-items">
           <img src="assets/map_marker.svg" alt="Turn on your location" title="Turn on your location">Location services</div>
         <div class="legend-items">
@@ -134,21 +136,31 @@
   <script>
     function init() {
       // Define the base map of streets and bike parking in central Lexington
-      var bounds = new L.LatLngBounds(
-        new L.LatLng(38.038659, -84.504280), // upper left
-        new L.LatLng(38.038659, -84.504280)); // lower right
-      var map = L.map('map').fitBounds(bounds);
+
       var options = {
         minZoom: 1,
         maxZoom: 21,
-        opacity: 1.0,
-        tms: true,
+        zoom: 15,
+        center: [38.04, -84.50],
         zoomSnap: 0.1,
         attribution: "<a href='https://uky-gis.github.io/'>UKy Geography</a>" // | &copy; <a href='https://openstreetmap.org'>OSM Contributors</a>
       };
+
+      var tms ={
+        tms: true,
+        minZoom: 1,
+        maxZoom: 21,
+        zoomSnap: 0.8,
+      }
      
-      L.tileLayer('/history/maps/sanborn_1907_74/{z}/{x}/{y}.png', options).addTo(map); // add the map!
-      L.tileLayer('/history/maps/sanborn_1907_77/{z}/{x}/{y}.png', options).addTo(map); // add the map!
+      var map = L.map('map', options)
+      
+      L.tileLayer('/history/maps/sanborn_1907_63/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
+      L.tileLayer('/history/maps/sanborn_1907_65/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
+      L.tileLayer('/history/maps/sanborn_1907_67/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
+      L.tileLayer('/history/maps/sanborn_1907_74/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
+      L.tileLayer('/history/maps/sanborn_1907_77/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
+      L.tileLayer('/history/maps/sanborn_1907_72/{z}/{x}/{y}.png', tms).addTo(map); // add the map!
 
       /* --------------- Locations ---------------  */
 
@@ -165,6 +177,10 @@
       var water = L.icon({
         iconUrl: 'assets/waterfountain.svg',
         iconSize: [45, 45]
+      });
+      var pizza = L.icon({
+        iconUrl: 'assets/pizza.svg',
+        iconSize: [100, 100]
       });
       var garden = L.icon({
         iconUrl: 'assets/garden.svg',
@@ -197,6 +213,8 @@
             var icon = garden;
           } else if (feature.properties.amenity.match(/rainbow/g)) {
             var icon = rainbow;
+          } else if (feature.properties.amenity.match(/pizza/g)) {
+            var icon = pizza;
           } else if (feature.properties.amenity.match(/maps/g)) {
             var icon = outragegis;
           } else {

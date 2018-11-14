@@ -11,6 +11,7 @@ var locations = {
 
 
 { "type": "Feature", "properties": { "amenity": "rainbow", "name": "Old wise one, knobbly and gnarled", "pop_up": "#" }, "geometry": { "type": "MultiPoint", "coordinates": [ [-84.500427, 38.032274] ] } }, 
+{ "type": "Feature", "properties": { "amenity": "pizza", "name": "Free Pizza and Geography Awareness Week!", "pop_up": "#" }, "geometry": { "type": "MultiPoint", "coordinates": [ [-84.503370,38.043482] ] } }, 
 { "type": "Feature", "properties": { "amenity": "maps", "name": "UKy Department of Geography<br><span style='font-size:0.8em;'>75th Anniversary — <a href='https://uky-gis.github.io'>visit</a></span>", "pop_up": "#" }, "geometry": { "type": "MultiPoint", "coordinates": [ [-84.504280, 38.038659] ] } }
 
 ///
