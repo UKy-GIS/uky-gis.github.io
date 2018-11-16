@@ -1,12 +1,11 @@
 # uky-gis.github.io
 Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository details a few opportunities and successes that students have at the University learning map making and GIS.
 
-![Hillshade animation](maps/graphics/sun.gif)   
+![Hillshade animation](maps/graphics/sun.jpg)   
 Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
 
 ## Table of Contents
 
-<!-- TOC -->
 
 - [uky-gis.github.io](#uky-gisgithubio)
     - [Table of Contents](#table-of-contents)
@@ -20,7 +19,6 @@ Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
     - [History of the Geography Department](#history-of-the-geography-department)
     - [To Do](#to-do)
 
-<!-- /TOC -->
 
 ## Course opportunities
 
