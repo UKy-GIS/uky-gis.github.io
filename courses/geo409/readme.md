@@ -2,6 +2,8 @@
 
 This course is developed to introduce intermediate and advanced topics in geographic information science and spatial analysis including theoretical and application areas. Building upon a range of GIS software systems this course covers geographic data collection, entry and editing, spatial analysis, interpolation, and map development and display.
 
+This course is one of the three required for GIS & Mapping minor.
+
 In Spring 2019, we will explore Kentucky's lidar dataset recently made available for the entire state. The lidar data model encodes 3D position as a point in a massive point cloud. A single point can have attributes that represent an object's type like ground, vegetation, and building top. In a GIS, we render point clouds as digital surface models where we can measure and analyze features in three dimensions.
 
 ![Kentucky from above](geo409_spring2019.jpg)   
