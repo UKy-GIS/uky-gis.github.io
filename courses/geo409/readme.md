@@ -17,7 +17,7 @@ Grays Arch, Red River Gorge rendered in 3d point cloud
 [![Kentucky from above](videosg_frame.jpg)](https://vimeo.com/292571411)  
 Illumination of bare-earth digital elevation model of Red River Gorge to approximate cliff face daily insolation rates
 
-![Louisville's skyline](videos/louisville_skyline.jpg)    
+![Louisville's skyline](louisville_skyline.jpg)    
 Go Big Blue Nation!
 
 ## Presentation
