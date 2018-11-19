@@ -14,6 +14,8 @@ Louisville's skyline rendered in 3d point cloud
 [![Kentucky from above](videos/g_frame.jpg)](videos/graysarch.html)  
 Grays Arch, Red River Gorge rendered in 3d point cloud
 
+![Louisville's skyline](videos/louisville_skyline.jpg)    
+Go Big Blue Nation!
 
 ## Presentation
 
