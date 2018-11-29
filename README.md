@@ -1,11 +1,29 @@
-# uky-gis.github.io
+# UKy GIS & Mapping
 
 ## Table of Contents
+
+<!-- TOC -->
+
+- [UKy GIS & Mapping](#uky-gis--mapping)
+    - [Table of Contents](#table-of-contents)
+    - [Welcome to Geography](#welcome-to-geography)
+    - [Geography Department's 75th Anniversary](#geography-departments-75th-anniversary)
+        - [Stories and maps](#stories-and-maps)
+    - [Course opportunities](#course-opportunities)
+        - [Master of Science (MS) and Graduate Certificate in in Digital Mapping](#master-of-science-ms-and-graduate-certificate-in-in-digital-mapping)
+        - [GIS and Mapping - Undergraduate Minor](#gis-and-mapping---undergraduate-minor)
+        - [Mapshop](#mapshop)
+        - [Short courses](#short-courses)
+    - [Video on Vimeo](#video-on-vimeo)
+    - [Examples of student work](#examples-of-student-work)
+    - [History of the Geography Department](#history-of-the-geography-department)
+
+<!-- /TOC -->
 
 ## Welcome to Geography
 
 ![Lexington, Kentucky](graphics/geogyall_v1.jpg)
-Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus.
+Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus, the home of UK Geography.
 
 Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University learning map making and GIS.
 
@@ -13,7 +31,7 @@ Welcome to mapping and GIS (geographic information systems) in the [Department o
 
 We are celebrating our 75th Anniversary during the 2018-2019 school year. The Department of Geography was established in 1944 and is "ranked among leading geography graduate programs in the United States." ([Wikipedia](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky)) 
 
-### Stories and images
+### Stories and maps
 
 * Slide [show](history/slides) early years of the Department and campus
 * Georeferenced [historic maps](history/maps) of campustown
@@ -21,12 +39,15 @@ We are celebrating our 75th Anniversary during the 2018-2019 school year. The De
 
 ## Course opportunities
 
-![Hillshade animation](maps/graphics/sun.jpg)   
-Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
-
 The university offers numerous paths to learn mapping and GIS, from a minor for undergraduates and graduate certificate for those with a bachelor's degree. The below list isn't comprehensive but shows many of the opportunities.
 
-### GIS and Mapping - Minor
+![Hillshade animation](maps/graphics/sun.jpg)   
+Examples from [GEO 409](courses/geo409)
+
+### Master of Science (MS) and Graduate Certificate in in Digital Mapping
+The Department of Geography's [New Maps Plus](http://newmapsplus.uky.edu) graduate programs at the University of Kentucky offer students a challenging, intensive, digital mapping curriculum that emphasizes the acquisition of technical skills—coding, GIS, web development—while also preparing students to critically address the complexity of today’s information ecosystem.
+
+### GIS and Mapping - Undergraduate Minor
 The College of Arts & Sciences Department of Geography offers a 18 hour (6 course) minor. The following three courses are required and form the foundation of the program's curriculum:
 
 * [GEO 109](courses/geo109) - Digital Mapping OR GEO 164 - Worlds: Global Information Geographies [3 hours]
@@ -35,20 +56,10 @@ The College of Arts & Sciences Department of Geography offers a 18 hour (6 cours
 
 [Link to all available courses in minor](http://www.uky.edu/academics/minor/as/mapping-and-gis-minor)
 
-### Master of Science (MS) and Graduate Certificate in in Digital Mapping
-The Department of Geography's [New Maps Plus](http://newmapsplus.uky.edu) graduate programs at the University of Kentucky offer students a challenging, intensive, digital mapping curriculum that emphasizes the acquisition of technical skills—coding, GIS, web development—while also preparing students to critically address the complexity of today’s information ecosystem.
-
-<!-- ### Natural Resources and Environmental Science
-An interdisciplinary degree program in the College of Agriculture has a strong focus on mapping. The main course in that program is:
-
-* NRES 355 – Geographic Information Systems: Geospatial Apps for Land Analysis
-
-[Link to degree web page](https://nres.ca.uky.edu/) -->
 
 ### Mapshop
 
 The Department of Geography's [Mapshop](http://newmaps.uky.edu/mapshop) provides an opportunity for community and campus organizations to work directly with students, faculty, and cartographic staff in the production of geographic representations. Mapshop is part of the larger University of Kentucky's [New Mappings Collaboratory](http://newmaps.uky.edu/) which is committed to innovations in mapping.
-
 
 ### Short courses
 
@@ -88,12 +99,3 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 ![History of the Geography Department](graphics/UKy-GIS.jpg)   
 Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
 
-
-
-<hr>
-
-## To Do
-
-* Create HTML version
-* Get all student examples and search by year, course, and student
-* Links to course websites
