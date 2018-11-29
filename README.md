@@ -101,3 +101,6 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 ![History of the Geography Department](graphics/UKy-GIS.jpg)   
 Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
 
+* Wikipedia [entry](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky) and departmental home page [entry](https://geography.as.uky.edu/departmental-history)
+* Other [resources](history)
+
