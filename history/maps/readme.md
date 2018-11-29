@@ -1,4 +1,6 @@
-# Historic georeferenced maps 
+# Historic georeferenced maps
+
+![Geography y'all](../../graphics/geogyall.jpg)
 
 ## List of resources for Lexington's campustown
 
