@@ -1,26 +1,28 @@
 # uky-gis.github.io
-Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository details a few opportunities and successes that students have at the University learning map making and GIS.
-
-![Hillshade animation](maps/graphics/sun.jpg)   
-Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
 
 ## Table of Contents
 
+![Lexington, Kentucky](graphics/geogyall_v1.jpg)
+Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus.
 
-- [uky-gis.github.io](#uky-gisgithubio)
-    - [Table of Contents](#table-of-contents)
-    - [Course opportunities](#course-opportunities)
-        - [GIS and Mapping - Minor](#gis-and-mapping---minor)
-        - [Master of Science (MS) and Graduate Certificate in in Digital Mapping](#master-of-science-ms-and-graduate-certificate-in-in-digital-mapping)
-        - [Mapshop](#mapshop)
-        - [Short courses](#short-courses)
-    - [Video on Vimeo](#video-on-vimeo)
-    - [Examples of student work](#examples-of-student-work)
-    - [History of the Geography Department](#history-of-the-geography-department)
-    - [To Do](#to-do)
+## Welcome to Geography
 
+Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University learning map making and GIS.
+
+## Geography Department's 75th Anniversary
+
+We are celebrating our 75th Anniversary during the 2018-2019 school year. The Department of Geography was established in 1944 and is "ranked among leading geography graduate programs in the United States." ([Wikipedia](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky)) 
+
+### Stories and images
+
+* Slide [show](history/slides) early years of the Department and campus
+* Georeferenced [historic maps](history/maps) of campustown
+* Geocache [challenge](https://gitpitch.com/boydx/geosalad/geocache_00)
 
 ## Course opportunities
+
+![Hillshade animation](maps/graphics/sun.jpg)   
+Example from Geo409: [animation of surface illumination](maps/rrg-summer-day)
 
 The university offers numerous paths to learn mapping and GIS, from a minor for undergraduates and graduate certificate for those with a bachelor's degree. The below list isn't comprehensive but shows many of the opportunities.
 
@@ -86,9 +88,7 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 ![History of the Geography Department](graphics/UKy-GIS.jpg)   
 Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
 
-Lexington is the second largest city in Kentucky and home to the University of Kentucky. The Department of Geography was established in 1944 and is "ranked among leading geography graduate programs in the United States." ([Wikipedia](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky))
 
-We are celebrating our 75th Anniversary during the 2018-2019 school year. We are posting history [resources](history) to support this event.
 
 <hr>
 
