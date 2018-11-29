@@ -1,6 +1,6 @@
 # uky-gis.github.io
 
-Home to content supporting the Department of Geography at the University of Kentucky.
+Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University learning map making and GIS.
 
 ## Table of Contents
 
@@ -25,9 +25,7 @@ Home to content supporting the Department of Geography at the University of Kent
 ## Location
 
 ![Lexington, Kentucky](graphics/geogyall_v1.jpg)
-Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus, the home of UK Geography.
-
-Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University learning map making and GIS.
+Lexington is the second largest city in Kentucky and home to the University of Kentucky. This [aerial photograph from 1971](https://uky-gis.github.io/history/maps/1971/) shows central campus, the home of UK Geography.
 
 ## Geography Department's 75th Anniversary
 
@@ -35,7 +33,7 @@ We are celebrating our 75th Anniversary during the 2018-2019 school year. The De
 
 ### Stories and maps
 
-* Slide [show](history/slides) early years of the Department and campus
+* Slide [show](history/slides) for the early years of the Department and campus
 * Georeferenced [historic maps](history/maps) of campustown
 * Geocache [challenge](https://gitpitch.com/boydx/geosalad/geocache_00)
 
