@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
+## Welcome to Geography
+
 ![Lexington, Kentucky](graphics/geogyall_v1.jpg)
 Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus.
-
-## Welcome to Geography
 
 Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University learning map making and GIS.
 
