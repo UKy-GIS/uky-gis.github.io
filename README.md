@@ -1,17 +1,19 @@
-# UKy GIS & Mapping
+# uky-gis.github.io
+
+Home to content supporting the Department of Geography at the University of Kentucky.
 
 ## Table of Contents
 
 <!-- TOC -->
 
-- [UKy GIS & Mapping](#uky-gis--mapping)
+- [uky-gis.github.io](#uky-gisgithubio)
     - [Table of Contents](#table-of-contents)
-    - [Welcome to Geography](#welcome-to-geography)
+    - [Location](#location)
     - [Geography Department's 75th Anniversary](#geography-departments-75th-anniversary)
         - [Stories and maps](#stories-and-maps)
     - [Course opportunities](#course-opportunities)
         - [Master of Science (MS) and Graduate Certificate in in Digital Mapping](#master-of-science-ms-and-graduate-certificate-in-in-digital-mapping)
-        - [GIS and Mapping - Undergraduate Minor](#gis-and-mapping---undergraduate-minor)
+        - [Mapping and GIS - Undergraduate Minor](#mapping-and-gis---undergraduate-minor)
         - [Mapshop](#mapshop)
         - [Short courses](#short-courses)
     - [Video on Vimeo](#video-on-vimeo)
@@ -20,7 +22,7 @@
 
 <!-- /TOC -->
 
-## Welcome to Geography
+## Location
 
 ![Lexington, Kentucky](graphics/geogyall_v1.jpg)
 Lexington is the second largest city in Kentucky and home to the University of Kentucky. This aerial photograph from 1971 shows central campus, the home of UK Geography.
@@ -47,7 +49,7 @@ Examples from [GEO 409](courses/geo409)
 ### Master of Science (MS) and Graduate Certificate in in Digital Mapping
 The Department of Geography's [New Maps Plus](http://newmapsplus.uky.edu) graduate programs at the University of Kentucky offer students a challenging, intensive, digital mapping curriculum that emphasizes the acquisition of technical skills—coding, GIS, web development—while also preparing students to critically address the complexity of today’s information ecosystem.
 
-### GIS and Mapping - Undergraduate Minor
+### Mapping and GIS - Undergraduate Minor
 The College of Arts & Sciences Department of Geography offers a 18 hour (6 course) minor. The following three courses are required and form the foundation of the program's curriculum:
 
 * [GEO 109](courses/geo109) - Digital Mapping OR GEO 164 - Worlds: Global Information Geographies [3 hours]
