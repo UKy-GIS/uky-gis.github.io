@@ -55,5 +55,4 @@ This course introduces students to the use of geographic information systems and
 
 ## Example projects
 
-![Student Observations and analysis of UK Campus Celebrations](https://geography.as.uky.edu/sites/default/files/GEO309_PatternsOfCampusCelebrations_UK_NCAA_Basketball.jpg)    
 Student observations and analysis of UK campus celebrations - [Link](https://geography.as.uky.edu/sites/default/files/GEO309_PatternsOfCampusCelebrations_UK_NCAA_Basketball.jpg)
