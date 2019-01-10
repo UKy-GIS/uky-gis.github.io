@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "locations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Princess Arch", "author": "Richard Helsley", "link": "https:\/\/helsleyre.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.619798, 37.827437 ] } },
+{ "type": "Feature", "properties": { "name": "Grays Arch", "author": "Robert Lanza", "link": "https:\/\/rslanza.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.659154, 37.816461 ] } },
+{ "type": "Feature", "properties": { "name": "Grays Arch", "author": "Miranda Spurgeon", "link": "https:\/\/mlspurgeon.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.659366, 37.816179 ] } },
+{ "type": "Feature", "properties": { "name": "Grays Arch", "author": "TastyFreeze", "link": "https:\/\/tastyfreeze.github.io\/rrg\/graysarch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.659539, 37.815935 ] } },
+{ "type": "Feature", "properties": { "name": "Sky Bridge", "author": "Chris Empie", "link": "https:\/\/github.com\/clcpm\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.577767, 37.819112 ] } },
+{ "type": "Feature", "properties": { "name": "Sky Bridge", "author": "Joyia Williams", "link": "https:\/\/github.com\/jrwi242\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.578513, 37.818949 ] } },
+{ "type": "Feature", "properties": { "name": "Sky Bridge", "author": "Kevin Dohner", "link": "https:\/\/kdoh12.github.io\/rrg\/skybridge\/" }, "geometry": { "type": "Point", "coordinates": [ -83.579155, 37.818804 ] } },
+{ "type": "Feature", "properties": { "name": "Double Arch", "author": "Bryan Gordon", "link": "https:\/\/bgordonl.github.io\/rrg\/doublearch" }, "geometry": { "type": "Point", "coordinates": [ -83.684035, 37.837542 ] } },
+{ "type": "Feature", "properties": { "name": "Double Arch", "author": "Hannah Johnson", "link": "https:\/\/hmjo226.github.io\/rrg\/doublearch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.684104, 37.837191 ] } },
+{ "type": "Feature", "properties": { "name": "Copperas Creek Waterfall", "author": "Zina Merkin", "link": "https:\/\/zmerkin.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.571291, 37.84221 ] } },
+{ "type": "Feature", "properties": { "name": "Sand Gap Arch", "author": "Paige Williams", "link": "https:\/\/pawi224.github.io\/rrg\/sand_gap\/" }, "geometry": { "type": "Point", "coordinates": [ -83.721876, 37.78199 ] } },
+{ "type": "Feature", "properties": { "name": "Star Gap Arch", "author": "Andy Woods", "link": "https:\/\/s70pl055.github.io\/rrg\/stargaparch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.696161, 37.822917 ] } }
+]
+}
