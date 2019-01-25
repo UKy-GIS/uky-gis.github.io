@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Web Map Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e3e3e6;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: #3d3d3d;
+            font-size: 100%;
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto 28vw;
+            grid-template-rows: auto 20vh;
+        }
+
+        /* Portrait mode */
+
+        #map {
+            width: 100%;
+            height: 80vh;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        #legend {
+            padding: 10px;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        #legend div {
+            /* display: none; */
+            float: left;
+            margin: 5px 5px 0 0;
+        }
+
+        #legend img {
+            width: 150px;
+            display: inherit;
+        }
+
+        #legend h2 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        #legend p {
+            display: none;
+        }
+
+        #content {
+            height: 20vh;
+            overflow: scroll;
+        }
+
+
+        /* Landscape mode */
+
+        @media screen and (orientation : landscape) {
+
+            #map {
+                width: 100%;
+                height: 100vh;
+                grid-row: 1 / 3;
+                /* Start at 1 and end at 3 */
+                grid-column: 1 / 2;
+
+            }
+
+            #legend {
+                padding: 10px;
+                grid-row: 1 / 3;
+                grid-column: 2 / 3;
+
+            }
+
+            .marker {
+                height: 35px;
+                text-align: center;
+                margin: 0 20px 5px 20px;
+            }
+
+            #legend img {
+                width: 100%;
+                display: inherit;
+            }
+
+            #legend div {
+                float: none;
+                margin: 0 0 5px 0;
+            }
+
+            #content {
+                height: 100vh;
+                overflow: scroll;
+            }
+
+        }
+
+        .leaflet-popup-content {
+            width: 300px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .leaflet-bar a {
+            /* border: 2px solid rgba(244, 244, 244, 0.2); */
+            background: rgba(100, 100, 100, 0.9);
+            color: rgba(244, 244, 244, 0.8);
+        }
+
+        .leaflet-control-layers-expanded {
+            background: rgba(100, 100, 100, 0.9);
+            color: rgba(244, 244, 244, 0.8);
+            font-size: 14.4px;
+            font-weight: bolder;
+        }
+
+        .leaflet-popup-content img {
+            width: 100%;
+        }
+
+        .leaflet-popup-content h2 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        .leaflet-popup-content p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .leaflet-popup-content h2 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div id="map"></div>
+        <div id="legend">
+            <div id="content"></div>
+        </div>
+    </div>
+
+    <!-- HTML for page structure goes here-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="cameras.js"></script>
+    <script>
+        // Set variables for map layers
+        var parkStyle = {
+            layers: [
+                'assets/nps.geojson',
+                'assets/dboone.geojson'
+            ],
+            style: {
+                color: 'orange',
+                weight: 1,
+                opacity: 0.8,
+                fillOpacity: 0,
+                fillColor: 'orange'
+            }
+        }
+
+        // initialize leaflet map
+        var map = L.map('map', {
+            center: [37.25, -85],
+            zoom: 7,
+            minZoom: 4,
+            maxZoom: 9
+        });
+
+        // add some tiles
+        var tilesgray = L.tileLayer('https://www.outragegis.com/weather/goes16/tilesgray/{z}/{x}/{y}.png', {
+            tms: true,
+            opacity: 1,
+            attribution: '<a href="https://geography.as.uky.edu/">UKy Geography</a>'
+        }).addTo(map);
+
+        // add some tiles
+        var tiles = L.tileLayer('https://www.outragegis.com/weather/goes16/frame_goes16/{z}/{x}/{y}.png', {
+            opacity: 1
+        }).addTo(map);
+
+        // Add markers with popups
+        // Start without iterating through data
+
+        markerOne = "<div><h2>" + camName[0] + "</h2>" +
+            "<img src='" + camURL[0] + "'alt='" + camName[0] + " webcam'>" +
+            "<p>Elevation: " + camElev[0] + "ft, looking " +
+            camInfo[0] + "</div>"
+        L.marker(camCoords[0])
+            .addTo(map)
+            .bindPopup(markerOne);
+
+        markerTwo = "<div><h2>" + camName[1] + "</h2>" +
+            "<img src='" + camURL[1] + "'alt='" + camName[1] + " webcam'>" +
+            "<p>Elevation: " + camElev[1] + "ft, looking " +
+            camInfo[1] + "</div>"
+        L.marker(camCoords[1])
+            .addTo(map)
+            .bindPopup(markerTwo);
+
+        markerThree = "<div><h2>" + camName[2] + "</h2>" +
+            "<img src='" + camURL[2] + "'alt='" + camName[2] + " webcam'>" +
+            "<p>Elevation: " + camElev[2] + "ft, looking " +
+            camInfo[2] + "</div>"
+        L.marker(camCoords[2])
+            .addTo(map)
+            .bindPopup(markerThree);
+
+        markerFour = "<div><h2>" + camName[3] + "</h2>" +
+            "<img src='" + camURL[3] + "'alt='" + camName[3] + " webcam'>" +
+            "<p>Elevation: " + camElev[3] + "ft, looking " +
+            camInfo[3] + "</div>"
+        L.marker(camCoords[3])
+            .addTo(map)
+            .bindPopup(markerFour);
+
+        markerFive = "<div><h2>" + camName[4] + "</h2>" +
+            "<img src='" + camURL[4] + "'alt='" + camName[4] + " webcam'>" +
+            "<p>Elevation: " + camElev[4] + "ft, looking " +
+            camInfo[4] + "</div>"
+        L.marker(camCoords[4])
+            .addTo(map)
+            .bindPopup(markerFive);
+
+        markerEight = "<div><h2>" + camName[7] + "</h2>" +
+            "<img src='" + camURL[7] + "'alt='" + camName[7] + " webcam'>" +
+            "<p>Elevation: " + camElev[7] + "ft, looking " +
+            camInfo[4] + "</div>"
+        L.marker(camCoords[7])
+            .addTo(map)
+            .bindPopup(markerEight);
+
+        markerNine = "<div><h2>" + camName[8] + "</h2>" +
+            "<img src='" + camURL[8] + "'alt='" + camName[8] + " webcam'>" +
+            "<p>Elevation: " + camElev[8] + "ft, looking " +
+            camInfo[4] + "</div>"
+        L.marker(camCoords[8])
+            .addTo(map)
+            .bindPopup(markerNine);
+
+        document.getElementById("content").innerHTML = markerOne + markerTwo + markerThree + markerFour + markerFive +
+            markerEight + markerNine
+
+
+
+        /////////////:..://///////////
+        /////////////:..://///////////
+
+        var stateLayer = $.getJSON("assets/states_g.geojson", function (data) {
+
+            var states = L.geoJson(data, {
+                style: function (feature) {
+                    return {
+                        color: 'lightyellow',
+                        // color: '#ffffff',
+                        weight: 1,
+                        opacity: 0.8,
+                        fillOpacity: 0
+                    };
+                }
+            })
+
+            states.addTo(map)
+
+        });
+
+        $.when(stateLayer).done(function () {
+
+            for (i = 0; i < parkStyle.layers.length; i++) {
+
+                $.getJSON(parkStyle.layers[i], function (data) {
+
+                    var parkLayer = L.geoJson(data, {
+
+                        style: function (feature) {
+
+                            return {
+                                color: parkStyle.style.color,
+                                weight: parkStyle.style.weight,
+                                opacity: parkStyle.style.opacity,
+                                fillOpacity: parkStyle.style.fillOpacity,
+                                fillColor: parkStyle.style.fillColor
+                            };
+                        },
+
+                        onEachFeature: function (feature, layer) {
+                            var parkPopup =
+                                `<h2>${feature.properties.Name}</h2><img src="${feature.properties.img}"><br><a href="${feature.properties.url}">Link</a>`
+                            layer.bindPopup(parkPopup)
+                            if (!L.Browser.mobile) {
+                                layer.on('mouseover', function (e) {
+                                    e.target.setStyle({
+                                        fillOpacity: 0.4
+                                    });
+                                    // e.target.openPopup()
+                                });
+                                layer.on('mouseout', function (e) {
+                                    e.target.setStyle({
+                                        fillOpacity: parkStyle.style.fillOpacity
+                                    });
+                                    // e.target.closePopup()
+                                });
+
+                            }
+                        }
+                    })
+
+                    parkLayer.addTo(map)
+
+                });
+            }
+
+        });
+        var basemap_source =
+            'https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}'
+
+        // Leaflet providers attributes
+        var basemap_options = {
+            attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+            bounds: [
+                [-85.0511287776, -179.999999975],
+                [85.0511287776, 179.999999975]
+            ],
+            minZoom: 1,
+            maxZoom: 8,
+            format: 'jpg',
+            time: '',
+            tilematrixset: 'GoogleMapsCompatible_Level',
+            opacity: 0.2
+        };
+
+        // var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
+    </script>
+
+</body>
+
+</html>
