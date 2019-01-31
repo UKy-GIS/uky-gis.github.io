@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Landforms of the Red River Gorge</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <!-- <meta http-equiv="Content-Security-Policy" content="worker-src blob: ; child-src blob: ; img-src data: blob: ; "> -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #d3d3d3;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      color: #3d3d3d;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      font-size: 1.5em;
+      letter-spacing: .04em;
+      margin: 10px 0 0 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: 1.5em;
+      margin: 5px 0 0 0;
+    }
+
+    a {
+      color: #005daa;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- add element to render map -->
+  <div id='map'></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYm95ZG1hcHBlciIsImEiOiJjaWVuNGVrMXAwNXA5czZtMzc5ZmpvZ3Z3In0.SD2y_ZJYKPQlv0en-3z6KQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      // Relief Shading style with custome hillshade and bluegrass region
+      style: 'mapbox://styles/boydmapper/cjqphl2zh297u2rn2cfvweyzt',
+      // zoom: 6.0,
+      // center: [-85.75, 37.75]
+    });
+
+    // Add geolocate control to the map
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
+
+    // Load map and then add layers
+    map.on('load', function() {
+
+      // Get PNG to use as point symbol
+      map.loadImage('arches.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('arches', image);
+      });
+
+      // Locations of student sites
+      var locs = map.addSource('locations', {
+        type: 'geojson',
+        data: 'locations.geojson'
+      });
+
+      // Areas of interest and some not selected by students
+      var aois = map.addSource('aois', {
+        type: 'geojson',
+        data: 'aois.geojson'
+      });
+
+      // Draw the first layer above base map
+      map.addLayer({
+        "id": "areas",
+        "type": "line",
+        "source": "aois",
+        "paint": {
+          "line-color": "#FF04ae",
+          "line-opacity": 1,
+          "line-blur": 2,
+          // "line-dasharray":[2, 2],
+          "line-width": 4
+            }
+      });
+
+      // Draw next layer
+      map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": "locations",
+        "layout": {
+          "icon-image": "arches",
+          "icon-size": 0.6,
+          //"text-field": "{name}",
+          "text-font": ["Open Sans Light", "Arial Unicode MS Bold"],
+          "text-size": 14,
+          "text-offset": [0, 0.87],
+          "text-anchor": "top",
+          "icon-allow-overlap": true,
+          // "icon-ignore-placement": true
+        }
+      });
+
+
+      // Create a popup, but don't add it to the map yet.
+      var popup = new mapboxgl.Popup({
+        // trying to find best way to make popups for mobile
+      });
+
+      map.on('mouseenter', 'points', function(e) {
+
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Get coordinates and description of geojson at event
+        var coords = e.features[0].geometry.coordinates;
+        var description = "<h2>" + e.features[0].properties.name + "</h2>" +
+          "<p>Author: " + e.features[0].properties.author + "<br>" +
+            "<a href='" + e.features[0].properties.link + "' target='_blank'>Link to maps</a></p>";
+
+        // Create popup at event
+        popup.setLngLat(coords)
+          .setHTML(description)
+          .addTo(map);
+      });
+
+      // Remove popup with a click
+      map.on('click', 'points', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

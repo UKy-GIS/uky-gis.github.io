@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "aois",
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "FID_1": 0.0, "Shape_Length": 202054.86688685417, "Shape_Area": 2531389704.5750284 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -83.723701, 37.761322 ], [ -83.720239, 37.887665 ], [ -83.529656, 37.884225 ], [ -83.533443, 37.757888 ], [ -83.723701, 37.761322 ] ] ] ] } }
+]
+}
