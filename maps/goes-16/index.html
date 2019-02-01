@@ -154,6 +154,9 @@
             margin: 0;
         }
 
+        img.webcam {
+            border-radius: 2.5%;
+        }
     </style>
 </head>
 
@@ -209,66 +212,19 @@
         // Add markers with popups
         // Start without iterating through data
 
-        markerOne = "<div><h2>" + camName[0] + "</h2>" +
-            "<img src='" + camURL[0] + "'alt='" + camName[0] + " webcam'>" +
-            "<p>Elevation: " + camElev[0] + "ft, looking " +
-            camInfo[0] + "</div>"
-        L.marker(camCoords[0])
-            .addTo(map)
-            .bindPopup(markerOne);
+        for (var i = 0; i < camName.length; i++) {
+            if (camActive[i] == true) {
+                var marker = "<div><h2>" + camName[i] + "</h2>" +
+                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam'>" +
+                    "<p>Elevation: " + camElev[i] + "ft, looking " +
+                    camInfo[i] + "</div>"
+                L.marker(camCoords[i])
+                    .addTo(map)
+                    .bindPopup(marker);
 
-        markerTwo = "<div><h2>" + camName[1] + "</h2>" +
-            "<img src='" + camURL[1] + "'alt='" + camName[1] + " webcam'>" +
-            "<p>Elevation: " + camElev[1] + "ft, looking " +
-            camInfo[1] + "</div>"
-        L.marker(camCoords[1])
-            .addTo(map)
-            .bindPopup(markerTwo);
-
-        markerThree = "<div><h2>" + camName[2] + "</h2>" +
-            "<img src='" + camURL[2] + "'alt='" + camName[2] + " webcam'>" +
-            "<p>Elevation: " + camElev[2] + "ft, looking " +
-            camInfo[2] + "</div>"
-        L.marker(camCoords[2])
-            .addTo(map)
-            .bindPopup(markerThree);
-
-        markerFour = "<div><h2>" + camName[3] + "</h2>" +
-            "<img src='" + camURL[3] + "'alt='" + camName[3] + " webcam'>" +
-            "<p>Elevation: " + camElev[3] + "ft, looking " +
-            camInfo[3] + "</div>"
-        L.marker(camCoords[3])
-            .addTo(map)
-            .bindPopup(markerFour);
-
-        markerFive = "<div><h2>" + camName[4] + "</h2>" +
-            "<img src='" + camURL[4] + "'alt='" + camName[4] + " webcam'>" +
-            "<p>Elevation: " + camElev[4] + "ft, looking " +
-            camInfo[4] + "</div>"
-        L.marker(camCoords[4])
-            .addTo(map)
-            .bindPopup(markerFive);
-
-        markerEight = "<div><h2>" + camName[7] + "</h2>" +
-            "<img src='" + camURL[7] + "'alt='" + camName[7] + " webcam'>" +
-            "<p>Elevation: " + camElev[7] + "ft, looking " +
-            camInfo[4] + "</div>"
-        L.marker(camCoords[7])
-            .addTo(map)
-            .bindPopup(markerEight);
-
-        markerNine = "<div><h2>" + camName[8] + "</h2>" +
-            "<img src='" + camURL[8] + "'alt='" + camName[8] + " webcam'>" +
-            "<p>Elevation: " + camElev[8] + "ft, looking " +
-            camInfo[4] + "</div>"
-        L.marker(camCoords[8])
-            .addTo(map)
-            .bindPopup(markerNine);
-
-        document.getElementById("content").innerHTML = markerOne + markerTwo + markerThree + markerFour + markerFive +
-            markerEight + markerNine
-
-
+                document.getElementById("content").innerHTML += marker
+            }
+        }
 
         /////////////:..://///////////
         /////////////:..://///////////
