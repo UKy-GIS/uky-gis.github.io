@@ -157,15 +157,48 @@
         img.webcam {
             border-radius: 2.5%;
         }
+
+        img.hires {
+            height: 100vh;
+            z-index: 9999;
+            
+        }
+
+        .webcam:hover {
+            box-shadow: 0 0 10px rgba(255,165,0, 0.9), 0 0px 20px rgba(255,165,0, 0.4);
+        }
+
+        #background {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(68, 68, 68, 0.8);
+            z-index: 9998;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #photo {
+            display:inline-block;
+            margin: 0 auto;
+            height: 100vh;
+            width: 100%;
+            
+        }
     </style>
 </head>
 
 <body>
     <div class="grid-container">
+        <div id="background">
+            <div id="photo"></div>
+        </div>
         <div id="map"></div>
         <div id="legend">
             <div id="content"></div>
         </div>
+
     </div>
 
     <!-- HTML for page structure goes here-->
@@ -215,7 +248,8 @@
         for (var i = 0; i < camName.length; i++) {
             if (camActive[i] == true) {
                 var marker = "<div><h2>" + camName[i] + "</h2>" +
-                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam'>" +
+                    // "<a href='" + camHiRes[i] + "' class='hiRes'>" +
+                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam' onclick=displayYo('" + camHiRes[i] + "')>" + // "</a>" +
                     "<p>Elevation: " + camElev[i] + "ft, looking " +
                     camInfo[i] + "</div>"
                 L.marker(camCoords[i])
@@ -223,8 +257,32 @@
                     .bindPopup(marker);
 
                 document.getElementById("content").innerHTML += marker
+                // var photoDisplay = document.getElementsByClassName("webcam")
+                // photoDisplay.addEventListener("click", function () {
+                //     console.log("hi")
+                // })
             }
         }
+
+        var photoBackground = document.getElementById("background")
+        var photo = document.getElementById("photo")
+        photoBackground.addEventListener("click", function () {
+            console.log("hi")
+            this.style.display = "none"
+        })
+
+
+
+        // var photoDisplay = document.getElementsByClassName("hiRes")
+        // photoDisplay.onclick = function(){console.log("hi")};
+
+        function displayYo (url) {
+            console.log(url)
+            photoBackground.style.display = "inherit"
+            photo.innerHTML = "<img src='" + url + "' class='webcam hires'>"
+
+        }
+                   
 
         /////////////:..://///////////
         /////////////:..://///////////
