@@ -79,7 +79,7 @@
 
         img.hires {
             width: 100%;
-            height:auto;
+            height: auto;
             z-index: 9999;
 
         }
@@ -101,7 +101,7 @@
             position: absolute;
             right: 10px;
             top: 10px;
-            color:white;
+            color: white;
             font-weight: 900;
             font-size: 2em;
         }
@@ -115,7 +115,7 @@
             height: 80%;
             width: 80%;
             z-index: 1000;
-            text-align:center;
+            text-align: center;
             /* background-color: rgb(194, 194, 194); */
         }
 
@@ -162,11 +162,11 @@
             }
 
             img.hires {
-            width: auto;
-            height:100%;
-            z-index: 9999;
+                width: auto;
+                height: 100%;
+                z-index: 9999;
 
-        }
+            }
 
         }
 
@@ -206,18 +206,13 @@
             font-size: 1.8em;
             margin: 0;
         }
-
-        
-
-
-
-        
     </style>
 </head>
 
 <body>
     <div class="grid-container">
-        <div id="background"><p class="close-background" h>×</p>
+        <div id="background">
+            <p class="close-background" h>×</p>
             <div id="photo"></div>
         </div>
         <div id="map"></div>
@@ -247,6 +242,17 @@
                 fillColor: 'orange'
             }
         }
+
+        var cameraMarker = L.icon({
+            iconUrl: 'assets/attraction-15.svg',
+            shadowUrl: 'assets/attraction-15-shadow.png',
+
+            iconSize: [32, 22], // size of the icon
+            shadowSize: [23, 25], // size of the shadow
+            iconAnchor: [16,0], // point of the icon which will correspond to marker's location
+            shadowAnchor: [10, 5], // the same for the shadow
+            // popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
 
         // initialize leaflet map
         var map = L.map('map', {
@@ -279,7 +285,7 @@
                     camHiRes[i] + "')>" + // "</a>" +
                     "<p>Elevation: " + camElev[i] + "ft, looking " +
                     camInfo[i] + "</div>"
-                L.marker(camCoords[i])
+                L.marker(camCoords[i], {icon: cameraMarker})
                     .addTo(map)
                     .bindPopup(marker);
 
