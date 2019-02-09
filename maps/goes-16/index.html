@@ -25,7 +25,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: auto 28vw;
+            grid-template-columns: auto 20vw;
             grid-template-rows: auto 20vh;
         }
 
@@ -73,6 +73,52 @@
             overflow: scroll;
         }
 
+        img.webcam {
+            border-radius: 2.5%;
+        }
+
+        img.hires {
+            width: 100%;
+            height:auto;
+            z-index: 9999;
+
+        }
+
+        .webcam:hover {
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.9), 0 0px 20px rgba(255, 165, 0, 0.4);
+        }
+
+        #background {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(68, 68, 68, 0.8);
+            z-index: 1000;
+        }
+
+        .close-background {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color:white;
+            font-weight: 900;
+            font-size: 2em;
+        }
+
+        #photo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            height: 80%;
+            width: 80%;
+            z-index: 1000;
+            text-align:center;
+            /* background-color: rgb(194, 194, 194); */
+        }
+
 
         /* Landscape mode */
 
@@ -115,11 +161,18 @@
                 overflow: scroll;
             }
 
+            img.hires {
+            width: auto;
+            height:100%;
+            z-index: 9999;
+
+        }
+
         }
 
         .leaflet-popup-content {
             width: 300px;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Lato', sans-serif;
         }
 
         .leaflet-bar a {
@@ -154,44 +207,17 @@
             margin: 0;
         }
 
-        img.webcam {
-            border-radius: 2.5%;
-        }
+        
 
-        img.hires {
-            height: 100vh;
-            z-index: 9999;
-            
-        }
 
-        .webcam:hover {
-            box-shadow: 0 0 10px rgba(255,165,0, 0.9), 0 0px 20px rgba(255,165,0, 0.4);
-        }
 
-        #background {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(68, 68, 68, 0.8);
-            z-index: 9998;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        #photo {
-            display:inline-block;
-            margin: 0 auto;
-            height: 100vh;
-            width: 100%;
-            
-        }
+        
     </style>
 </head>
 
 <body>
     <div class="grid-container">
-        <div id="background">
+        <div id="background"><p class="close-background" h>×</p>
             <div id="photo"></div>
         </div>
         <div id="map"></div>
@@ -249,7 +275,8 @@
             if (camActive[i] == true) {
                 var marker = "<div><h2>" + camName[i] + "</h2>" +
                     // "<a href='" + camHiRes[i] + "' class='hiRes'>" +
-                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam' onclick=displayYo('" + camHiRes[i] + "')>" + // "</a>" +
+                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam' onclick=displayYo('" +
+                    camHiRes[i] + "')>" + // "</a>" +
                     "<p>Elevation: " + camElev[i] + "ft, looking " +
                     camInfo[i] + "</div>"
                 L.marker(camCoords[i])
@@ -276,13 +303,13 @@
         // var photoDisplay = document.getElementsByClassName("hiRes")
         // photoDisplay.onclick = function(){console.log("hi")};
 
-        function displayYo (url) {
+        function displayYo(url) {
             console.log(url)
             photoBackground.style.display = "inherit"
             photo.innerHTML = "<img src='" + url + "' class='webcam hires'>"
 
         }
-                   
+
 
         /////////////:..://///////////
         /////////////:..://///////////
