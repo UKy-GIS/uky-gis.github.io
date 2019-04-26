@@ -2,7 +2,7 @@
 
 The UKy Department of Geography will celebrate its 75th Anniversary during the 2018-2019 academic calendar. The repository will showcase archival material in association with this celebration.
 
-* Presentation: [HTML](slides), [individual JPEGs](https://github.com/UKy-GIS/uky-gis.github.io/tree/master/history/slides), and [source Keynote file and zipped slides](https://outragegis.com/download/m/)
+* Presentation: [HTML](slides), [individual JPEGs](https://github.com/UKy-GIS/uky-gis.github.io/tree/master/history/slides), and [a PPT of images](https://outragegis.com/download/m/geo_aniv_pres.pptx)
 * Georeferenced [maps](maps) of campustown
 
 ## Assets for presentation
