@@ -14,6 +14,14 @@
 { "type": "Feature", "properties": { "name": "Double Arch", "author": "Hannah Johnson", "link": "https:\/\/hmjo226.github.io\/rrg\/doublearch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.684104, 37.837191 ] } },
 { "type": "Feature", "properties": { "name": "Copperas Creek Waterfall", "author": "Zina Merkin", "link": "https:\/\/zmerkin.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.571291, 37.84221 ] } },
 { "type": "Feature", "properties": { "name": "Sand Gap Arch", "author": "Paige Williams", "link": "https:\/\/pawi224.github.io\/rrg\/sand_gap\/" }, "geometry": { "type": "Point", "coordinates": [ -83.721876, 37.78199 ] } },
-{ "type": "Feature", "properties": { "name": "Star Gap Arch", "author": "Andy Woods", "link": "https:\/\/s70pl055.github.io\/rrg\/stargaparch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.696161, 37.822917 ] } }
+{ "type": "Feature", "properties": { "name": "Star Gap Arch", "author": "Andy Woods", "link": "https:\/\/s70pl055.github.io\/rrg\/stargaparch\/" }, "geometry": { "type": "Point", "coordinates": [ -83.696161, 37.822917 ] } },
+{ "type": "Feature", "properties": { "name": "Double Arch", "author": "Johnny Eblin", "link": "https:\/\/jseb223.github.io\/rrg\/" }, "geometry": { "type": "Point", "coordinates": [ -83.684163591787339, 37.836944607779635 ] } },
+{ "type": "Feature", "properties": { "name": "Natural Bridge", "author": "Hayden Dickens", "link": "https:\/\/hmdi225.github.io\/rrg\/map\/" }, "geometry": { "type": "Point", "coordinates": [ -83.685413626779905, 37.773187517392444 ] } },
+{ "type": "Feature", "properties": { "name": "Natural Bridge", "author": "Emmanuel Banjoko", "link": "https:\/\/ebanxx.github.io\/rrg\/map" }, "geometry": { "type": "Point", "coordinates": [ -83.6852688686579, 37.773145909067054 ] } },
+{ "type": "Feature", "properties": { "name": "Whistling Arch", "author": "Amanda Breseman", "link": "https:\/\/abreseman.github.io\/rrg" }, "geometry": { "type": "Point", "coordinates": [ -83.591861611392446, 37.809984902190656 ] } },
+{ "type": "Feature", "properties": { "name": "Half Moon", "author": "Zachary Hignite", "link": "https:\/\/zhhi222.github.io\/rrg\/map\/" }, "geometry": { "type": "Point", "coordinates": [ -83.621934126439555, 37.819988839607753 ] } },
+{ "type": "Feature", "properties": { "name": "Upper Whitleton", "author": "Haley Johnson", "link": "https:\/\/hrjo227.github.io\/rrg\/lab-9" }, "geometry": { "type": "Point", "coordinates": [ -83.660127353512223, 37.780396976556752 ] } },
+{ "type": "Feature", "properties": { "name": "Sky Bridge", "author": "Tyler Maynard", "link": "https:\/\/tyjmaynard.github.io\/rrg\/info" }, "geometry": { "type": "Point", "coordinates": [ -83.579597476789274, 37.818687006817356 ] } },
+{ "type": "Feature", "properties": { "name": "Courthouse Rock", "author": "Tasty Freeze", "link": "https:\/\/tastyfreeze.github.io\/rrg\/courthouse" }, "geometry": { "type": "Point", "coordinates": [ -83.678534597807655, 37.842516604103622 ] } }
 ]
 }
