@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<html>
+
+<head>
+  <title>Kentucky Population Density, 2010</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel='icon' href='../favicon.ico' type='image/x-icon' />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    a {
+      color: #004A8B;
+    }
+
+    a:hover {
+      color: rgb(67, 69, 71);
+      text-decoration: none;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: #2C2C2C;
+    }
+
+    /* #overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      display:none;
+      z-index: 900;
+    }
+
+    #overlay img {
+      position: absolute;
+      top: 10%;
+    } */
+
+    .leaflet-container {
+      background: #fff;
+      outline: 0;
+    }
+
+    .leaflet-popup-content {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1em;
+    }
+
+    .leaflet-popup-content h2 {
+      margin-bottom: 5px;
+    }
+
+    .leaflet-control-locate a {
+      font-size: 1.4em;
+      color: #444;
+      cursor: pointer
+    }
+
+    .leaflet-control-locate.active a {
+      color: #2074B6
+    }
+
+    .leaflet-control-locate.active.following a {
+      color: #FC8428
+    }
+
+    /*# sourceMappingURL=L.Control.Locate.min.css.map */
+
+    #geo_yall_contain {
+      width: 80%;
+      z-index: 1000;
+      margin: auto;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%)
+    }
+
+    #geo_yall {
+      width: 100%;
+
+    }
+
+    #geo_yall_contain img {
+      -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+    }
+
+    #info-button {
+      padding: 8px 5px;
+      font-size: 0.9em;
+      font-weight: bolder;
+      border: 2px solid rgba(0, 0, 0, 0.24);
+      /* background: rgba(146, 239, 146, 0.8); */
+      background: rgba(250, 250, 250, 0.9);
+      /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); */
+      border-radius: 5px;
+      position: fixed;
+      top: 11px;
+      right: 11px;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    #footer {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      font-size: 1.4em;
+      height: 0vh;
+      /* height: 50vh; */
+      padding: 0px;
+      z-index: 9000;
+      position: absolute;
+      bottom: -10px;
+      overflow: scroll;
+    }
+
+    #footer div {
+      padding: 10px;
+    }
+
+    #footer h1 {
+      font-size: 1.4em;
+      margin: 0 0 5px 20px;
+    }
+
+    #footer p {
+      font-size: 1.2em;
+      margin: 0 0 0 20px;
+    }
+
+    .footer-img {
+      float: right;
+      width: 20%;
+      margin: 10px;
+    }
+
+    .footer-svg {
+      float: left;
+      width: 60%;
+      margin: 10px;
+    }
+
+    #footer div:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .layerLabel {
+      font-size: 1.1em;
+      font-weight: bolder;
+    }
+
+    #legend .legend-items img {
+      float: left;
+      /* width: 28px; */
+      height: 28px;
+      margin-right: 5px;
+    }
+
+    .legend-items {
+      float: left;
+      padding: 2px 10px 2px 2px;
+      margin: 0 0 8px 0;
+      font-size: 1.4em;
+    }
+
+    @media only screen and (max-width: 786px) {
+
+      #footer h1 {
+        font-size: 1.1em;
+        margin: 0 0 5px 20px;
+      }
+
+      #footer p {
+        font-size: 0.8em;
+        margin: 0 0 0 20px;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div id="geo_yall_contain"> <img src="title.svg" id="geo_yall" alt="UK Geography Y'all!" title="UK Geography Y'all!">
+  </div>
+
+  <div id="map"></div>
+
+  <button id="info-button" onclick="myInfo()">Information</button>
+  <div id='footer'>
+    <div>
+      <a href="https://geography.as.uky.edu/"><img src="https://uky-gis.github.io/graphics/logo-color-400px.png"
+          class="footer-img"></a>
+      <h1>Kentucky population density</h1>
+      <p>By census block, 2010. Source: <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2010.html">US Census Bureau</a>.</p>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
+    <script>
+      var map = L.map('map')
+
+      $.getJSON("ky_county.geojson", function (data) {
+        var ky = L.geoJson(data, {
+          style: function (feature) {
+            return {
+              weight: 0,
+              fillOpacity: 0
+            };
+          },
+          onEachFeature: function (feature, layer) {
+            layer.on('mouseover', function () {
+              // change the stroke color and bring that element to the front
+              layer.setStyle({
+                weight: 2,
+                color: '#ff8c00'
+              }).bringToFront();
+              geo_yall()
+            });
+
+            layer.on('mouseout', function () {
+              layer.setStyle({
+                fillOpacity: 0,
+                weight: 0
+              });
+              layer.closePopup();
+
+            });
+
+            layer.on('click', function () {
+              layer.setStyle({
+                fillOpacity: 0.2,
+                fillColor: '#ff8c00',
+                weight: 5
+              });
+              geo_yall() // for mobile
+            });
+            var popupContent = `<h2>${feature.properties.NAME} County</h2>
+                                Population: <b>${feature.properties.pop_2010_pop.toLocaleString()}</b><br>
+                                Land area: <b>${feature.properties.pop_2010_sq_mi.toLocaleString()}</b> mi<sup>2</sup><br>
+                                Density: <b>${feature.properties.pop_2010_pop_per_mile.toLocaleString()}</b> people per mi<sup>2</sup><br>`
+            layer.bindPopup(popupContent)
+          }
+
+        }).addTo(map);
+
+        map.fitBounds(ky.getBounds(), {
+          paddingTopLeft: [0, -50]
+        });
+
+      })
+
+      // remove banner svg on move
+      map.on("zoomend", function () {
+        // geo_yall() Remove because pf fitBounds causes zoom
+      })
+
+      $("#geo_yall").click(function () {
+        geo_yall()
+      });
+
+      $("#geo_yall").hover(function () {
+        geo_yall()
+      });
+
+      var options = {
+        minZoom: 1,
+        maxZoom: 12,
+        opacity: 1.0,
+        // tms: true,
+        zoomSnap: 0.1,
+        attribution: "<a href='https://uky-gis.github.io/'>UKy Geography</a>" // | &copy; <a href='https://openstreetmap.org'>OSM Contributors</a>
+      };
+
+      L.tileLayer('https://outragegis.com/tiles/ky_pop_density_2010/{z}/{x}/{y}.png', options).addTo(map); // add the map!
+      var label = L.tileLayer('https://outragegis.com/tiles/ky_pop_density_2010/{z}/{x}/{y}.png', {
+        maxZoom: 12,
+        minZoom: 5,
+        opacity: 0.8
+      })
+
+      var locate_options = {
+        watch: true,
+        enableHighAccuracy: true,
+        position: 'topleft'
+      };
+      L.control.locate(locate_options).addTo(map);
+
+      L.control.scale().addTo(map); // maps like this need scales, yo!
+
+      /* ----  Remove overlay ---- */
+
+      function geo_yall() {
+        var switched = document.getElementById("geo_yall")
+        switched.style.display = "none"
+        console.log(map.getZoom())
+        if (map.getZoom() < 5) {
+          switched.style.display = "block"
+        } else {
+          // document.getElementById("overlay").style.display = "none"
+          switched.style.display = "none"
+        }
+      }
+
+      /* --------------- Toggle on/off info footer content ---------------  */
+      var clicked = false
+
+      function myInfo() {
+
+        var x = document.getElementById('footer');
+        if (clicked === true) {
+          x.style.height = '0px';
+        } else {
+          x.style.height = '25vh';
+        }
+
+        var y = document.getElementById('info-button');
+        if (clicked === true) {
+          y.style.background = 'rgba(230, 230, 230, 0.9)'
+          clicked = false
+        } else {
+          y.style.background = 'rgba(146, 239, 146, 0.8)'
+          clicked = true
+        }
+      }
+    </script>
+</body>
+
+</html>
