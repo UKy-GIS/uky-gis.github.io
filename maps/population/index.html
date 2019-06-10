@@ -81,7 +81,7 @@
 
     /*# sourceMappingURL=L.Control.Locate.min.css.map */
 
-    #geo_yall_contain {
+    #geo_yall {
       width: 80%;
       z-index: 1000;
       margin: auto;
@@ -89,20 +89,26 @@
       top: 35%;
       left: 50%;
       -webkit-transform: translateX(-50%);
-      transform: translateX(-50%)
+      transform: translateX(-50%);
+      /* display: none; */
     }
 
-    #geo_yall {
-      width: 100%;
-
+    #smallBanner {
+      position: absolute;
+      z-index: 1000;
+      width: 300px;
+      bottom: 20px;
+      right: 10px;
     }
 
-    #geo_yall_contain img {
+    .geo_yall_title {
       -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
       filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+      width: 100%;
     }
 
-    #info-button {
+    #info-button,
+    #title {
       padding: 8px 5px;
       font-size: 0.9em;
       font-weight: bolder;
@@ -111,11 +117,24 @@
       background: rgba(250, 250, 250, 0.9);
       /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); */
       border-radius: 5px;
-      position: fixed;
+      position: absolute;
       top: 11px;
       right: 11px;
       z-index: 9999;
       cursor: pointer;
+    }
+
+    #title {
+      padding: 10px 7px;
+      top: 11px;
+      left: 55px;
+      display: none;
+      max-width: 200px;
+      text-align: center;
+    }
+
+    #title h2 {
+      margin: 0px;
     }
 
     #footer {
@@ -201,12 +220,11 @@
 </head>
 
 <body>
-  <div id="geo_yall_contain"> <img src="title.svg" id="geo_yall" alt="UK Geography Y'all!" title="UK Geography Y'all!">
-  </div>
-
   <div id="map"></div>
-
+  <div id="title"></div>
   <button id="info-button" onclick="myInfo()">Information</button>
+  <div id="geo_yall"> <img src="title.svg" class="geo_yall_title" alt="UK Geography Y'all!" title="UK Geography Y'all!">
+  </div>
   <div id='footer'>
     <div>
       <a href="https://geography.as.uky.edu/"><img src="https://uky-gis.github.io/graphics/logo-color-400px.png"
@@ -222,11 +240,34 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
 
     <script>
+      // Grab URL Parameters
+      var GET = {};
+      var query = window.location.search.substring(1).split("&");
+      for (var i = 0, max = query.length; i < max; i++) {
+        if (query[i] === "") // check for trailing & with no param
+          continue;
+        var param = query[i].split("=");
+        GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || "");
+      }
+      // ************************************************************************
+      // If no URL parameters are found, set default values.
+      // ************************************************************************
+
+      // Get County
+      if (GET.county == undefined) {
+        var county; // default is nothing
+      } else {
+        var county = GET.county.toLowerCase()
+      }
+
+      // ************************************************************************
+      // End
+      // ************************************************************************
+      var myInfoClicked = false;
       var map = L.map('map')
-      var county = 'Fayette'
 
       $.getJSON("ky_county.geojson", function (data) {
-        var countySelected
+        var countySelected = L.featureGroup()
         var ky = L.geoJson(data, {
           style: function (feature) {
             return {
@@ -241,7 +282,7 @@
                 weight: 2,
                 color: '#ff8c00'
               }).bringToFront();
-              geo_yall()
+              // geo_yall()
             });
 
             layer.on('mouseout', function () {
@@ -259,43 +300,42 @@
                 fillColor: '#ff8c00',
                 weight: 5
               });
-              geo_yall() // for mobile
+              // geo_yall() // for mobile
             });
 
+            console.log(feature.properties.NAME)
 
             var popupContent = `<h2>${feature.properties.NAME} County</h2>
                                 Population: <b>${feature.properties.pop_2010_pop.toLocaleString()}</b><br>
                                 Land area: <b>${feature.properties.pop_2010_sq_mi.toLocaleString()}</b> mi<sup>2</sup><br>
                                 Density: <b>${feature.properties.pop_2010_pop_per_mile.toLocaleString()}</b> people per mi<sup>2</sup><br>`
+            
             layer.bindPopup(popupContent)
 
-            if (county.toLowerCase() == feature.properties.NAME.toLowerCase()) {
-              var countyXY = []
-              for (var i = 0; i < feature.geometry.coordinates[0].length; i++) {
-                // Gotta be a better way pull out county names
-                countyXY.push([feature.geometry.coordinates[0][i][1],feature.geometry.coordinates[0][i][0]])
-              }
-              countySelected = L.polygon(countyXY, {color: 'red', fillOpacity: 0})
+            // Create county polygon from URL parameter
+            if (county == feature.properties.NAME.toLowerCase()) {
+              countySelected.addLayer(layer)
+              layer.setStyle({
+                weight: 5,
+                color: 'red'
+              }).bringToFront()
+              var title = document.getElementById("title")
+              title.style.display = "inline"
+              title.innerHTML = `<h2>${feature.properties.NAME} County</h2>`
             }
-
           }
         }).addTo(map);
 
-        map.fitBounds(ky.getBounds(), {
+        
+
+        if (countySelected.getLayers().length > 0) {
+          map.fitBounds(countySelected.getBounds())
+          geo_yall(true) // move banner 
+        } else {
+          map.fitBounds(ky.getBounds(), {
           paddingTopLeft: [0, -50]
         });
-
-        if (county != null) {
-          countySelected.addTo(map)
-          map.fitBounds(countySelected.getBounds())
         }
-
-        
-      })
-
-      // remove banner svg on move
-      map.on("zoomend", function () {
-        // geo_yall() Remove because pf fitBounds causes zoom
       })
 
       $("#geo_yall").click(function () {
@@ -305,6 +345,7 @@
       $("#geo_yall").hover(function () {
         geo_yall()
       });
+
 
       var options = {
         minZoom: 1,
@@ -329,52 +370,46 @@
       };
       L.control.locate(locate_options).addTo(map);
 
-      L.control.scale().addTo(map); // maps like this need scales, yo!
+      L.control.scale().addTo(map); 
 
-      /* ----  Remove overlay ---- */
-
-      function geo_yall() {
-        var switched = document.getElementById("geo_yall")
-        switched.style.display = "none"
+      map.on("zoomend", function() {
         console.log(map.getZoom())
-        if (map.getZoom() < 5) {
-          switched.style.display = "block"
-        } else {
-          // document.getElementById("overlay").style.display = "none"
-          switched.style.display = "none"
+        if (map.getZoom()< 10) {
+          var title = document.getElementById("title")
+          title.style.display = "none"
         }
-      }
+      })
 
-      function zoomToCounty(counties, county) {
-        console.log(counties._layers)
-        for (var x in counties._layers) {
-          console.log(counties._layers[x])
-          if (county == counties._layers[x].properties.NAME) {
-            return L.polygon(counties._layers[x].geometry.coordinates, { color: 'red' })
-          }
+      /* ---------------  Remove and add overlay --------------- */
+      function geo_yall(county) {
+        var banner = document.getElementById("geo_yall")
+        // banner.style.display = "none"
+
+        if (county == true) {
+          banner.setAttribute("id", "smallBanner")
+        } else if (map && map.getZoom() < 5) {
+          banner.setAttribute("id", "geo_yall")
+        } else if (banner != null) {
+          banner.setAttribute("id", "smallBanner")
         }
-
       }
 
       /* --------------- Toggle on/off info footer content ---------------  */
-      var clicked = false
-
       function myInfo() {
-
         var x = document.getElementById('footer');
-        if (clicked === true) {
+        if (myInfoClicked === true) {
           x.style.height = '0px';
         } else {
           x.style.height = '25vh';
         }
 
         var y = document.getElementById('info-button');
-        if (clicked === true) {
+        if (myInfoClicked === true) {
           y.style.background = 'rgba(230, 230, 230, 0.9)'
-          clicked = false
+          myInfoClicked = false
         } else {
           y.style.background = 'rgba(146, 239, 146, 0.8)'
-          clicked = true
+          myInfoClicked = true
         }
       }
     </script>
