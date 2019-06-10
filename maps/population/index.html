@@ -212,7 +212,9 @@
       <a href="https://geography.as.uky.edu/"><img src="https://uky-gis.github.io/graphics/logo-color-400px.png"
           class="footer-img"></a>
       <h1>Kentucky population density</h1>
-      <p>By census block, 2010. Source: <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2010.html">US Census Bureau</a>.</p>
+      <p>By census block, 2010. Source: <a
+          href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2010.html">US Census
+          Bureau</a>.</p>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -221,8 +223,10 @@
 
     <script>
       var map = L.map('map')
+      var county = 'Fayette'
 
       $.getJSON("ky_county.geojson", function (data) {
+        var countySelected
         var ky = L.geoJson(data, {
           style: function (feature) {
             return {
@@ -257,19 +261,36 @@
               });
               geo_yall() // for mobile
             });
+
+
             var popupContent = `<h2>${feature.properties.NAME} County</h2>
                                 Population: <b>${feature.properties.pop_2010_pop.toLocaleString()}</b><br>
                                 Land area: <b>${feature.properties.pop_2010_sq_mi.toLocaleString()}</b> mi<sup>2</sup><br>
                                 Density: <b>${feature.properties.pop_2010_pop_per_mile.toLocaleString()}</b> people per mi<sup>2</sup><br>`
             layer.bindPopup(popupContent)
-          }
 
+            if (county.toLowerCase() == feature.properties.NAME.toLowerCase()) {
+              var countyXY = []
+              for (var i = 0; i < feature.geometry.coordinates[0].length; i++) {
+                // Gotta be a better way pull out county names
+                countyXY.push([feature.geometry.coordinates[0][i][1],feature.geometry.coordinates[0][i][0]])
+              }
+              countySelected = L.polygon(countyXY, {color: 'red', fillOpacity: 0})
+            }
+
+          }
         }).addTo(map);
 
         map.fitBounds(ky.getBounds(), {
           paddingTopLeft: [0, -50]
         });
 
+        if (county != null) {
+          countySelected.addTo(map)
+          map.fitBounds(countySelected.getBounds())
+        }
+
+        
       })
 
       // remove banner svg on move
@@ -322,6 +343,17 @@
           // document.getElementById("overlay").style.display = "none"
           switched.style.display = "none"
         }
+      }
+
+      function zoomToCounty(counties, county) {
+        console.log(counties._layers)
+        for (var x in counties._layers) {
+          console.log(counties._layers[x])
+          if (county == counties._layers[x].properties.NAME) {
+            return L.polygon(counties._layers[x].geometry.coordinates, { color: 'red' })
+          }
+        }
+
       }
 
       /* --------------- Toggle on/off info footer content ---------------  */
