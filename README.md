@@ -1,16 +1,17 @@
-# uky-gis.github.io
+# Welcome to UKy Mapping and GIS
 
-Welcome to mapping and GIS (geographic information systems) in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases opportunities and successes that students have at the University to learn map making and GIS.
+We make maps in the [Department of Geography](https://geography.as.uky.edu/) at the University of Kentucky. This repository showcases the opportunities and successes that students have at the University to learn map making and GIS. 
 
 ## Table of Contents
 
 <!-- TOC -->
 
-- [uky-gis.github.io](#uky-gisgithubio)
+- [Welcome to UKy Mapping and GIS](#welcome-to-uky-mapping-and-gis)
     - [Table of Contents](#table-of-contents)
-    - [Location](#location)
+    - [Location of UKy GEO](#location-of-uky-geo)
     - [Geography Department's 75th Anniversary](#geography-departments-75th-anniversary)
         - [Stories and maps](#stories-and-maps)
+        - [History of the Geography Department](#history-of-the-geography-department)
     - [Course opportunities](#course-opportunities)
         - [Master of Science (MS) and Graduate Certificate in in Digital Mapping](#master-of-science-ms-and-graduate-certificate-in-in-digital-mapping)
         - [Mapping and GIS - Undergraduate Minor](#mapping-and-gis---undergraduate-minor)
@@ -18,14 +19,16 @@ Welcome to mapping and GIS (geographic information systems) in the [Department o
         - [Short courses](#short-courses)
     - [Video on Vimeo](#video-on-vimeo)
     - [Examples of student work](#examples-of-student-work)
-    - [History of the Geography Department](#history-of-the-geography-department)
 
 <!-- /TOC -->
 
-## Location
+## Location of UKy GEO
 
-![Lexington, Kentucky](graphics/geogyall_v1.jpg)
-Lexington is the second largest city in Kentucky and home to the University of Kentucky. This [aerial photograph from 1971](https://uky-gis.github.io/history/maps/1971/) shows central campus, the home of UK Geography.
+[![Lexington, Kentucky](graphics/geogyall_v1.jpg)](https://uky-gis.github.io/history/maps/1971/)
+Lexington is the second largest city in Kentucky and home to the University of Kentucky. This [aerial photograph from 1971](https://uky-gis.github.io/history/maps/1971/) shows central campus, the home of UK Geography.]
+
+[![Kentucky population density](graphics/ky_pop_density.png)](https://uky-gis.github.io/maps/population)
+Lexington created an urban service area in the late 1950s, the first in the nation. This [2010 population density map](https://uky-gis.github.io/maps/population/) created in GEO 309 shows the abrupt transition between urban and rural census blocks around Lexington.
 
 ## Geography Department's 75th Anniversary
 
@@ -36,6 +39,14 @@ We are celebrating our 75th Anniversary during the 2018-2019 school year. The De
 * Slide [show](history/slides) for the early years of the Department and campus
 * Georeferenced [historic maps](history/maps) of campustown
 * Geocache [challenge](https://gitpitch.com/boydx/geosalad/geocache_00)
+
+### History of the Geography Department
+
+![History of the Geography Department](graphics/UKy-GIS.jpg)   
+Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
+
+* Wikipedia [entry](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky) and departmental home page [entry](https://geography.as.uky.edu/departmental-history)
+* Other [resources](history)
 
 ## Course opportunities
 
@@ -75,8 +86,11 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 
 ## Examples of student work
 
+newmapplus-student-projects.jpg
+
 | Preview       | Description     |
 | :-------------: |:-------------:|
+| ![img](graphics/newmapplus-student-projects.jpg) | A random collection of student projects from our graduate certificate program. [Link](https://newmapsplus.github.io/projects/)   |
 | ![img](https://i1.wp.com/www.outragegis.com/trails/wp-content/uploads/2019/01/rrg-project.jpg) | Arches of the Red River Gorge mapped and visualized by GEO 409 Fall 2018 students. [Link](https://uky-gis.github.io/maps/rrg-arches/)   |
 | ![img](https://farm1.staticflickr.com/977/40242417740_599d8bc349.jpg) | Bluegrass region parks and adventures mapped in many ways by GEO 409 Spring 2018 students. [Link](https://tastyfreeze.github.io/bluegrass/region/)   |
 | ![img](https://i0.wp.com/farm5.staticflickr.com/4640/38302538375_fe4165cb8e_n.jpg) | Lidar tree heights in specific neighborhood associations in Lexington, Kentucky to feature ecosystem services provided by urban tree canopy.  [Link](https://rvirto01.github.io/NRE355_Tree_canopy_study/)   |
@@ -95,11 +109,6 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 | ![img](graphics/amtrack.png)   | Amtrak Usage by State [Link](https://nmp.carto.com/u/kerryg/builder/deca6676-7d91-4a90-b4c8-e566b290fa99/embed) |
 | ![img](graphics/bay-area.png)   | 2015 Bay Area Car vs. Bike/Pedestrian Collisions [Link](https://nmp.carto.com/u/watkinsr/builder/3301c2a9-90c4-43a4-b11f-1cafd238df29/embed) |
 
-## History of the Geography Department
 
-![History of the Geography Department](graphics/UKy-GIS.jpg)   
-Karl Raitz's [Photography of Kentucky](https://exploreuk.uky.edu/catalog?f[source_s][]=Karl%20Raitz%20Kentucky%20slides)
 
-* Wikipedia [entry](https://en.wikipedia.org/wiki/Department_of_Geography,_University_of_Kentucky) and departmental home page [entry](https://geography.as.uky.edu/departmental-history)
-* Other [resources](history)
 
