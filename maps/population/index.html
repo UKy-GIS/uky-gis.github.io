@@ -243,7 +243,7 @@
       // Grab URL Parameters
       var GET = {};
       var query = window.location.search.substring(1).split("&");
-      for (var i = 0, max = query.length; i < max; i++) {
+      for (var i = 0; i < query.length; i++) {
         if (query[i] === "") // check for trailing & with no param
           continue;
         var param = query[i].split("=");
