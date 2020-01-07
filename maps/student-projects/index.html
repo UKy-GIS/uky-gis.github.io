@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Geography student projects</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+    <link rel="stylesheet" href="assets/MarkerCluster.css">
+    <link rel="stylesheet" href="assets/MarkerCluster.Default.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+
+.leaflet-popup-content h2{
+    margin-bottom: 2px;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+
+    <div id='map'></div>
+    <div id="container"></div>
+    <div id="logo">
+        <div class='contentBlock'>
+            <img src="/graphics/geo_logo_2020.png" class="logoImg">
+            <div class='logoHeader'>
+                <h1>A collection of student projects</h1>
+                <h2><a href="#">Click to explore</a></h2>
+            </div>
+            <img src="https://uky-gis.github.io/graphics/logo-color-400px.png" class="ukyLogo">
+        </div>
+    </div>
+    <button id="info-button">Enable Legend</button>
+    </div>
+    <div id='footer'>
+        <div class="row">
+            <div class="first-column">
+                <h1>A collection of student projects</h1>
+                <!-- <h2>Legend</h2> -->
+                <p><img src="assets/uky-geo-pin.svg" class="icon">A student project.
+                <!-- <p><img src="assets/nmp-globe-background-40.png" class="icon">Areas with more than one project.</p> -->
+                <!-- <p><img src="assets/nmp-globe-background-orange-40.png" class="icon">Areas with more than twenty projects.</p> -->
+
+            </div>
+            <div class="column">
+                <a href="/"><img src="/graphics/geo_logo_2020.png" class="ukyLogo" alt="UKy Mapping and GIS major/minor"
+                        title="UKy Mapping and GIS major/minor"></a>
+
+                <a href="https://geography.as.uky.edu/"><img src="/graphics/logo-color-400px.png"
+                        class="ukyLogo" alt="University of Kentucky Geography Department" title="University of Kentucky Geography Department"></a>
+                       
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+    <script src="assets/leaflet.markercluster.js"></script>
+
+
+    <script>
+        var map = L.map('map').setView([37.7, -84.5], 8);
+        var options = {
+            minZoom: 0,
+            maxZoom: 12,
+            opacity: 1,
+            tms: true,
+            attribution: 'Elevation &copy; <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
+        };
+        var tiles = L.tileLayer('https://outragegis.com/tiles/world/ne_v01/{z}/{x}/{y}.jpg', options).addTo(map);
+
+        var Stamen_TonerLite = L.tileLayer(
+            'https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                minZoom: 0,
+                maxZoom: 12,
+                opacity: 0.5,
+                ext: 'png'
+            });
+
+        var nmpIcon = L.icon({
+            iconUrl: 'assets/uky-geo-pin.svg',
+            // shadowUrl: 'assets/uky-geo-pin.png',
+
+            iconSize: [100, 100], // size of the icon
+            // shadowSize: [50, 25], // size of the shadow
+            iconAnchor: [25, 50], // point of the icon which will correspond to marker's location
+            // shadowAnchor: [10, 25], // the same for the shadow
+            popupAnchor: [20, -20] // point from which the popup should open relative to the iconAnchor
+        });
+
+        Stamen_TonerLite.addTo(map);
+
+        // remove banner svg on move
+        $('html').click(function () {
+            var switched = document.getElementById("container")
+            switched.style.display = "none"
+            switched = document.getElementById("logo")
+            switched.style.display = "none"
+        });
+
+        $.getJSON("projects.geojson", function (data) {
+
+            var markers = L.markerClusterGroup({
+                maxClusterRadius: 50,
+
+                polygonOptions: {
+                    color: '#063793',
+                    fillColor: '#063793',
+                    dashArray: '1 4'
+                },
+
+                iconCreateFunction: function (cluster) {
+
+                    var options = {
+                        html:`<div id="clusterDiv">${cluster.getChildCount()}<p><b>more</b></p></div>`,
+                        className: 'clusterIcon01',
+                        iconSize: L.point(40, 40)
+                    }
+
+                    if (cluster.getChildCount() >= 20) {
+                        options.className = 'clusterIcon02'
+                    }
+                    return L.divIcon(options);
+                }
+            });
+            var students = L.geoJson(data, {
+
+                pointToLayer: function (geoJsonPoint, latlng) {
+                    return L.marker(latlng, {
+                        icon: nmpIcon
+                    });
+
+                },
+
+                onEachFeature: function (feature, layer) {
+                    // var city = titleCase(feature.properties.City)
+                    var t = feature.properties
+                    if (t.info == null) { 
+                        var info = ""
+                    } else {
+                        var info = t.info
+                    }
+                    if (t.author == null) { 
+                        var author = ""
+                    } else {
+                        var author = t.author
+                    }
+                    var popup = `<h2>${t.title}</h2><p>${info}</p><a href='${t.link}'><img src='${t.thumb}' width='100%'>
+                                Link</a><br><i>${author}</i>`
+
+                    if (L.Browser.mobile) {
+                        layer.bindPopup(popup)
+                    } else {
+                        layer.bindPopup(popup)
+                    }
+                    markers.addLayer(layer);
+                }
+
+
+            });
+
+            // Add layer to map!
+            // students.addTo(map)
+
+            markers.addTo(map)
+
+        });
+
+        /* Make sure title case is enforced! */
+
+        var titleCase = function (str) {
+            str = str.toLowerCase().split(' ');
+            for (var i = 0; i < str.length; i++) {
+                str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+            }
+            return str.join(' ');
+        };
+
+        /* Toggle on/off info footer content  */
+
+        var clicked = false
+
+        var x = document.getElementById('footer');
+        var y = document.getElementById('info-button');
+
+        y.onclick = function () {
+
+            if (clicked === true) {
+                x.style.height = '0px';
+                y.style.background = 'rgba(255, 255, 255, 1)'
+                y.style.color = '#333'
+                y.innerHTML = "Legend"
+                clicked = false
+            } else {
+                x.style.height = '50vh';
+                y.style.color = 'white'
+                y.style.background = '#063793'
+                y.innerHTML = "Legend"
+                clicked = true
+            }
+        }
+    </script>
+
+</body>
+
+</html>

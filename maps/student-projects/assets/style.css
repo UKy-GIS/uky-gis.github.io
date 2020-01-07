@@ -6,19 +6,20 @@ body {
 }
 
 a {
-    text-decoration: none;
-    color: #1aaaac;
+    text-decoration: underline;
+    color: #c7c9c8;
     /* WTF mate! */
-    text-shadow:    0 0 1px #fff;
+    text-shadow: 0 0 1px #000 1 1 2px #000;
 }
 
-#footer a {
+#footer a, h2 a {
     text-decoration: underline;
+    color: #063793;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #e18a0d;
+#footer a:hover, h2 a:hover{
+    color: #063793;
+    text-decoration: none;
 }
 
 #map {
@@ -92,7 +93,7 @@ a:hover {
     overflow: scroll;
 }
 
-#footer .row{
+#footer .row {
     margin: 0 10px;
 }
 
@@ -116,15 +117,16 @@ a:hover {
 #footer .icon {
     position: relative;
     /* Adjust these values accordingly */
-    top: 12px;
-    left: -5px;
-    height: 35px;
-  }
+    top: 20px;
+    left: 0px;
+    height: 50px;
+}
 
 #footer .column img {
     float: right;
     margin: 10px 0 0 0;
 }
+
 #footer .link {
     position: relative;
     top: 20px;
@@ -141,7 +143,7 @@ iframe {
 }
 
 .clusterIcon01 {
-    background-image: url('nmp-globe-background-40.png');
+    background-image: url('uky-globe-background-40.png');
 }
 
 .clusterIcon02 {
@@ -186,10 +188,12 @@ iframe {
     width: 49%;
     padding-right: 2%;
 }
+
 .column {
     float: left;
     width: 49%;
 }
+
 /* Clear floats after the columns */
 .row::after {
     content: "";
@@ -197,8 +201,14 @@ iframe {
     clear: both;
 }
 
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    background: #f1be76;
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: #63666A;
+}
+
+.leaflet-popup-content p {
+    margin: 3px 0 8px 0;
+
 }
 
 .leaflet-popup-content {
@@ -210,6 +220,16 @@ iframe {
 .leaflet-popup-close-button {
     color: #fff !important;
 }
+
+.leaflet-container a {
+    color: #c7c9c8;
+}
+
+.leaflet-container a:hover {
+    text-decoration: underline;
+    color: #063793;
+}
+
 
 /* Smallest screens */
 @media screen and (max-width: 900px) {
@@ -263,7 +283,7 @@ iframe {
     }
 
     .logoImg {
-        width: 200px;
+        width: 400px;
     }
 
     .logoHeader {
@@ -295,20 +315,20 @@ iframe {
 
 @media screen and (orientation: portrait) {
 
-.first-column,
-.column {
-    width: 100%;
-}
+    .first-column,
+    .column {
+        width: 100%;
+    }
 
-#footer .column img {
-    float: none;
-    margin: 20px 0 0 0;
-}
+    #footer .column img {
+        float: none;
+        margin: 20px 0 0 0;
+    }
 
-#footer .column {
-    text-align: center;
-    
-}
+    #footer .column {
+        text-align: center;
+
+    }
 
 
 }

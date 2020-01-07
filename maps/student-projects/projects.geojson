@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "projects",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "title": "RED RIVER GORGE LANDFORMS", "info": " Multiple student projects visualizing geologic features.", "author": " GEO 409, UKy Geography", "thumb": " graphics\/RED-RIVER-GO771.jpg", "link": " https:\/\/uky-gis.github.io\/maps\/rrg-arches\/" }, "geometry": { "type": "Point", "coordinates": [ -83.6257432, 37.8000673 ] } },
+{ "type": "Feature", "properties": { "title": "BLUEGRASS TRAILS", "info": " A collection of student mapping projects", "author": " GEO 409, UKy Geography", "thumb": " graphics\/BLUEGRASS-TR979.jpg", "link": " https:\/\/tastyfreeze.github.io\/bluegrass\/region\/" }, "geometry": { "type": "Point", "coordinates": [ -84.6413555, 37.771478 ] } },
+{ "type": "Feature", "properties": { "title": "Lexington Neighborhoods Tree Canopy Study", "info": " Using lidar and NAIP data to access tree heights", "author": " NRES 355, UKy", "thumb": " graphics\/Lexington-Ne210.jpg", "link": " https:\/\/rvirto01.github.io\/NRE355_Tree_canopy_study\/" }, "geometry": { "type": "Point", "coordinates": [ -84.4917232, 38.036402 ] } },
+{ "type": "Feature", "properties": { "title": "Magoffin County farm", "info": " An exploration of topography", "author": " @jmo335", "thumb": " graphics\/Magoffin-Cou264.jpg", "link": " https:\/\/jmo335.github.io\/final\/" }, "geometry": { "type": "Point", "coordinates": [ -83.0690378, 37.7480037 ] } },
+{ "type": "Feature", "properties": { "title": "South Elkhorn GIS Study", "info": " Impacts to the stream by adjacent farms", "author": " @jrpi226", "thumb": " graphics\/South-Elkhor359.jpg", "link": " https:\/\/jrpi226.github.io\/SouthElkhornGISstudy\/" }, "geometry": { "type": "Point", "coordinates": [ -84.624925, 38.0350426 ] } },
+{ "type": "Feature", "properties": { "title": "Lockegee Mountain Overlook", "info": " Rowan County Kentucky", "author": " @alexgis-projects", "thumb": " graphics\/lockegee846.jpg", "link": " https:\/\/alexgis-projects.github.io\/lockegee\/" }, "geometry": { "type": "Point", "coordinates": [ -83.4549371, 38.1225995 ] } },
+{ "type": "Feature", "properties": { "title": "Cherokee Park", "info": " Highlands of Louisville, Kentucky", "author": " @crledington", "thumb": " graphics\/Cherokee-Par56.jpg", "link": " https:\/\/crledington.github.io\/Cherokee\/" }, "geometry": { "type": "Point", "coordinates": [ -85.6968036, 38.2389069 ] } },
+{ "type": "Feature", "properties": { "title": "Bear Creek Aquatic Center", "info": " A Girl Scouts of Kentuckiana property located in Western Kentucky on Kentucky Lake", "author": " @winebarger", "thumb": " graphics\/Bear-Creek-A628.jpg", "link": " https:\/\/winebarger.github.io\/bcac\/" }, "geometry": { "type": "Point", "coordinates": [ -88.2047168, 36.8994745 ] } },
+{ "type": "Feature", "properties": { "title": "The Egg Lawn at the Parklands of Floyds Fork", "info": " Louisville, Kentucky", "author": " @maddyblandford", "thumb": " graphics\/theegg.jpg", "link": " https:\/\/github.com\/maddyblandford\/egg_lawn" }, "geometry": { "type": "Point", "coordinates": [ -85.4746626, 38.2088686 ] } },
+{ "type": "Feature", "properties": { "title": "Town Branch Trail", "info": " Lexington's Urban to Rural Connection", "author": " GEO 409 students, UKy Geography", "thumb": " graphics\/tbt.jpg", "link": " https:\/\/reece2ke.github.io\/geo409_site\/" }, "geometry": { "type": "Point", "coordinates": [ -84.5308727, 38.0595022 ] } },
+{ "type": "Feature", "properties": { "title": "Null island" }, "geometry": { "type": "Point", "coordinates": [ 0.0, 0.0 ] } }
+]
+}
