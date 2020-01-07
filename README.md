@@ -86,10 +86,9 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 
 ## Examples of student work
 
-newmapplus-student-projects.jpg
-
 | Preview       | Description     |
 | :-------------: |:-------------:|
+| ![img](graphics/geo_student_examples.jpg) | A map of maps; undergraduate student mapping projects from various classes. [Link](maps/student-projects)   |
 | ![img](graphics/newmapplus-student-projects.jpg) | A random collection of student projects from our graduate certificate program. [Link](https://newmapsplus.github.io/projects/)   |
 | ![img](https://i1.wp.com/www.outragegis.com/trails/wp-content/uploads/2019/01/rrg-project.jpg) | Arches of the Red River Gorge mapped and visualized by GEO 409 Fall 2018 students. [Link](https://uky-gis.github.io/maps/rrg-arches/)   |
 | ![img](https://farm1.staticflickr.com/977/40242417740_599d8bc349.jpg) | Bluegrass region parks and adventures mapped in many ways by GEO 409 Spring 2018 students. [Link](https://tastyfreeze.github.io/bluegrass/region/)   |
