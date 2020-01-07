@@ -88,7 +88,7 @@ Occasionally we offer one-day instruction in various mapping technologies. Here 
 
 | Preview       | Description     |
 | :-------------: |:-------------:|
-| ![img](graphics/geo_student_examples.jpg) | A map of maps; undergraduate student mapping projects from various classes. [Link](maps/student-projects)   |
+| ![img](graphics/geo_student_examples.jpg) | A map of maps; undergraduate student mapping projects from various classes. [Link](https://uky-gis.github.io/maps/student-projects)   |
 | ![img](https://github.com/maddyblandford/egg_lawn/raw/master/graphics/screenshot_animation.PNG) | Animation of a lidar point cloud. By [Maddy Blandford](https://github.com/maddyblandford/egg_lawn) in Fall 2019, GEO 409. [Link](https://www.youtube.com/watch?v=v284A9q7axY&feature=youtu.be)   |
 | ![img](https://alexgis-projects.github.io/lockegee/images/3dmap.jpg) | A lidar point cloud rendered in the browser. By [Alex Eberle](https://alexgis-projects.github.io/lockegee/) in Fall 2019, GEO 409. [Link](https://alexgis-projects.github.io/lockegee/3D/)   |
 | ![img](graphics/newmapplus-student-projects.jpg) | A random collection of student projects from our graduate certificate program. [Link](https://newmapsplus.github.io/projects/)   |
