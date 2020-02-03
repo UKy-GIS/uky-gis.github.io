@@ -8,7 +8,7 @@
     <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
 
     <style>
@@ -225,7 +225,8 @@
     <!-- HTML for page structure goes here-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <!-- Link to array of data -->
     <script src="cameras.js"></script>
     <script>
         // Set variables for map layers
@@ -243,18 +244,7 @@
             }
         }
 
-        var cameraMarker = L.icon({
-            iconUrl: 'assets/attraction-15.svg',
-            shadowUrl: 'assets/attraction-15-shadow.png',
-
-            iconSize: [32, 22], // size of the icon
-            shadowSize: [23, 25], // size of the shadow
-            iconAnchor: [16,0], // point of the icon which will correspond to marker's location
-            shadowAnchor: [10, 5], // the same for the shadow
-            // popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-
-        // initialize leaflet map
+        // Initialize leaflet map
         var map = L.map('map', {
             center: [37.25, -85],
             zoom: 7,
@@ -262,62 +252,29 @@
             maxZoom: 9
         });
 
-        // add some tiles
+        // Define and add raster tiles for GOES-16
         var tilesgray = L.tileLayer('https://www.outragegis.com/weather/goes16/tilesgray/{z}/{x}/{y}.png', {
             tms: true,
             opacity: 1,
             attribution: '<a href="https://geography.as.uky.edu/">UKy Geography</a>'
         }).addTo(map);
 
-        // add some tiles
+        // Define and add raster tiles for GOES-16 frame (hide the clipped data)
         var tiles = L.tileLayer('https://www.outragegis.com/weather/goes16/frame_goes16/{z}/{x}/{y}.png', {
             opacity: 1
         }).addTo(map);
 
-        // Add markers with popups
-        // Start without iterating through data
-
-        for (var i = 0; i < camName.length; i++) {
-            if (camActive[i] == true) {
-                var marker = "<div><h2>" + camName[i] + "</h2>" +
-                    // "<a href='" + camHiRes[i] + "' class='hiRes'>" +
-                    "<img src='" + camURL[i] + "'alt='" + camName[i] + " webcam' class='webcam' onclick=displayYo('" +
-                    camHiRes[i] + "')>" + // "</a>" +
-                    "<p>Elevation: " + camElev[i] + "ft, looking " +
-                    camInfo[i] + "</div>"
-                L.marker(camCoords[i], {icon: cameraMarker})
-                    .addTo(map)
-                    .bindPopup(marker);
-
-                document.getElementById("content").innerHTML += marker
-                // var photoDisplay = document.getElementsByClassName("webcam")
-                // photoDisplay.addEventListener("click", function () {
-                //     console.log("hi")
-                // })
-            }
-        }
-
-        var photoBackground = document.getElementById("background")
-        var photo = document.getElementById("photo")
-        photoBackground.addEventListener("click", function () {
-            console.log("hi")
-            this.style.display = "none"
-        })
-
-
-
-        // var photoDisplay = document.getElementsByClassName("hiRes")
-        // photoDisplay.onclick = function(){console.log("hi")};
-
-        function displayYo(url) {
-            console.log(url)
-            // photoBackground.style.display = "inherit"
-            // photo.innerHTML = "<img src='" + url + "' class='webcam hires'>"
-
-        }
-
-
         /////////////:..://///////////
+        //    Add solution below    //
+        /////////////:..://///////////
+        
+        // Add markers with popups
+        // Place markers by iterating through data
+
+
+        //////////////////////////////////////////////////////////////////////////
+        /////////////:..://///////////
+        // Don't worry about below  //
         /////////////:..://///////////
 
         var stateLayer = $.getJSON("assets/states_g.geojson", function (data) {
@@ -339,13 +296,9 @@
         });
 
         $.when(stateLayer).done(function () {
-
             for (i = 0; i < parkStyle.layers.length; i++) {
-
                 $.getJSON(parkStyle.layers[i], function (data) {
-
                     var parkLayer = L.geoJson(data, {
-
                         style: function (feature) {
 
                             return {
@@ -385,25 +338,6 @@
             }
 
         });
-        var basemap_source =
-            'https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}'
-
-        // Leaflet providers attributes
-        var basemap_options = {
-            attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
-            bounds: [
-                [-85.0511287776, -179.999999975],
-                [85.0511287776, 179.999999975]
-            ],
-            minZoom: 1,
-            maxZoom: 8,
-            format: 'jpg',
-            time: '',
-            tilematrixset: 'GoogleMapsCompatible_Level',
-            opacity: 0.2
-        };
-
-        // var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
     </script>
 
 </body>
