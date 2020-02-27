@@ -26,6 +26,7 @@
             font-family: 'Alfa Slab One', 'sans serif';
             font-size: 5em;
             margin: 0 0 -20px 0;
+            letter-spacing: 0.1px;
             
         }
 
@@ -35,6 +36,12 @@
             font-weight: 300;
             margin: -10px 0 0 0;
             
+        }
+
+        footer p {
+            font-size: 1.3em;
+			font-weight: 300;
+			margin-top: -20px;
         }
 
         p {
@@ -82,10 +89,35 @@
 			clear: both;
 		}
 
+        @media screen and (max-width: 1400px) {
+
+            header h1 {
+                font-size: 3em;
+                margin: 0;
+            }
+
+            header h2 {
+                font-size: 2.5em;
+                margin: 0;
+            }
+
+            .col-2, .col-3 {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            }
+
         @media screen and (max-width: 900px) {
 
-            header h1, header h2 {
+            header h1 {
                 font-size: 2em;
+                margin: 0;
+            }
+
+            header h2 {
+                font-size: 1.5em;
                 margin: 0;
             }
 
@@ -109,12 +141,12 @@
             <div class="row">
                 <h2>Maps</h2>
                 <div class="col-2">
-                    <img src="graphics/lex_1886_main_st_th.jpg" width="100%">
-                    <div class="caption"><b>1886 Sanborn map</b>: <a href="1886">interactive georeferenced</a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg" download>download</a> (34,826 px x 6,290 px)</div>
+                    <a href="1886"><img src="graphics/lex_1886_main_st_th.jpg" width="100%"></a>
+                    <div class="caption"><b>1886 Sanborn map</b>: <a href="1886">georeferenced interactive </a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg" download>download</a> (16 MB, 34,826 px x 6,290 px)</div>
                 </div>
                 <div class="col-2">
-                    <img src="graphics/lex_1907_main_st_th.jpg" width="100%">
-                    <div class="caption"><b>1907 Sanborn map</b>: <a href="1907">interactive georeferenced</a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg">download</a> (33,403 px x 6,943 px)</div>
+                    <a href="1907"><img src="graphics/lex_1907_main_st_th.jpg" width="100%"></a>
+                    <div class="caption"><b>1907 Sanborn map</b>: <a href="1907">georeferenced interactive </a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg">download</a> (16 MB, 33,403 px x 6,943 px)</div>
                 </div>
             </div>
             <div class="row">
@@ -135,15 +167,15 @@
             <div class="row">
                 <div class="col-3">
                     <a href="graphics/sewer-limestone-96pa101_1930_1939_3432.jpg"><img src="graphics/sewer-limestone-96pa101_1930_1939_3432.jpg" width="100%"></a>
-                    <div class="caption">Under Limestone, Town Branch sewer project, 1939</div>
+                    <div class="caption">Under Limestone, Town Branch sewer project, 1935</div>
                 </div>
                 <div class="col-3">
                     <a href="graphics/sewer-96pa101_1930_1939_3401g.jpg"><img src="graphics/sewer-96pa101_1930_1939_3401g.jpg" width="100%"></a>
-                    <div class="caption">Near Upper St, Town Branch sewer project, 1939</div>
+                    <div class="caption">Near Upper St, Town Branch sewer project, 1935</div>
                 </div>
                 <div class="col-3">
                     <a href="graphics/sewer-upper-96pa101_1930_1939_3498d.jpg"><img src="graphics/sewer-upper-96pa101_1930_1939_3498d.jpg" width="100%"></a>
-                    <div class="caption">Under Upper St, Town Branch sewer project, 1939</div>
+                    <div class="caption">Under Upper St, Town Branch sewer project, 1935</div>
                 </div>
             </div>
         </section>
