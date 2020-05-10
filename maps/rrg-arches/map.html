@@ -6,8 +6,8 @@
   <title>Landforms of the Red River Gorge</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <!-- <meta http-equiv="Content-Security-Policy" content="worker-src blob: ; child-src blob: ; img-src data: blob: ; "> -->
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css' rel='stylesheet' />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <style>
     body {
@@ -29,7 +29,7 @@
     h2 {
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
-      font-size: 1.5em;
+      font-size: 1.7em;
       letter-spacing: .04em;
       margin: 10px 0 0 0;
       text-transform: uppercase;
@@ -49,6 +49,18 @@
     a:hover {
       text-decoration: underline;
     }
+    .mapboxgl-popup-content p {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 1.2em;
+    }
+
+    .mapboxgl-popup-content a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.8em;
+    }
+
   </style>
 </head>
 
@@ -76,10 +88,10 @@
     }));
 
     // Load map and then add layers
-    map.on('load', function() {
+    map.on('load', function () {
 
       // Get PNG to use as point symbol
-      map.loadImage('arches.png', function(error, image) {
+      map.loadImage('arches.png', function (error, image) {
         if (error) throw error;
         map.addImage('arches', image);
       });
@@ -107,7 +119,7 @@
           "line-blur": 2,
           // "line-dasharray":[2, 2],
           "line-width": 4
-            }
+        }
       });
 
       // Draw next layer
@@ -117,7 +129,7 @@
         "source": "locations",
         "layout": {
           "icon-image": "arches",
-          "icon-size": 0.6,
+          "icon-size": 0.8,
           //"text-field": "{name}",
           "text-font": ["Open Sans Light", "Arial Unicode MS Bold"],
           "text-size": 14,
@@ -134,16 +146,33 @@
         // trying to find best way to make popups for mobile
       });
 
-      map.on('mouseenter', 'points', function(e) {
+      // map.on('mouseenter', 'points', function (e) {
+
+      //   // Change the cursor style as a UI indicator.
+      //   map.getCanvas().style.cursor = 'pointer';
+
+      //   // Get coordinates and description of geojson at event
+      //   var coords = e.features[0].geometry.coordinates;
+      //   var description = "<h2>" + e.features[0].properties.name + "</h2>" +
+      //     "<p>Author: " + e.features[0].properties.author + "<br>" +
+      //     "<a href='" + e.features[0].properties.link + "' target='_blank'>Link to maps</a></p>";
+
+      //   // Create popup at event
+      //   popup.setLngLat(coords)
+      //     .setHTML(description)
+      //     .addTo(map);
+      // });
+
+      map.on('click', "points", function (e) {
 
         // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+        // map.getCanvas().style.cursor = 'pointer';
 
         // Get coordinates and description of geojson at event
         var coords = e.features[0].geometry.coordinates;
-        var description = "<h2>" + e.features[0].properties.name + "</h2>" +
-          "<p>Author: " + e.features[0].properties.author + "<br>" +
-            "<a href='" + e.features[0].properties.link + "' target='_blank'>Link to maps</a></p>";
+        var description = `<h2>${e.features[0].properties.name}</h2>
+          <p>Author: ${e.features[0].properties.author}</p>
+          <p><a href='${e.features[0].properties.link}' target='_blank'>Link to maps</a></p>`;
 
         // Create popup at event
         popup.setLngLat(coords)
@@ -151,10 +180,14 @@
           .addTo(map);
       });
 
-      // Remove popup with a click
-      map.on('click', 'points', function() {
+      // Change the cursor to a pointer when the mouse is over the places layer.
+      map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'places', function () {
         map.getCanvas().style.cursor = '';
-        popup.remove();
       });
 
     });

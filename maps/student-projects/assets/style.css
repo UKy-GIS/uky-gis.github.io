@@ -1,0 +1,334 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: underline;
+    color: #c7c9c8;
+    /* WTF mate! */
+    text-shadow: 0 0 1px #000 1 1 2px #000;
+}
+
+#footer a, h2 a {
+    text-decoration: underline;
+    color: #063793;
+}
+
+#footer a:hover, h2 a:hover{
+    color: #063793;
+    text-decoration: none;
+}
+
+#map {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+}
+
+#container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+    opacity: 0.8;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+#logo {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+    opacity: 1.0;
+    z-index: 1001;
+}
+
+.contentBlock {
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%)
+}
+
+.logoImg {
+    width: 40%;
+    height: auto;
+    opacity: 1.0;
+    z-index: 1001;
+}
+
+.logoHeader {
+    width: 100%;
+}
+
+#logo h1 {
+    font-size: 3em;
+}
+
+#logo h2 {
+    font-weight: 300;
+}
+
+#footer {
+    width: 100%;
+    background: rgba(244, 244, 244, 0.8);
+    /* background: rgba(255, 255, 255, 1); */
+    color: rgba(20, 20, 20, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    height: 0px;
+    padding: 0px;
+    z-index: 2000;
+    position: absolute;
+    bottom: 0px;
+    overflow: scroll;
+}
+
+#footer .row {
+    margin: 0 10px;
+}
+
+#footer h1 {
+    font-size: 2em;
+    margin: 5px 0;
+}
+
+#footer h2 {
+    font-size: 1.3em;
+    margin: 5px 0;
+    font-weight: 300;
+}
+
+#footer p {
+    font-size: 1.1em;
+    margin: 0 5px 0px 0;
+    font-weight: 300;
+}
+
+#footer .icon {
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 20px;
+    left: 0px;
+    height: 50px;
+}
+
+#footer .column img {
+    float: right;
+    margin: 10px 0 0 0;
+}
+
+#footer .link {
+    position: relative;
+    top: 20px;
+    text-decoration: none;
+}
+
+.ukyLogo {
+    /* width="300px" */
+    max-width: 200px;
+}
+
+iframe {
+    margin: 5px 0 0 0;
+}
+
+.clusterIcon01 {
+    background-image: url('uky-globe-background-40.png');
+}
+
+.clusterIcon02 {
+    background-image: url('nmp-globe-background-orange-40.png');
+}
+
+#clusterDiv {
+    font-family: 'Varela Round', sans-serif;
+    color: #fff;
+    font-size: 1.1em;
+    text-align: center;
+    text-shadow: 0px 0px 4px #000;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%)
+}
+
+#clusterDiv p {
+    font-size: 0.7em;
+    margin: -7px 0 0 0;
+}
+
+#info-button {
+    padding: 8px 5px;
+    font-size: 0.9em;
+    font-weight: bolder;
+    border: 0px solid rgba(51, 51, 51, 0.35);
+    background: rgba(255, 255, 255, 1);
+    color: #333;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+/* Use float property to make two-column layout */
+.first-column {
+    float: left;
+    width: 49%;
+    padding-right: 2%;
+}
+
+.column {
+    float: left;
+    width: 49%;
+}
+
+/* Clear floats after the columns */
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: #63666A;
+}
+
+.leaflet-popup-content p {
+    margin: 3px 0 8px 0;
+
+}
+
+.leaflet-popup-content {
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.leaflet-popup-close-button {
+    color: #fff !important;
+}
+
+.leaflet-container a {
+    color: #c7c9c8;
+}
+
+.leaflet-container a:hover {
+    text-decoration: underline;
+    color: #063793;
+}
+
+
+/* Smallest screens */
+@media screen and (max-width: 900px) {
+    /* and (orientation: landscape)  */
+
+    #logo h1 {
+        font-size: 2em;
+        margin: 0 0 10px 0;
+    }
+
+    #logo h2 {
+        font-size: 1.4em;
+        margin: 0 0 40px 0;
+    }
+
+    #logo img {
+        width: 45%;
+        float: left;
+        margin: 0 0 10px 0;
+    }
+
+    .logoHeader {
+        width: 50%;
+        float: right;
+    }
+
+    .contentBlock {
+        top: 30%;
+        transform: translate(0, -70%)
+    }
+
+}
+
+@media screen and (max-height: 800px) and (orientation: landscape) {
+    /* and (orientation: landscape)  */
+
+    #logo h1 {
+        font-size: 2em;
+        margin: 0 0 10px 0;
+    }
+
+    #logo h2 {
+        font-size: 1.4em;
+        margin: 0 0 50px 0;
+    }
+
+    #logo img {
+        float: left;
+        margin: 0 0 10px 0;
+
+    }
+
+    .logoImg {
+        width: 400px;
+    }
+
+    .logoHeader {
+        width: 50%;
+        float: right;
+    }
+
+    .contentBlock {
+        top: 20%;
+        transform: translate(0, -80%)
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    /* and (orientation: landscape)  */
+
+    #logo h1 {
+        font-size: 1.5em;
+        margin: 0 0 10px 0;
+    }
+
+    #logo h2 {
+        font-size: 1em;
+        margin: 0 0 40px 0;
+    }
+
+}
+
+@media screen and (orientation: portrait) {
+
+    .first-column,
+    .column {
+        width: 100%;
+    }
+
+    #footer .column img {
+        float: none;
+        margin: 20px 0 0 0;
+    }
+
+    #footer .column {
+        text-align: center;
+
+    }
+
+
+}

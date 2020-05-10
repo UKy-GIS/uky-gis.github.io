@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>1907 Lexington Sanborn map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            /* margin: 0;
+            padding: 0; */
+            overflow: hidden;
+        }
+
+        body * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css"
+type="text/css"
+/>
+    <div id="before" class="map"></div>
+    <div id="after" class="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoib3V0cmFnZWdpcyIsImEiOiJjamY4ZWY1NXQyZWduMnFxN2M5cnB1YTJ6In0.BehfRddq9HyWFiy0mmGEbA';
+        var beforeMap = new mapboxgl.Map({
+            container: 'before',
+            style: 'mapbox://styles/mapbox/satellite-streets-v11',
+            center: [-84.499, 38.0474], // starting position
+            zoom: 16,
+            //pitch: 60,  pitch in degrees
+            bearing: 48.25
+            // bearing in degrees
+        });
+
+        var afterMap = new mapboxgl.Map({
+            container: 'after', // container id
+            style: {
+                'version': 8,
+                'sources': {
+                    'raster-tiles': {
+                        'type': 'raster',
+                        'tiles': [
+                            'https://outragegis.com/tiles/lex_1971/{z}/{x}/{y}.jpg'
+                        ],
+                        'tileSize': 256,
+                        'attribution':
+                            'Map tiles by <a target="_top" rel="noopener" href="http://stamen.com">Stamen Design</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
+                    }
+                },
+                'layers': [
+                    {
+                        'id': 'simple-tiles',
+                        'type': 'raster',
+                        'source': 'raster-tiles',
+                        'minzoom': 10,
+                        'maxzoom': 24
+                    }
+                ]
+            },
+            center: [-84.499, 38.0474], // starting position
+            zoom: 16,
+            //pitch: 60,  pitch in degrees
+            bearing: 48.25
+            // bearing in degrees
+        });
+
+        var map = new mapboxgl.Compare(beforeMap, afterMap, {
+// Set this to enable comparing two maps by mouse movement:
+// mousemove: true
+});
+
+        // Add geolocate control to the map.
+        beforeMap.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+    </script>
+
+</body>
+
+</html>

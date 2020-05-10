@@ -3,5 +3,15 @@
 .vscode
 ._*
 support/python-arcgis/examples/.ipynb_checkpoints/Contour-checkpoint.ipynb
-*.zip
+# *.zip
 
+maps/goes-16/goes-16/assets/attraction-15-shadow.png
+maps/goes-16/goes-16/assets/attraction-15.svg
+maps/goes-16/goes-16/assets/countries_g.geojson
+maps/goes-16/goes-16/assets/dboone.geojson
+maps/goes-16/goes-16/assets/nps.geojson
+maps/goes-16/goes-16/assets/states_g.geojson
+maps/goes-16/goes-16/cameras.js
+maps/goes-16/goes-16/index.html
+maps/goes-16/goes-16-finished.zip
+graphics/wildly-possible-fonts.zip
