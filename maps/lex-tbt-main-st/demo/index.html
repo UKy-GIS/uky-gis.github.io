@@ -144,6 +144,7 @@
                 const maps = historicLex.maps
                 const frame = document.querySelector('#frame')
                 const info = document.querySelector('#info .txt-h3')
+                const download = document.querySelector('#info #download')
 
                 for (let map in maps) {
                     let button = document.querySelector(`#y${map}`)
@@ -153,19 +154,18 @@
                             document.querySelector(`#y${m}`).classList.remove('btn--orange')
                             document.querySelector(`#y${m}`).classList.add('btn--darken50')
                         }
-                        this.classList.remove('btn--darken50')
+                        button.classList.remove('btn--darken50')
                         this.classList.add('btn--orange')
                         frame.src = maps[map].url
                         document.querySelector('#info #full').href = maps[map].url
                         info.innerHTML = maps[map].name
                         if(maps[map].properties) {
-                            console.log(maps[map].properties)
-                            document.querySelector('#info #download').style.display = 'inline-block'
-                            document.querySelector('#info #download').href = maps[map].properties.download
-                            document.querySelector('#info span').innerHTML = `
-                            ${maps[map].properties.dimensions}, ${maps[map].properties.size}`
+                            const m = maps[map].properties
+                            download.style.display = 'inline-block'
+                            download.href = maps[map].properties.download
+                            download.innerHTML = `${m.dimensions}, ${m.size}, ${m.format}`
                         } else {
-                            document.querySelector('#info #download').style.display = 'none'
+                            download.style.display = 'none'
                         }
                     })
                 }
