@@ -34,6 +34,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class='grid grid--gut12 mx30 mt30'>
         <div class='col col--12 col--10-ml'>
@@ -45,18 +46,19 @@
         </div>
     </header>
     <nav class='flex-parent flex-parent--row mx30 my12'>
-        <a href='#'><button class='flex-child btn btn--orange mx6'>1887</span></a>
-        <button class='flex-child btn btn--darken50 mr6'>1907</span>
-        <button class='flex-child btn btn--darken50 mr6'>1971</span>
+        <button id='y1887' class='flex-child btn btn--orange mx6'>1887</button>
+        <button id='y1907' class='flex-child btn btn--darken50 mr6'>1907</button>
+        <button id='y1971' class='flex-child btn btn--darken50 mr6'>1971</button>
     </nav>
     <section class='flex-parent flex-parent--wrap flex-parent--center-cross mx30 mt12 h-auto'>
-        <iframe src='../1886' class='flex-child w-full h600'></iframe>
+        <iframe id='frame' src='../1886' class='flex-child w-full h600'></iframe>
     </section>
     <section class='flex-parent flex-parent--center-cross flex-parent--row mx30 mb12 px12 bg-darken10 round-b'>
-        <div class='flex-child my12'>
+        <div id='info' class='flex-child my12'>
             <h3 class='txt-h3'>Georeferenced Sanborn map of Downtown Lexington, 1886.</h3>
-            <button class='btn btn--darken50 mr6 my6'>Full-screen</span>
-                <button class='btn btn--darken50 mr6 my6'>Download</span>
+            <a href='#' id='full' class='btn btn--darken50 mr6 my6'>Full-screen</a>
+                <a href='#' id='download' class='btn btn--darken50 mr6 my6'>Download</a>
+                <span></span>
         </div>
     </section>
     <section class='flex-parent--stretch-cross mx30 mt30' id='imgGallery'>
@@ -112,23 +114,67 @@
     </footer>
     <script>
         const historicLex = {
-            1887: {
-                name: "Sanborn map of Downtown Lexington, 1886",
-                url: "https://uky-gis.github.io/maps/lex-tbt-main-st/1886",
-                download: "https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg",
-                size: "16 MB",
-                dimensions: "34,826 px x 6,290 px",
-                format: "JPG"
+            maps: {
+                1887: {
+                    name: "Sanborn map of Downtown Lexington, 1886",
+                    url: "/maps/lex-tbt-main-st/1886",
+                    properties: {
+                        download: "https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg",
+                        size: "16 MB",
+                        dimensions: "34,826 px x 6,290 px",
+                        format: "JPG"
+                    }
+                },
+                1907: {
+                    name: "Sanborn map of Downtown Lexington, 1907",
+                    url: "/maps/lex-tbt-main-st/1907",
+                    properties: {
+                        download: "https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg",
+                        size: "16 MB",
+                        dimensions: "33,403 px x 6,943 px",
+                        format: "JPG"
+                    }
+                },
+                1971: {
+                    name: "USGS aerial photography of Downtown Lexington, 1971",
+                    url: "/maps/lex-tbt-main-st/1971",
+                }
             },
-            1907: {
-                name: "Sanborn map of Downtown Lexington, 1907",
-                url: "https://uky-gis.github.io/maps/lex-tbt-main-st/1907",
-                download: "https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg",
-                size: "16 MB",
-                dimensions: "33,403 px x 6,943 px",
-                format: "JPG"
+            hookButtons() {
+                const maps = historicLex.maps
+                const frame = document.querySelector('#frame')
+                const info = document.querySelector('#info .txt-h3')
+
+                for (let map in maps) {
+                    let button = document.querySelector(`#y${map}`)
+                    console.log(map, button)
+                    button.addEventListener("click", function () {
+                        for (let m in maps) {
+                            document.querySelector(`#y${m}`).classList.remove('btn--orange')
+                            document.querySelector(`#y${m}`).classList.add('btn--darken50')
+                        }
+                        this.classList.remove('btn--darken50')
+                        this.classList.add('btn--orange')
+                        frame.src = maps[map].url
+                        document.querySelector('#info #full').href = maps[map].url
+                        info.innerHTML = maps[map].name
+                        if(maps[map].properties) {
+                            console.log(maps[map].properties)
+                            document.querySelector('#info #download').style.display = 'inline-block'
+                            document.querySelector('#info #download').href = maps[map].properties.download
+                            document.querySelector('#info span').innerHTML = `
+                            ${maps[map].properties.dimensions}, ${maps[map].properties.size}`
+                        } else {
+                            document.querySelector('#info #download').style.display = 'none'
+                        }
+                    })
+                }
+
             }
         }
+
+        historicLex.hookButtons()
+
     </script>
 
 </body>
