@@ -89,7 +89,7 @@
         <div class='flex-child'>
             <h3 class='txt-h3'>Sources and credits</h3>
             <p class='mb12'>
-                <a href="https://exploreuk.uky.edu">exploreuk.uky.edu</a> | 
+                <a href="https://exploreuk.uky.edu">exploreuk.uky.edu</a> |
                 <a href="https://geography.as.uky.edu/">UKy Geography</a>
             </p>
         </div>
@@ -225,6 +225,26 @@
                     // mousemove: true
                 });
 
+                afterMap.on('load', function () {
+                    afterMap.addSource('tbt', {
+                        'type': 'geojson',
+                        'data': 'data/tbt_2017_planned_and_funded.geojson'
+                    })
+                    afterMap.addLayer({
+                        'id': 'tbt',
+                        'type': 'line',
+                        'source': 'tbt',
+                        'layout': {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        'paint': {
+                            'line-color': '#ff0000',
+                            'line-width': 2
+                        }
+                    });
+                });
+
                 // Add geolocate control to the map.
                 beforeMap.addControl(
                     new mapboxgl.GeolocateControl({
@@ -243,14 +263,14 @@
 
         let navProps = []
         fetch('data/data.json')
-            .then(function(response) {
+            .then(function (response) {
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new TypeError("Oops, we haven't got JSON!");
                 }
                 return response.json();
             })
-            .then(function(data) {
+            .then(function (data) {
                 functionsLex.drawMap(data.maps[1886].xyz, 38.0474, -84.499, 16)
                 functionsLex.hookButtons(data)
                 functionsLex.makePhotos(data)
