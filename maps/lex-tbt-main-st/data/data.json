@@ -1,0 +1,61 @@
+{"maps": {
+        "1886": {
+            "name": "Sanborn map of Downtown Lexington, 1886",
+            "url": "/maps/lex-tbt-main-st/1886",
+            "xyz": "https://outragegis.com/tiles/lex_tbt_downtown_1886/{z}/{x}/{y}.png",
+            "properties": {
+                "download": "https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg",
+                "size": "16 MB",
+                "dimensions": "34,826 px x 6,290 px",
+                "format": "JPG"
+            }
+        },
+        "1907": {
+            "name": "Sanborn map of Downtown Lexington, 1907",
+            "url": "/maps/lex-tbt-main-st/1907",
+            "xyz": "https://outragegis.com/tiles/lex_tbt_downtown_1907/{z}/{x}/{y}.png",
+            "properties": {
+                "download": "https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg",
+                "size": "16 MB",
+                "dimensions": "33,403 px x 6,943 px",
+                "format": "JPG"
+            }
+        },
+        "1971": {
+            "name": "USGS aerial photography of Downtown Lexington, 1971",
+            "url": "/maps/lex-tbt-main-st/1971",
+            "xyz": "https://outragegis.com/tiles/lex_1971/{z}/{x}/{y}.jpg"
+        }
+    },
+    "photos": [
+        {
+            "name": "Downtown Lexington, looking east, 1950s",
+            "img": "/maps/lex-tbt-main-st/graphics/looking-east-th.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/looking-east-1997av027_2408.jpg"
+        },
+        {
+            "name": "Downtown Lexington, looking west, 1950s",
+            "img": "/maps/lex-tbt-main-st/graphics/looking-west-th.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/looking-west-1997av027_2409.jpg"
+        },
+        {
+            "name": "City Market, Vine & Water Streets, 1950s",
+            "img": "/maps/lex-tbt-main-st/graphics/city-market-th.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/city-market-2014av001_11_2667_5313.jpg"
+        },
+        {
+            "name": "Under Limestone, Town Branch sewer project, 1935",
+            "img": "/maps/lex-tbt-main-st/graphics/sewer-limestone-96pa101_1930_1939_3432.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/sewer-limestone-96pa101_1930_1939_3432.jpg"
+        },
+        {
+            "name": "Near Upper St, Town Branch sewer project, 1935",
+            "img": "/maps/lex-tbt-main-st/graphics/sewer-96pa101_1930_1939_3401g.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/sewer-96pa101_1930_1939_3401g.jpg"
+        },
+        {
+            "name": "Under Upper St, Town Branch sewer project, 1935",
+            "img": "/maps/lex-tbt-main-st/graphics/sewer-upper-96pa101_1930_1939_3498d.jpg",
+            "url": "/maps/lex-tbt-main-st/graphics/sewer-upper-96pa101_1930_1939_3498d.jpg"
+        }
+    ]}
