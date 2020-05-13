@@ -99,7 +99,6 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js"></script>
     <script>
         const functionsLex = {
-
             hookButtons(historicLex, compare) {
                 const maps = historicLex.maps
                 const buttons = document.querySelector('#buttons')
@@ -109,8 +108,7 @@
                 const download = document.querySelector('#info #download')
 
                 // Set initial condition
-                info.innerHTML = maps[1886].name
-                // frame.href = maps[1886].url
+
                 const first = maps[1886].properties
                 full.href = first.url
                 download.innerHTML = `${first.dimensions}, ${first.size}, ${first.format}`
@@ -159,13 +157,12 @@
                 const gallery = document.querySelector('#imgGallery')
                 let i = 0
                 while (i < photosLength - 1) {
-                    console.log(i)
                     const node = document.createElement('div');
                     node.setAttribute('class', `grid grid--gut12 mb12`)
                     gallery.appendChild(node);
                     for (let j = 0; j < 3; j++) {
                         node.innerHTML += `
-                        <div class='col col--12 col--4-ml'>
+                        <div class='col col--12 col--4-ml mb6'>
                             <a href='${photos[i].url}' class='link'><img src='${photos[i].img}' width='100%'></a>
                             <div class='flex-child px12 py12 bg-darken10'>
                                 ${photos[i].name}
@@ -176,7 +173,6 @@
                 }
             },
             drawMap(xyz, lat, lon, zoom) {
-
                 const container = document.querySelector('.map-container')
                 container.innerHTML = `
                 <div id="before" class="map"></div>
@@ -225,12 +221,12 @@
                     // mousemove: true
                 });
 
-                afterMap.on('load', function () {
-                    afterMap.addSource('tbt', {
+                beforeMap.on('load', function () {
+                    beforeMap.addSource('tbt', {
                         'type': 'geojson',
                         'data': 'data/tbt_2017_planned_and_funded.geojson'
                     })
-                    afterMap.addLayer({
+                    beforeMap.addLayer({
                         'id': 'tbt',
                         'type': 'line',
                         'source': 'tbt',
@@ -243,6 +239,28 @@
                             'line-width': 2
                         }
                     });
+                    beforeMap.addLayer({
+                        'id': 'poi-labels',
+                        'type': 'symbol',
+                        'source': 'tbt',
+                        'layout': {
+                            'text-field': ['get', 'trail_name'],
+                            'symbol-placement': 'line',
+                            'symbol-spacing': 400,
+                            'text-anchor': 'top',
+                            'text-font': ['Open Sans Bold Italic'],
+
+                        },
+                        'paint': {
+                            'text-color': '#ff5555',
+                            'text-halo-blur': 3,
+                            'text-halo-color': 'rgba(0, 0, 0, 0.9)',
+                            'text-halo-width': 2
+
+                        }
+                    })
+
+                   
                 });
 
                 // Add geolocate control to the map.
