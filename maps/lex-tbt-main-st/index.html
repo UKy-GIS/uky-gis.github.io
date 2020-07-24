@@ -99,7 +99,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js"></script>
     <script>
         const functionsLex = {
-            hookButtons(historicLex, compare) {
+            hookButtons(historicLex) {
                 const maps = historicLex.maps
                 const buttons = document.querySelector('#buttons')
                 const frame = document.querySelector('#frame')
@@ -136,7 +136,6 @@
                         }
                         button.classList.remove('btn--darken50')
                         this.classList.add('btn--orange')
-                        // frame.src = maps[map].url
                         full.href = maps[map].url
                         info.innerHTML = maps[map].name
                         if (maps[map].properties) {
@@ -285,15 +284,18 @@
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new TypeError("Oops, we haven't got JSON!");
+                } else { 
+                    return response.json();
                 }
-                return response.json();
             })
             .then(function (data) {
                 functionsLex.drawMap(data.maps[1886].xyz, 38.0474, -84.499, 16)
                 functionsLex.hookButtons(data)
                 functionsLex.makePhotos(data)
+            }) 
+            .catch(function (error) {
+                console.error(error)
             })
-            .catch(error => console.error(error));
 
     </script>
 
