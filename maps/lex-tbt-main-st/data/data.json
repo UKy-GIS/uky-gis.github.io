@@ -2,9 +2,9 @@
         "1886": {
             "name": "Sanborn map of Downtown Lexington, 1886",
             "url": "/maps/lex-tbt-main-st/1886",
-            "xyz": "https://outragegis.com/tiles/lex_tbt_downtown_1886/{z}/{x}/{y}.png",
+            "xyz": "https://astoria.nyc3.cdn.digitaloceanspaces.com/tiles/lex_tbt_downtown_1886/{z}/{x}/{y}.png",
             "properties": {
-                "download": "https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg",
+                "download": "https://astoria.nyc3.cdn.digitaloceanspaces.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg",
                 "size": "16 MB",
                 "dimensions": "34,826 px x 6,290 px",
                 "format": "JPG"
@@ -13,9 +13,9 @@
         "1907": {
             "name": "Sanborn map of Downtown Lexington, 1907",
             "url": "/maps/lex-tbt-main-st/1907",
-            "xyz": "https://outragegis.com/tiles/lex_tbt_downtown_1907/{z}/{x}/{y}.png",
+            "xyz": "https://astoria.nyc3.cdn.digitaloceanspaces.com/tiles/lex_tbt_downtown_1907/{z}/{x}/{y}.png",
             "properties": {
-                "download": "https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg",
+                "download": "https://astoria.nyc3.cdn.digitaloceanspaces.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg",
                 "size": "16 MB",
                 "dimensions": "33,403 px x 6,943 px",
                 "format": "JPG"
@@ -24,7 +24,7 @@
         "1971": {
             "name": "USGS aerial photography of Downtown Lexington, 1971",
             "url": "/maps/lex-tbt-main-st/1971",
-            "xyz": "https://outragegis.com/tiles/lex_1971/{z}/{x}/{y}.jpg"
+            "xyz": "https://astoria.nyc3.cdn.digitaloceanspaces.com/tiles/lex_1971/{z}/{x}/{y}.jpg"
         }
     },
     "photos": [
