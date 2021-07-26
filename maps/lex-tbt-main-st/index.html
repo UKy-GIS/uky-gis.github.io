@@ -1,189 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Town Branch corridor, downtown Lexington, 1886 and 1907</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans:300,400,700&display=swap" rel="stylesheet">
-    </head>
+    <title>
+        Town Branch Corridor
+    </title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='shortcut icon' href='Your favicon path goes here' type='image/x-icon'>
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css' rel='stylesheet'>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans:300,400,700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Open Sans', 'sans serif';
-            font-size: 100%;
-            margin: 0;
+        }
+
+        iframe {
             padding: 0;
+            margin: 0;
+            border: 0;
         }
 
-        header, section, footer {
-            margin: 10px auto;
-            width: 80%;
-        }
-
-
-
-        header h1 {
+        .txt-h1 {
             font-family: 'Alfa Slab One', 'sans serif';
-            font-size: 5em;
-            margin: 0 0 -20px 0;
-            letter-spacing: 0.1px;
-            
-        }
-
-        header h2 {
-            font-family: 'Open Sans', 'sans serif';
             font-size: 4em;
-            font-weight: 300;
-            margin: -10px 0 0 0;
-            
+
         }
 
-        footer p {
-            font-size: 1.3em;
-			font-weight: 300;
-			margin-top: -20px;
+        #imgGallery img {
+            border-radius: 3px;
         }
 
-        p {
-			font-size: 1.3em;
-			line-height: 1.8em;
-			margin-bottom: 5px;
-		}
-
-        a {
-			color: #004A8B;
-			font-weight: 400;
-			text-decoration: none;
-		}
-
-		a:hover {
-			text-decoration: underline;
-		}
-
-        .caption {
-            margin-top: 4px;
+        .map-container {
+            position: relative;
+            height: 600px;
         }
 
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
 
-
-        .col-2 {
-            width:49%;
-            float: left;
-            padding-right: 1%;
         }
-
-        .col-3 {
-            width:32.333%;
-            float: left;
-            padding-right: 1%;
-        }
-
-        .row {
-            margin-bottom: 20px;
-        }
-
-        /* Clear floats after the columns */
-		.row::after {
-			content: "";
-			display: block;
-			clear: both;
-		}
-
-        @media screen and (max-width: 1400px) {
-
-            header h1 {
-                font-size: 3em;
-                margin: 0;
-            }
-
-            header h2 {
-                font-size: 2.5em;
-                margin: 0;
-            }
-
-            .col-2, .col-3 {
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-
-            }
-
-        @media screen and (max-width: 900px) {
-
-            header h1 {
-                font-size: 2em;
-                margin: 0;
-            }
-
-            header h2 {
-                font-size: 1.5em;
-                margin: 0;
-            }
-
-            .col-2, .col-3 {
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-            
-        }
-
-
     </style>
-    <body>
-        <header>
-            <h1>Town Branch corridor</h1>
-            <h2>Downtown Lexington, 1886 & 1907</h2>
-        </header>
-        <section>
-            
-            <div class="row">
-                <h2>Maps</h2>
-                <div class="col-2">
-                    <a href="1886"><img src="graphics/lex_1886_main_st_th.jpg" width="100%"></a>
-                    <div class="caption"><b>1886 Sanborn map</b>: <a href="1886">georeferenced interactive </a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1886/lex_1886_main_st.jpg" download>download</a> (16 MB, 34,826 px x 6,290 px)</div>
-                </div>
-                <div class="col-2">
-                    <a href="1907"><img src="graphics/lex_1907_main_st_th.jpg" width="100%"></a>
-                    <div class="caption"><b>1907 Sanborn map</b>: <a href="1907">georeferenced interactive </a> | <a href="https://outragegis.com/tiles/lex_tbt_downtown_1907/lex_1907_main_st.jpg">download</a> (16 MB, 33,403 px x 6,943 px)</div>
-                </div>
-            </div>
-            <div class="row">
-                <h2>Photographs</h2>
-                <div class="col-3">
-                    <a href="graphics/looking-east-1997av027_2408.jpg"><img src="graphics/looking-east-1997av027_2408.jpg" width="100%"></a>
-                    <div class="caption">Downtown Lexington, looking east, 1950s</div>
-                </div>
-                <div class="col-3">
-                    <a href="graphics/looking-west-1997av027_2409.jpg"><img src="graphics/looking-west-1997av027_2409.jpg" width="100%"></a>
-                    <div class="caption">Downtown Lexington, looking west, 1950s</div>
-                </div>
-                <div class="col-3">
-                    <a href="graphics/city-market-2014av001_11_2667_5313.jpg"><img src="graphics/city-market-2014av001_11_2667_5313.jpg" width="100%"></a>
-                    <div class="caption">City Market, Vine & Water Streets, 1950s</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a href="graphics/sewer-limestone-96pa101_1930_1939_3432.jpg"><img src="graphics/sewer-limestone-96pa101_1930_1939_3432.jpg" width="100%"></a>
-                    <div class="caption">Under Limestone, Town Branch sewer project, 1935</div>
-                </div>
-                <div class="col-3">
-                    <a href="graphics/sewer-96pa101_1930_1939_3401g.jpg"><img src="graphics/sewer-96pa101_1930_1939_3401g.jpg" width="100%"></a>
-                    <div class="caption">Near Upper St, Town Branch sewer project, 1935</div>
-                </div>
-                <div class="col-3">
-                    <a href="graphics/sewer-upper-96pa101_1930_1939_3498d.jpg"><img src="graphics/sewer-upper-96pa101_1930_1939_3498d.jpg" width="100%"></a>
-                    <div class="caption">Under Upper St, Town Branch sewer project, 1935</div>
-                </div>
-            </div>
-        </section>
-        <footer>
-            <h2>Sources</h2>
-            <p><a href="https://exploreuk.uky.edu">exploreuk.uky.edu</a> | <a href="https://geography.as.uky.edu/">UKy Geography</a>
-            </p>
-        </footer>
+</head>
 
-    </body>
+<body>
+    <header class='grid grid--gut12 mx30 mt30'>
+        <div class='col col--12 col--10-ml'>
+            <p class='txt-h1'>Town Branch Corridor</p>
+            <p class='txt-h3'>Historic images and maps of Lexington's founding stream, Town Branch of the Elkhorn </p>
+        </div>
+        <div class='col col--12 col--2-ml'>
+            <img src='graphics/ky-lexington-01.svg' class='w180 mt12'>
+        </div>
+    </header>
+    <nav id='buttons' class='flex-parent flex-parent--row mx30 my12'>
+        <!-- Buttons built here -->
+    </nav>
+    <section class='flex-parent flex-parent--wrap flex-parent--center-cross mx30 mt12 h-auto'>
+        <div class='flex-child w-full h600'>
+            <div class='map-container'>
+                <!-- Maps built here -->
+            </div>
+        </div>
+    </section>
+    <section class='flex-parent flex-parent--center-cross flex-parent--row mx30 mb12 px12 bg-darken10 round-b'>
+        <div id='info' class='flex-child my12'>
+            <!-- Map info here -->
+            <h3 class='txt-h3'></h3>
+            <a href='#' id='full' class='btn btn--darken50 mr6 my6'>Full-screen</a>
+            <a href='#' id='download' class='btn btn--darken50 mr6 my6'>Download</a>
+        </div>
+    </section>
+    <section class='flex-parent--stretch-cross mx30 mt30' id='imgGallery'>
+        <div class='flex-child my12'>
+            <h2 class='txt-h1'>Photographs</h2>
+            <!-- Photographs built here -->
+        </div>
+    </section>
+    <footer class='flex-parent flex-parent--row mx30 my12'>
+        <div class='flex-child'>
+            <h3 class='txt-h3'>Sources and credits</h3>
+            <p class='mb12'>
+                <a href="https://exploreuk.uky.edu">exploreuk.uky.edu</a> |
+                <a href="https://geography.as.uky.edu/">UKy Geography</a>
+            </p>
+        </div>
+    </footer>
+    <script async defer src='https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js"></script>
+    <script>
+        const functionsLex = {
+            hookButtons(historicLex) {
+                const maps = historicLex.maps
+                const buttons = document.querySelector('#buttons')
+                const frame = document.querySelector('#frame')
+                const info = document.querySelector('#info .txt-h3')
+                const full = document.querySelector('#info #full')
+                const download = document.querySelector('#info #download')
+
+                // Set initial condition
+
+                const first = maps[1886].properties
+                full.href = first.url
+                download.innerHTML = `${first.dimensions}, ${first.size}, ${first.format}`
+
+                for (let map in maps) {
+                    const node = document.createElement("button");
+                    const textnode = document.createTextNode(`${map}`);
+                    node.appendChild(textnode);
+                    node.setAttribute('id', `year-${map}`)
+                    node.setAttribute('class', `flex-child btn mr6`)
+                    document.getElementById('buttons').appendChild(node);
+
+                    let button = document.querySelector(`#year-${map}`)
+
+                    if (map == '1886') {
+                        button.classList.add('btn--orange')
+                    } else {
+                        button.classList.add('btn--darken50')
+                    }
+
+                    button.addEventListener("click", function () {
+                        for (let m in maps) {
+                            document.querySelector(`#year-${m}`).classList.remove('btn--orange')
+                            document.querySelector(`#year-${m}`).classList.add('btn--darken50')
+                        }
+                        button.classList.remove('btn--darken50')
+                        this.classList.add('btn--orange')
+                        full.href = maps[map].url
+                        info.innerHTML = maps[map].name
+                        if (maps[map].properties) {
+                            const m = maps[map].properties
+                            download.style.display = 'inline-block'
+                            download.href = maps[map].properties.download
+                            download.innerHTML = `${m.dimensions}, ${m.size}, ${m.format}`
+                        } else {
+                            download.style.display = 'none'
+                        }
+                        functionsLex.drawMap(maps[map].xyz, navProps[0].lat, navProps[0].lng, navProps[1])
+                    })
+                }
+            },
+            makePhotos(historicLex) {
+                const photos = historicLex.photos
+                const photosLength = photos.length
+                const gallery = document.querySelector('#imgGallery')
+                let i = 0
+                while (i < photosLength - 1) {
+                    const node = document.createElement('div');
+                    node.setAttribute('class', `grid grid--gut12 mb12`)
+                    gallery.appendChild(node);
+                    for (let j = 0; j < 3; j++) {
+                        node.innerHTML += `
+                        <div class='col col--12 col--4-ml mb6'>
+                            <a href='${photos[i].url}' class='link'><img src='${photos[i].img}' width='100%'></a>
+                            <div class='flex-child px12 py12 bg-darken10'>
+                                ${photos[i].name}
+                            </div>
+                        </div>`
+                        i++
+                    }
+                }
+            },
+            drawMap(xyz, lat, lon, zoom) {
+                const container = document.querySelector('.map-container')
+                container.innerHTML = `
+                <div id="before" class="map"></div>
+                <div id="after" class="map"></div>`
+
+                mapboxgl.accessToken = 'pk.eyJ1Ijoib3V0cmFnZWdpcyIsImEiOiJjamY4ZWY1NXQyZWduMnFxN2M5cnB1YTJ6In0.BehfRddq9HyWFiy0mmGEbA';
+                const beforeMap = new mapboxgl.Map({
+                    container: 'before',
+                    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+                    center: [lon, lat], // starting position
+                    zoom: zoom,
+                    //pitch: 60,  pitch in degrees
+                    bearing: 48.25
+                });
+
+                const afterMap = new mapboxgl.Map({
+                    container: 'after', // container id
+                    style: {
+                        'version': 8,
+                        'sources': {
+                            'raster-tiles': {
+                                'type': 'raster',
+                                'tiles': [
+                                    xyz
+                                ]
+                            }
+                        },
+                        'layers': [
+                            {
+                                'id': 'simple-tiles',
+                                'type': 'raster',
+                                'source': 'raster-tiles',
+                                'minzoom': 10,
+                                'maxzoom': 24
+                            }
+                        ]
+                    },
+                    center: [lon, lat], // starting position
+                    zoom: zoom,
+                    //pitch: 60,  pitch in degrees
+                    bearing: 48.25
+                });
+
+                const map = new mapboxgl.Compare(beforeMap, afterMap, {
+                    // Set this to enable comparing two maps by mouse movement:
+                    // mousemove: true
+                });
+
+                beforeMap.on('load', function () {
+                    beforeMap.addSource('tbt', {
+                        'type': 'geojson',
+                        'data': 'data/tbt_2017_planned_and_funded.geojson'
+                    })
+                    beforeMap.addLayer({
+                        'id': 'tbt',
+                        'type': 'line',
+                        'source': 'tbt',
+                        'layout': {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        'paint': {
+                            'line-color': '#ff0000',
+                            'line-width': 2
+                        }
+                    });
+                    beforeMap.addLayer({
+                        'id': 'poi-labels',
+                        'type': 'symbol',
+                        'source': 'tbt',
+                        'layout': {
+                            'text-field': ['get', 'trail_name'],
+                            'symbol-placement': 'line',
+                            'symbol-spacing': 400,
+                            'text-anchor': 'top',
+                            'text-font': ['Open Sans Bold Italic'],
+
+                        },
+                        'paint': {
+                            'text-color': '#ff5555',
+                            'text-halo-blur': 3,
+                            'text-halo-color': 'rgba(0, 0, 0, 0.9)',
+                            'text-halo-width': 2
+
+                        }
+                    })
+
+                   
+                });
+
+                // Add geolocate control to the map.
+                beforeMap.addControl(
+                    new mapboxgl.GeolocateControl({
+                        positionOptions: {
+                            enableHighAccuracy: true
+                        },
+                        trackUserLocation: true
+                    })
+                );
+
+                afterMap.on('render', function () {
+                    navProps = [afterMap.getCenter(), afterMap.getZoom()]
+                })
+            }
+        }
+
+        let navProps = []
+        fetch('data/data.json')
+            .then(function (response) {
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new TypeError("Oops, we haven't got JSON!");
+                } else { 
+                    return response.json();
+                }
+            })
+            .then(function (data) {
+                functionsLex.drawMap(data.maps[1886].xyz, 38.0474, -84.499, 16)
+                functionsLex.hookButtons(data)
+                functionsLex.makePhotos(data)
+            }) 
+            .catch(function (error) {
+                console.error(error)
+            })
+
+    </script>
+
+</body>
+
 </html>

@@ -45,77 +45,44 @@
             <img src='../graphics/ky-lexington-01.svg' class='w180 mt12'>
         </div>
     </header>
-    <nav class='flex-parent flex-parent--row mx30 my12'>
-        <button id='y1887' class='flex-child btn btn--orange mx6'>1887</button>
-        <button id='y1907' class='flex-child btn btn--darken50 mr6'>1907</button>
-        <button id='y1971' class='flex-child btn btn--darken50 mr6'>1971</button>
+    <nav id='buttons' class='flex-parent flex-parent--row mx30 my12'>
+        <!-- Buttons built here -->
     </nav>
     <section class='flex-parent flex-parent--wrap flex-parent--center-cross mx30 mt12 h-auto'>
         <iframe id='frame' src='../1886' class='flex-child w-full h600'></iframe>
+        <div class='flex-child w-full h600'>
+            <div class='map-container'>
+                <!-- Maps built here -->
+            </div>
+        </div>
     </section>
     <section class='flex-parent flex-parent--center-cross flex-parent--row mx30 mb12 px12 bg-darken10 round-b'>
         <div id='info' class='flex-child my12'>
-            <h3 class='txt-h3'>Georeferenced Sanborn map of Downtown Lexington, 1886.</h3>
+            <!-- Map info here -->
+            <h3 class='txt-h3'></h3>
             <a href='#' id='full' class='btn btn--darken50 mr6 my6'>Full-screen</a>
-                <a href='#' id='download' class='btn btn--darken50 mr6 my6'>Download</a>
-                <span></span>
+            <a href='#' id='download' class='btn btn--darken50 mr6 my6'>Download</a>
         </div>
     </section>
     <section class='flex-parent--stretch-cross mx30 mt30' id='imgGallery'>
         <div class='flex-child my12'>
             <h2 class='txt-h1'>Photographs</h2>
-        </div>
-        <div class='grid grid--gut12 mb12'>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics/looking-east-th.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics/looking-west-th.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics/city-market-th.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
-        </div>
-        <div class='grid grid--gut12 mb12'>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics/sewer-limestone-96pa101_1930_1939_3432.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics//sewer-upper-96pa101_1930_1939_3401e.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
-            <div class='col col--12 col--4-ml'>
-                <img src='../graphics/sewer-upper-96pa101_1930_1939_3498d.jpg' width='100%'>
-                <div class='flex-child px12 py12 bg-darken10'>
-                    Text
-                </div>
-            </div>
+            <!-- Photographs built here -->
         </div>
     </section>
     <footer class='flex-parent flex-parent--row mx30 my12'>
         <div class='flex-child'>
             <h3 class='txt-h3'>Sources and credits</h3>
-            <p>Add it here.</p>
+            <p class='mb12'>
+                <a href="https://exploreuk.uky.edu">exploreuk.uky.edu</a> |
+                <a href="https://geography.as.uky.edu/">UKy Geography</a>
+            </p>
         </div>
     </footer>
     <script>
         const historicLex = {
             maps: {
-                1887: {
+                1886: {
                     name: "Sanborn map of Downtown Lexington, 1886",
                     url: "/maps/lex-tbt-main-st/1886",
                     properties: {
@@ -140,26 +107,82 @@
                     url: "/maps/lex-tbt-main-st/1971",
                 }
             },
+            photos: [
+                {
+                    name: "Downtown Lexington, looking east, 1950s",
+                    img: '../graphics/looking-east-th.jpg',
+                    url: '../graphics/looking-east-1997av027_2408.jpg'
+                },
+                {
+                    name: "Downtown Lexington, looking west, 1950s",
+                    img: '../graphics/looking-west-th.jpg',
+                    url: '../graphics/looking-west-1997av027_2409.jpg'
+                },
+                {
+                    name: "City Market, Vine & Water Streets, 1950s",
+                    img: '../graphics/city-market-th.jpg',
+                    url: '../graphics/city-market-2014av001_11_2667_5313.jpg'
+                },
+                {
+                    name: "Under Limestone, Town Branch sewer project, 1935",
+                    img: '../graphics/sewer-limestone-96pa101_1930_1939_3432.jpg',
+                    url: '../graphics/sewer-limestone-96pa101_1930_1939_3432.jpg'
+                },
+                {
+                    name: "Near Upper St, Town Branch sewer project, 1935",
+                    img: '../graphics/sewer-96pa101_1930_1939_3401g.jpg',
+                    url: '../graphics/sewer-96pa101_1930_1939_3401g.jpg'
+                },
+                {
+                    name: "Under Upper St, Town Branch sewer project, 1935",
+                    img: '../graphics/sewer-upper-96pa101_1930_1939_3498d.jpg',
+                    url: '..graphics/sewer-upper-96pa101_1930_1939_3498d.jpg'
+                }
+
+
+            ],
             hookButtons() {
                 const maps = historicLex.maps
+                const buttons = document.querySelector('#buttons')
                 const frame = document.querySelector('#frame')
                 const info = document.querySelector('#info .txt-h3')
+                const full = document.querySelector('#info #full')
                 const download = document.querySelector('#info #download')
 
+                // Set initial condition
+                info.innerHTML = maps[1886].name
+                frame.href = maps[1886].url
+                full.href = maps[1886].url
+                const first = maps[1886].properties
+                download.innerHTML = `${first.dimensions}, ${first.size}, ${first.format}`
+
                 for (let map in maps) {
-                    let button = document.querySelector(`#y${map}`)
-                    console.log(map, button)
+                    const node = document.createElement("button");
+                    const textnode = document.createTextNode(`${map}`);
+                    node.appendChild(textnode);
+                    node.setAttribute('id', `year-${map}`)
+                    node.setAttribute('class', `flex-child btn mr6`)
+                    document.getElementById('buttons').appendChild(node);
+
+                    let button = document.querySelector(`#year-${map}`)
+
+                    if (map == '1886') {
+                        button.classList.add('btn--orange')
+                    } else {
+                        button.classList.add('btn--darken50')
+                    }
+                
                     button.addEventListener("click", function () {
                         for (let m in maps) {
-                            document.querySelector(`#y${m}`).classList.remove('btn--orange')
-                            document.querySelector(`#y${m}`).classList.add('btn--darken50')
+                            document.querySelector(`#year-${m}`).classList.remove('btn--orange')
+                            document.querySelector(`#year-${m}`).classList.add('btn--darken50')
                         }
                         button.classList.remove('btn--darken50')
                         this.classList.add('btn--orange')
                         frame.src = maps[map].url
-                        document.querySelector('#info #full').href = maps[map].url
+                        full.href = maps[map].url
                         info.innerHTML = maps[map].name
-                        if(maps[map].properties) {
+                        if (maps[map].properties) {
                             const m = maps[map].properties
                             download.style.display = 'inline-block'
                             download.href = maps[map].properties.download
@@ -169,11 +192,34 @@
                         }
                     })
                 }
-
+            },
+            makePhotos () {
+                const photos = historicLex.photos
+                const photosLength = photos.length
+                const gallery = document.querySelector('#imgGallery')
+                let i = 0
+                while (i < photosLength -1 ) {
+                    console.log(i)
+                    const node = document.createElement('div');
+                    node.setAttribute('class', `grid grid--gut12 mb12`)
+                    gallery.appendChild(node);
+                    for (let j = 0; j < 3; j++) {
+                        node.innerHTML += `
+                        <div class='col col--12 col--4-ml'>
+                            <a href='${photos[i].url}' class='link'><img src='${photos[i].img}' width='100%'></a>
+                            <div class='flex-child px12 py12 bg-darken10'>
+                                ${photos[i].name}
+                            </div>
+                        </div>`
+                        i++
+                    }
+                    
+            }
             }
         }
 
         historicLex.hookButtons()
+        historicLex.makePhotos()
 
     </script>
 

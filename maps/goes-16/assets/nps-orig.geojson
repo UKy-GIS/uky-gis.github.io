@@ -11,7 +11,7 @@
             "type": "Feature",
             "properties": {
                 "img": "https://farm4.staticflickr.com/3938/33049959984_62c35febed_m.jpg",
-                "url": "https://www.nps.gov/biso/index.htm",
+                "url": "https://www.outragegis.com/sheltowee/",
                 "UNIT_TYPE": "National River and Recreation Area",
                 "STATE": null,
                 "REGION": "SE",
@@ -2157,7 +2157,7 @@
             "type": "Feature",
             "properties": {
                 "img": "https://www.outragegis.com/pixel/i.php?/galleries/141114-16_GRSM/_IMG5956-2s.jpg",
-                "url": "https://nps.gov/grsm/",
+                "url": "https://www.outragegis.com/grsm/",
                 "UNIT_TYPE": "National Park",
                 "STATE": null,
                 "REGION": "SE",
@@ -6085,7 +6085,7 @@
             "type": "Feature",
             "properties": {
                 "img": "https://farm6.staticflickr.com/5659/30996411746_477d7c8a4a_m.jpg",
-                "url": "https://nps.gov/gap/",
+                "url": "https://www.outragegis.com/gap/",
                 "UNIT_TYPE": "National Historical Park",
                 "STATE": "KY",
                 "REGION": "SE",
@@ -7583,7 +7583,7 @@
             "type": "Feature",
             "properties": {
                 "img": "https://www.outragegis.com/pixel/i.php?/galleries/081101_MACA/oldaaj-2s.jpg",
-                "url": "https://nps.gov/maca",
+                "url": "https://www.outragegis.com/pixel/index.php?/category/nov-1-mammoth-cave-national-park",
                 "UNIT_TYPE": "National Park",
                 "STATE": "KY",
                 "REGION": "SE",

@@ -178,8 +178,7 @@
 
 <body>
   <div id="map"></div>
-  <!-- <div id="overlay"><img src="/graphics/ky_hillshade_extent.png" width="100%"> </div> -->
-  <img src="/graphics/geo_yall.svg" id="geo_yall" alt="UK Geography Y'all!" title="UK Geography Y'all!">
+ 
   <button id="info-button" onclick="myInfo()">Information</button>
   <div id='footer'>
     <div>
@@ -195,8 +194,8 @@
     <script>
       // Define the base map of streets and bike parking in central Lexington
       var bounds = new L.LatLngBounds(
-        new L.LatLng(38.038659, -84.504280), // upper left
-        new L.LatLng(38.038659, -84.504280)); // lower right
+        new L.LatLng(38.052, -84.51), // upper left
+        new L.LatLng(38.034, -84.49)); // lower right
       var map = L.map('map').fitBounds(bounds);
       var options = {
         minZoom: 1,
@@ -229,17 +228,17 @@
       }).setPosition("bottomright").addTo(map)
 
       // remove banner svg on move
-      map.on("zoomend", function () {
-        var switched  = document.getElementById("geo_yall")
-        switched.style.display = "none"
-        console.log(map.getZoom())
-        if (map.getZoom() < 13) {
-          switched.style.display = "block"
-        } else {
-          // document.getElementById("overlay").style.display = "none"
-          switched.style.display = "none"
-        }
-      })
+      // map.on("zoomend", function () {
+      //   var switched  = document.getElementById("geo_yall")
+      //   switched.style.display = "none"
+      //   console.log(map.getZoom())
+      //   if (map.getZoom() < 13) {
+      //     switched.style.display = "block"
+      //   } else {
+      //     // document.getElementById("overlay").style.display = "none"
+      //     switched.style.display = "none"
+      //   }
+      // })
 
       // Define the location plugin parameters
       var locate_options = {
@@ -247,7 +246,7 @@
         enableHighAccuracy: true,
         position: 'topleft'
       };
-      L.control.locate(locate_options).addTo(map);
+      // L.control.locate(locate_options).addTo(map);
 
       L.control.scale().addTo(map); // maps like this need scales, yo!
 
