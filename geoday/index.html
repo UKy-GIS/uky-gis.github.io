@@ -129,6 +129,21 @@
           margin: 20px 0 5px 0;
         }
       }
+
+      @media screen and (max-width: 420px) {
+        .leaflet-popup h2 {
+            font-size: 1.5rem;
+        }
+
+      .leaflet-popup h3 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin: 0;
+      }
+      .leaflet-popup, .leaflet-popup-content-wrapper  {
+        width:275px;
+      }
+    }
           
 
     </style>
@@ -234,6 +249,7 @@
               [38.081334368, -84.572773848],
               [37.988291333, -84.453432028],
             ],
+            zoomControl: false,
           },
         },
         loveletter: {
@@ -272,10 +288,11 @@
           url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}",
           options: {
             attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://stamen.com">Stamen Design</a>',
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors',
             subdomains: "abcd",
             maxZoom: 18.4,
             ext: "png",
+            zoomControl: false,
           },
         },
 
@@ -441,6 +458,7 @@
       function makeMap(id) {
         const options = {
           zoomSnap: 0,
+          zoomControl: false,
         };
 
         const map = L.map(id, options);
@@ -450,6 +468,7 @@
             imperial: true,
           })
           .addTo(map);
+        L.control.zoom({ position: "bottomright" }).addTo(map);
 
         if (basemaps[id]) {
           console.log("we have a custom map", basemaps[id]);
@@ -669,7 +688,7 @@
               popup: "<h2>Here be dragons!</h2>",
             },
             icon: "fa fa-location-arrow",
-            position: "topleft",
+            position: "bottomright",
             locateOptions: {
               enableHighAccuracy: true,
               maxZoom: 21,
