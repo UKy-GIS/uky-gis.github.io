@@ -110,7 +110,7 @@
 
 <body onload="init()">
   <div id="map">
-    <button id="info-button" onclick="myInfo()">Instructions</button>
+    <!-- <button id="info-button" onclick="myInfo()">Instructions</button> -->
     <div id="footer">
       <div id="legend">
         <h1>UKy Geography Geocache</h1>
@@ -203,23 +203,31 @@
       // draw point locations with appropriate icons
       L.geoJson(locations, {
         pointToLayer: function (feature, latlng) {
-          if (feature.properties.amenity.match(/cafe/g)) {
-            var icon = cafe;
-          } else if (feature.properties.amenity.match(/bar/g)) {
-            var icon = bar;
-          } else if (feature.properties.amenity.match(/water/g)) {
-            var icon = water;
-          } else if (feature.properties.amenity.match(/garden/g)) {
-            var icon = garden;
-          } else if (feature.properties.amenity.match(/rainbow/g)) {
-            var icon = rainbow;
-          } else if (feature.properties.amenity.match(/pizza/g)) {
-            var icon = pizza;
-          } else if (feature.properties.amenity.match(/maps/g)) {
+          // if (feature.properties.amenity.match(/cafe/g)) {
+          //   var icon = cafe;
+          // } else if (feature.properties.amenity.match(/bar/g)) {
+          //   var icon = bar;
+          // } else if (feature.properties.amenity.match(/water/g)) {
+          //   var icon = water;
+          // } else if (feature.properties.amenity.match(/garden/g)) {
+          //   var icon = garden;
+          // } else if (feature.properties.amenity.match(/rainbow/g)) {
+          //   var icon = rainbow;
+          // } else if (feature.properties.amenity.match(/pizza/g)) {
+          //   var icon = pizza;
+          // } else if (feature.properties.amenity.match(/maps/g)) {
+          //   var icon = outragegis;
+          // } else {
+          //   var icon = empty;
+          // }
+
+          if (feature.properties.amenity.match(/maps/g)) {
             var icon = outragegis;
           } else {
             var icon = empty;
           }
+
+
           return L.marker(latlng, {
             icon: icon
           });
