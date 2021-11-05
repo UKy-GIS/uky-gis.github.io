@@ -114,6 +114,23 @@
         width: 100%;
       }
 
+      .instructions {
+        font-size: 2rem;
+        line-height: 1.4em;
+
+      }
+
+      a {
+        color: #15397f;
+        
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #009bda;
+        text-decoration: none;
+      }
+
       .fixImg img {
         width: 102%;
         height: 102%;
@@ -184,7 +201,19 @@
     </section>
     <section>
       <img src="images/geocache.svg" class="header-svg" alt="Geography Day!" />
-      <h1>Check back soon for details.</h1>
+      <div class="instructions">Below are three historic photographs of campus from 
+        UK's <a href="https://exploreuk.uky.edu/">exploreUK</a> digital archive. 
+        Take a photograph of each location and try to match the same perspective.
+        Show us those photos at this event and you will enter a raffle to win mega prizes! 
+        Raffle starts at noon.
+      </div>
+      
+      <img src="images/01.jpg" class="header-svg" alt="Tolley Ho!" />
+      Old Blue about campus <a href="images/01.jpg">Enlarge</a>
+      <img src="images/02.jpg" class="header-svg" alt="Geography Day!" />
+      Welcome! <a href="images/02.jpg">Enlarge</a>
+      <img src="images/03.jpg" class="header-svg" alt="Geography Day!" />
+      Freshmen vs. Sophomores <a href="images/03.jpg">Enlarge</a>
       
     </section>
     <footer>
@@ -250,7 +279,20 @@
               [37.988291333, -84.453432028],
             ],
             zoomControl: false,
-          },
+          }
+        },
+        canopy: {
+          url: "https://nyc3.digitaloceanspaces.com/astoria/tiles/lex_canopy/{z}/{x}/{y}.png",
+          options: {
+            attribution: "&copy; UKy Geography",
+            maxZoom: 18.4,
+            minZoom: 11,
+            tms: true,
+            bounds: [
+              [38.081334368, -84.572773848],
+              [37.988291333, -84.453432028],
+            ],
+          }
         },
         loveletter: {
           url: "https://nyc3.digitaloceanspaces.com/astoria/tiles/dsm-lex-png/{z}/{x}/{y}.png",
@@ -384,6 +426,7 @@
           order: [
             ["stamenLabels", 1],
             ["dsm", 0.6],
+            // ["canopy", 0.2],
           ],
           bounds: [
             [38.081334368, -84.572773848],
